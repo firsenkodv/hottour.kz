@@ -1,0 +1,161 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Http\Controllers\Tourvisor\Service\Tourvisor;
+use App\Models\CustomerHotTour;
+use App\Models\Hotel;
+use App\Models\Room;
+use App\Models\Tour;
+use Illuminate\Console\Command;
+use Rap2hpoutre\FastExcel\FastExcel;
+
+class TourvisorHotelCron extends Command
+{
+    /**
+     * Тестовый запуск php artisan schedule:run
+     *
+     * @var string
+     */
+    protected $signature = 'tourvisorhotel:cron';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Start cron - tourvisorhotel:cron';
+
+    /**
+     * Execute the console command.
+     */
+    public function handle()
+    {
+        $t = new Tourvisor();
+        $t_getCountries = [];
+        $t_getCountries = $t->getCountries(); // это страны из таблицы tourvisor_counrties
+        if (count($t_getCountries)) {
+            foreach ($t_getCountries as $country) {
+                $hot_category_id = $country['hot_category_id'];
+                $country_id = $country['country_id'];
+
+
+                //  echo ' $country_id = ' . $country_id. ' |  $hot_category_id = ' .$hot_category_id; exit;
+
+                $script = 'list.php';
+                $query = 'type=hotel&hotcountry=' . $country_id;
+                $result = $t->_getHotel($query, $script);
+                if ($result) {
+                    $all = [];
+                    $r = $result->lists->hotels->hotel;
+                    $array = [];
+                    foreach ($r as $k => $item) {
+                        $hotel = $t->getHotel($item->id);
+                        if ($hotel->data->hotel->countrycode) {
+                            $images = '';
+                            $site_img = '';
+                            $metatitle = '';
+                            $description = '';
+                            $array[$k]['title'] = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
+                            $array[$k]['slug'] = $item->id;
+                            $array[$k]['hot_category_id'] = $hot_category_id;
+                            $array[$k]['country_id'] = ($hotel->data->hotel->countrycode) ?: '';
+                            $array[$k]['region_id'] = ($hotel->data->hotel->regioncode) ?: '';
+                            $array[$k]['stars'] = ($hotel->data->hotel->stars) ?: '';
+                            $array[$k]['rating'] = ($hotel->data->hotel->rating) ?: '';
+                            $array[$k]['placement'] = (isset($hotel->data->hotel->placement)) ? strip_tags(ucfirst($hotel->data->hotel->placement)) : '';
+                            $array[$k]['desc'] = (isset($hotel->data->hotel->description)) ? strip_tags(ucfirst($hotel->data->hotel->description)) : '';
+
+                            $array[$k]['imagescount'] = ($hotel->data->hotel->imagescount) ?: 0;
+
+                            if (isset($hotel->data->hotel->images->image)) {
+                                $images = '[';
+                                foreach ($hotel->data->hotel->images->image as $img) {
+                                    if ($img == end($hotel->data->hotel->images->image)) {
+                                        $images .= '"' . $img . '"';
+                                    } else {
+                                        $images .= '"' . $img . '",';
+                                    }
+                                }
+                                $images .= ']';
+                            }
+
+                            $array[$k]['params'] = ($images) ?: '';
+                            $params = ($array[$k]['imagescount']) ? $hotel->data->hotel->images->image : null;
+
+                            $array[$k]['region'] = strip_tags($hotel->data->hotel->region);
+                            $array[$k]['build'] = (isset($hotel->data->hotel->build)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->build))) : '';
+                            $array[$k]['repair'] = (isset($hotel->data->hotel->repair)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->repair))) : '';
+                            $array[$k]['coord'] = ($hotel->data->hotel->coord1 and $hotel->data->hotel->coord2) ? $hotel->data->hotel->coord1 . ',' . $hotel->data->hotel->coord2 : '';
+                            $metatitle = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
+                            if (isset($hotel->data->hotel->country)) {
+                                $metatitle .= ' | ' . $hotel->data->hotel->country;
+                            }
+                            if (isset($hotel->data->hotel->region)) {
+                                $metatitle .= ' | ' . $hotel->data->hotel->region;
+                            }
+                            if (isset($hotel->data->hotel->stars)) {
+                                $metatitle .= ' | звезд ' . $hotel->data->hotel->stars;
+                            }
+                            if (isset($hotel->data->hotel->rating)) {
+                                $metatitle .= ' | рейтинг ' . $hotel->data->hotel->rating;
+                            }
+                            $array[$k]['metatitle'] = ($metatitle) ?: '';
+
+                            if (isset($hotel->data->hotel->placement)) {
+                                $description = strip_tags($hotel->data->hotel->placement);
+                            } else {
+                                $description .= 'Hotel ' . strip_tags(ucfirst(strtolower($hotel->data->hotel->name))) . ', ' . $hotel->data->hotel->country . ', звёздность ' . $hotel->data->hotel->stars;
+                                if (isset($hotel->data->hotel->build)) {
+                                    $description .= ', построен в ' . strip_tags($hotel->data->hotel->build);
+                                }
+                                if (isset($hotel->data->hotel->repair)) {
+                                    $description .= ', прошел реконструкцию  ' . strip_tags($hotel->data->hotel->repair);
+                                }
+                                if (isset($hotel->data->hotel->rating)) {
+                                    $description .= ', имеет рейтинг ' . $hotel->data->hotel->rating;
+                                }
+                            }
+
+                            $array[$k]['description'] = ($description) ?: '';
+                            $array[$k]['keywords'] = 'id объекта ' . $item->id . ', ' . strip_tags($hotel->data->hotel->name) . ', ' . $hotel->data->hotel->country . ', ' . $hotel->data->hotel->region;
+
+                            Hotel::updateOrCreate(['slug' => $array[$k]['slug']],
+                                [
+                                    'title' => $array[$k]['title'],
+                                    'slug' => $array[$k]['slug'],
+                                    'hot_category_id' => $array[$k]['hot_category_id'],
+                                    'country_id' => ($array[$k]['country_id']) ?: null,
+                                    'region_id' => ($array[$k]['region_id']) ?: null,
+                                    'stars' => ($array[$k]['stars']) ?: null,
+                                    'rating' => ($array[$k]['rating']) ?: null,
+                                    'placement' => ($array[$k]['placement']) ?: '',
+                                    'desc' => ($array[$k]['desc']) ?: '',
+                                    'imagescount' => $array[$k]['imagescount'],
+                                    'params' => $params,
+                                    'region' => ($array[$k]['region']) ?: '',
+                                    'build' => ($array[$k]['build']) ?: '',
+                                    'coord' => ($array[$k]['coord']) ?: '',
+                                    'metatitle' => ($array[$k]['metatitle']) ?: '',
+                                    'description' => ($array[$k]['description']) ?: '',
+                                    'keywords' => ($array[$k]['keywords']) ?: '',
+                                ]);
+
+                        }
+
+
+                    }
+
+                     $list = collect($array);
+
+                     (new FastExcel($list))->export('storage/app/public/excel/' . $country_id . '.xlsx');
+
+                }
+
+
+            } // forteach
+        } // if
+
+    }
+
+}
