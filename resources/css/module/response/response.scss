@@ -1,0 +1,115 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00AFEF;
+
+$maxWidth: 1440;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin family {
+    font-family: 'Source Sans Pro', "Arial Narrow", Arial, Helvetica, sans-serif;
+}
+
+.r_sw {
+
+    padding: 16px 0;
+
+    .r_sw__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 24px;
+
+        .r_sw__left {
+
+            .h2 {
+                font-family: "Philosopher", "Arial Narrow", Arial, Helvetica, sans-serif;
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 1.2em;
+
+            }
+
+        }
+
+        .r_sw__rihgt {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+
+
+        }
+    }
+
+    .swiper_responce {
+
+        width: 100%;
+
+    }
+}
+
+.responce_item {
+
+    .responce_item__link {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        .responce_item__circle {
+            right: 20px;
+            top: 20px;
+            z-index: 10;
+        }
+        .responce_item__img {
+            border-radius: 8px;
+            position: relative;
+            top: 0;
+        }
+        .responce_item__title {
+            font-size: 18px;
+            font-weight: 600;
+            color: $color;
+            text-decoration: none;
+            padding: 8px 0  0 0;
+        }
+        .responce_item__desc {
+            font-size: 15px;
+            color: $color;
+            text-decoration: none;
+        }
+    }
+
+
+    .responce_item__link:hover {
+        position: relative;
+        display: block;
+        .responce_item__circle {
+            span {
+                border-left: 11px solid $colorBlue;
+
+            }
+
+        }
+        .responce_item__title {
+            color: $colorRed;
+        }
+    }
+
+
+    .responce_item__circle {
+        right: 20px;
+        top: 20px;
+        z-index: 10;
+    }
+
+}
+
+

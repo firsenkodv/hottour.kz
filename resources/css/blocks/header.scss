@@ -1,0 +1,140 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00AFEF;
+
+$maxWidth: 1440;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin family {
+    font-family: 'Source Sans Pro', "Arial Narrow", Arial, Helvetica, sans-serif;
+}
+
+
+.background_282828 {
+    background: #282828;
+    color: #ffffff;
+}
+
+.background_000000 {
+    background: #000000;
+    color: #ffffff;
+    position: relative;
+    z-index: 30;
+
+}
+
+.background_282828 {
+    background: #282828;
+    color: #ffffff;
+    position: relative;
+    &.home {
+        background: none;
+        color: inherit;
+    }
+}
+
+
+.menu_social {
+    justify-content: space-between;
+    height: 40px;
+
+    // .menu_social__menu
+    &__menu {
+    }
+
+    // .menu_social__social
+    &__social {
+        display: flex;
+        justify-content: flex-end;
+
+    }
+}
+
+.header_bottom {
+    padding: 15px 0;
+    .logo {
+        padding: 0 20px 0 0;
+    }
+
+
+    // .hb__left
+    .hb__left {
+        display: flex;
+        min-height: 52px;
+        align-items: center;
+        width: 50%;
+
+    }
+
+    // .hb__social
+    .hb__social {
+
+    }
+
+    // .hb__right
+    .hb__right {
+        display: flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+    }
+    .hb__one {
+        display: flex;
+        min-height: 52px;
+        align-items: center;
+    }
+    .hb__one {
+
+    }
+}
+.enter_to_website {
+    .enter_to_website__a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: #fff;
+        border-radius: 25px;
+        height: 48px;
+        padding: 0 6px;
+        color: $color;
+        text-decoration: none;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .enter_to_website__a2 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: #fff;
+        border-radius: 25px;
+        height: 48px;
+        padding: 0;
+        color: $color;
+        text-decoration: none;
+        border: none !important;
+    }
+    .enter_to_website__a2:hover span{
+         color: $colorRed !important;
+    }
+    .sp__kab {
+        position: relative;
+        bottom: 2px;
+        font-weight: 600;
+        color: $color;
+        text-decoration: none;
+        margin: 0 5px 0 12px;
+        display: block;
+    }
+}
+
