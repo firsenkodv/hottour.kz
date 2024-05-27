@@ -24,16 +24,16 @@
                 <div class="a_user__name">
                     <div class="a_user__nameFio">
                         <div class="a_user__left">
-                            {{ ($user->name)?:__('Неуказано') }}
-                            @if(count($user->users))
-                                <span class="color_grey color_grey_12" title="{{__('Закрепленные пользователи')}}">{{ count($user->users) }}</span>
+                            {{ ($manager->name)?:__('Неуказано') }}
+                            @if(count($manager->users))
+                                <span class="color_grey color_grey_12" title="{{__('Закрепленные пользователи')}}">{{ count($manager->users) }}</span>
                             @endif
                         </div>
                         <div class="a_user__right LC_icons">
-                            @if($user->manager_reserve)<span class="LC_manager" title="{{__('Менеджер по умолчанию')}}">{{ __('M') }}</span>@endif
-                            @if(role($user->id) == 'senior')<span class="LC_senior_manager"  title="{{__('РОП')}}">{{ __('Р') }}</span>@endif
-                            @if($user->cashback)<span class="LC_senior_cash"  title="{{__('Кешбэк')}}">{{ price($user->cashback) }}</span>@endif
-                            @if($user->ball)<span class="LC_senior_ball"  title="{{__('Баллы')}}">{{ price($user->ball) }}</span>@endif
+                            @if($manager->manager_reserve)<span class="LC_manager" title="{{__('Менеджер по умолчанию')}}">{{ __('M') }}</span>@endif
+                            @if(role($manager->id) == 'senior')<span class="LC_senior_manager"  title="{{__('РОП')}}">{{ __('Р') }}</span>@endif
+                            @if($manager->cashback)<span class="LC_senior_cash"  title="{{__('Кешбэк')}}">{{ price($user->cashback) }}</span>@endif
+                            @if($manager->ball)<span class="LC_senior_ball"  title="{{__('Баллы')}}">{{ price($manager->ball) }}</span>@endif
                         </div>
                     </div>
                     <div class="a_user__nameBirthdate color_grey color_grey_12">{{ ($manager->birthdate)? birthdate($manager->birthdate) :'' }}</div>

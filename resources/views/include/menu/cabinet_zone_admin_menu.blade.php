@@ -16,5 +16,7 @@
 
 
         </div>
+        <div class="view_subcategories_countries__mobile menu_cab_m__js"></div>
+
     </div>
 </div>

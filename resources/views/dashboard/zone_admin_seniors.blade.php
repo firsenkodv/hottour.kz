@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="c__title_subtitle_right">
                                     <a href="{{ asset(route('page.add.senior')) }}"
-                                       class="button button_normal pad_l16 pad_r16">{{ __('Создать РОП') }}</a>
+                                       class="button button_normal pad_l16 pad_r16">{!!  __('Создать  <span class="s_del">РОП</span>') !!}</a>
 
                                 </div>
 

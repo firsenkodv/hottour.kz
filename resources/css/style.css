@@ -53,6 +53,9 @@ a:hover {
 .height_100 {
   height: 100%; }
 
+.view_subcategories_countries__mobile {
+  display: none; }
+
 .breadcrumb {
   padding: 10px 0 16px 0; }
   .breadcrumb li {

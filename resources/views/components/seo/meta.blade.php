@@ -6,6 +6,7 @@
 
 ])
 
+
 @if(isset($seo_title))
      @php
          $title = $seo_title;

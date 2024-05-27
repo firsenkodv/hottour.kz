@@ -64,5 +64,6 @@
 @import "./search/search.scss";
 @import "./search/media_search.scss";
 @import "./style.scss";
+@import "./media_cabinet.scss";
 @import "./media.scss";
 

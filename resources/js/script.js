@@ -169,6 +169,23 @@ $(document).ready(function () {
 
 });
 
+/**
+ * Меню в ЛК menu_cab_m__js
+ */
+
+$('body').on('click','.menu_cab_m__js', function(event){
+
+    $(this).parents('.v_s_c').find('.v_s_c__flex').slideToggle();
+
+
+});
+
+
+
+
+/**
+ * Меню в ЛК menu_cab_m__js
+ */
 
 
 

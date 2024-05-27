@@ -26,7 +26,7 @@
                                     <div class="F_h2 pad_t5"><span>{{__('Cписок закрепленых пользователей.')}}</span></div>
                                 </div>
                                 <div class="c__title_subtitle_right">
-                                    <a href="{{ asset(route('add.manager_UsersPageUser')) }}" class="button button_normal pad_l16 pad_r16">{{ __('Создать пользователя') }}</a>
+                                    <a href="{{ asset(route('add.manager_UsersPageUser')) }}" class="button button_normal pad_l16 pad_r16">{!!  __('Создать <span class="s_del">пользователя</span>') !!}</a>
                                 </div>
 
                             </div>
