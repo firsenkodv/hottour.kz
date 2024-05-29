@@ -20,8 +20,8 @@
             <div class="hb__left">
                 <div class="hb__logo">
                     <x-logo.logo
-                    width="234"
-                    height="42"
+                    width="260"
+                    height="48"
                     />
                 </div>
                 <div class="hb__social">
