@@ -63,6 +63,7 @@
 
                         <div class="birthdate_wrap">
                         @if($item->birthdate)
+
                             <div class="birthdate">
                                 {{ __('Дата рождения') }}
 
@@ -77,7 +78,7 @@
                                 <span>{{ __('Дата рождения') }}</span>
 
                                 <div class="birthdate_pic">
-                                    <input type="text" name="birthdate" class="datepicker-birthdate" value="1970-01-01" />
+                                    <input type="text" name="birthdate" class="datepicker-birthdate" value="" />
                                     <a href="javascript:void(0);"  class="datepicker-birthdate_result">{{ __('Добавить') }}</a>
                                 </div>
                             </div>

@@ -64,6 +64,8 @@ class CountryViewModel
                 ->get_items()
                 ->get();
         });
+
+
         $hot_category_relation = $hot_categories_relation->firstWhere('slug', $slug);
         return $hot_category_relation;
 

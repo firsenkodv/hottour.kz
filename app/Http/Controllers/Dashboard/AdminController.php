@@ -479,7 +479,7 @@ class AdminController extends Controller
          * провекрка в app/Http/Middleware/RoleMiddleware.php
          */
 
-        //  dd($request->all());
+        // dd(role($request->fix));
 
 
         /**
@@ -491,9 +491,9 @@ class AdminController extends Controller
             return redirect()->back();
         }
         /**
-         * проверка менеджера. Взлом
+         * проверка менеджера. Взлом? если порльзователь или админ - это не менеджер
          */
-        if (role($request->fix) != 'manager') {
+        if (role($request->fix) == 'user' or role($request->fix) == 'admin' ) {
             flash()->alert(config('message_flash.alert.filter_user_for_manager3'));
             return redirect()->back();
         }

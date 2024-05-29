@@ -48,11 +48,19 @@ class CountryController extends Controller
 
     public function category($slug_country,$slug_subcountry)
     {
+
+
+
         /**
          * Страница вывода курортов определенной страны
          **/
         $country = CountryViewModel::make()->OneCountry($slug_country); // страна
+
+
+
         $hot_category = CountryViewModel::make()->HotCategoryRelation($slug_subcountry); // курорт страны (подлкатегория страны)
+
+
 
         $subcountries = CountryViewModel::make()->SubCountries($slug_country); // подкатегории страны
 

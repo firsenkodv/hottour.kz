@@ -4,6 +4,7 @@
     description="{{$hot_category->description}}"
     keywords="{{$hot_category->keywords}}"
 />
+
 @section('content')
     <main class="page_site background_f7f7f7">
         <div class="block countries height_100">

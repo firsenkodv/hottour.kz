@@ -29,7 +29,7 @@ class UpdateAdminUserFormRequest extends FormRequest
             'phone' => ['required', 'string', 'min:5',  Rule::unique('users')->ignore($this->phone, 'phone')],
             'email' => ['required', 'email', 'email:dns',  Rule::unique('users')->ignore($this->email, 'email')],
            Rule::unique('moonshine_users', 'email'),
-            'birthdate' => ['date'],
+            'birthdate' => ['date', 'nullable'],
             'id' => ['required','integer'],
             'import_file' => 'image|mimes:jpeg,png,pdf|max:8000|min:1'
         ];
