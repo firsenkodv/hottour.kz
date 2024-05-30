@@ -33,6 +33,19 @@
                             </div>
                         @endif
 
+
+
+                        @if($item->script_published)
+                            <div class="item_script">
+                                {!!  $item->script !!}
+                            </div>
+                        @endif
+
+
+
+
+
+
                         @if($item->text)
                             <div class="desc_text desc">
                                 {!!  shortcode($item->text) !!}

@@ -21,6 +21,8 @@ class Travelitem extends Model
         'img',
         'travelcategory_id',
         'smalltext',
+        'script_published',
+        'script',
         'text',
         'text2',
         'pageimg1',
@@ -32,7 +34,8 @@ class Travelitem extends Model
         'metatitle',
         'description',
         'keywords',
-        'sorting'
+        'sorting',
+
     ];
 
     protected $casts = [

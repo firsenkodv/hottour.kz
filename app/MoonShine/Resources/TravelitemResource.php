@@ -23,6 +23,7 @@ use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Slug;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
+use MoonShine\Fields\Textarea;
 use MoonShine\Fields\TinyMce;
 use MoonShine\Handlers\ExportHandler;
 use MoonShine\Handlers\ImportHandler;
@@ -92,6 +93,7 @@ class TravelitemResource extends ModelResource
             Switcher::make('Публикация', 'published')->updateOnPreview(),
             Switcher::make('Desc', 'description'),
             Switcher::make('Key', 'keywords'),
+            Switcher::make('Скрипт', 'script_published')->updateOnPreview(),
             Number::make('Сорт.', 'sorting')->sortable()
 
 
@@ -152,6 +154,11 @@ class TravelitemResource extends ModelResource
                                     ->format("d.m.Y")
                                     ->default(now()->toDateTimeString())
                                     ->sortable(),
+
+                                Collapse::make('Скрипты', [
+                                    Switcher::make('Скрипт', 'script_published')->updateOnPreview(),
+                                    Textarea::make('Cкрипт ', 'script'),
+                                ]),
 
 
                             ])
