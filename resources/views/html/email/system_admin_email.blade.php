@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <p style="word-wrap: break-word; color: #282828"><b>{{__('file_commands:')}}</b>{{$data['file_commands']}}<br>
-        <b>{{__('commands:')}}</b>{{$data['commands']}}<br>
+        <b>{{__('commands:')}}</b>{{$data['commands']}}</p>
     <hr>
     @if($data['body'])
     <p>
