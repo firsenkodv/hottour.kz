@@ -14,6 +14,7 @@ class HottourCron extends Command
      *
      * @var string
      */
+
     protected $signature = 'hottour:cron';
 
     /**
@@ -21,11 +22,13 @@ class HottourCron extends Command
      *
      * @var string
      */
+
     protected $description = 'Start cron - hottour:cron';
 
     /**
      * Execute the console command.
      */
+
     public function handle()
     {
 

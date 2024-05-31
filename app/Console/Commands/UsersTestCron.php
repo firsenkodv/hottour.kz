@@ -37,10 +37,10 @@ class UsersTestCron extends Command
     public function handle()
     {
 
-        $a = new SendMails;
+    /*    $a = new SendMails;
         if($a->sendTestSystemMessage()) {
             echo 'ok!!';
-        }
+        }*/
 
 
     }
