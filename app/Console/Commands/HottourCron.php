@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
+use App\Mail\SendMails;
 use App\Models\CustomerHotTour;
 use App\Models\Tour;
 use Illuminate\Console\Command;
@@ -121,6 +122,9 @@ class HottourCron extends Command
 
         }
 
+
+            $a = new SendMails;
+            $a->sendTestSystemMessage('app/Console/Commands/HottourCron.php');
 
     }
 }

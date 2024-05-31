@@ -134,12 +134,13 @@ class SendMails
         });
     }
 
-    public function sendTestSystemMessage():void
+    public function sendTestSystemMessage($data = null):void
     {
+
         $view = 'html.email.system_admin_testemail';
         $subject = 'Тестовое системное сообщение';
 
-        Mail::send($view, ['data' => ''],  function ($message) use ($subject){
+        Mail::send($view, ['data' => ($data)?:''],  function ($message) use ($subject){
             $message->to(env("MAIL_ADMIN"), 'Admin')->subject($subject);
         });
     }

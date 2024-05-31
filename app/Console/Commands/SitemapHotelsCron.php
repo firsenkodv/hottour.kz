@@ -90,7 +90,7 @@ class SitemapHotelsCron extends Command
 
         }
         /**
-         * Событие отправка сообщения админу (данные подобронного тура)
+         * Событие отправка сообщения админу
          */
 
         $request = ['commands'=> 'sitemap-hotels:cron','file_commands'=> 'SitemapHotelsCron.php','body'=> $mailbody];

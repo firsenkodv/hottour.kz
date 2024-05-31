@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
+use App\Mail\SendMails;
 use App\Models\CustomerHotTour;
 use App\Models\Hotel;
 use App\Models\Room;
@@ -155,6 +156,9 @@ class TourvisorHotelCron extends Command
 
             } // forteach
         } // if
+
+        $a = new SendMails;
+        $a->sendTestSystemMessage('app/Console/Commands/TourvisorHotelCron.php');
 
     }
 

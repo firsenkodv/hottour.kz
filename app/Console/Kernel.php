@@ -21,10 +21,10 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         //->everyMinute();
 
- /*        $schedule->command('hottour:cron')->dailyAt('01:00');
-           $schedule->command('tourvisorhotel:cron')->everyMinute();*/
+           $schedule->command('hottour:cron')->dailyAt('01:00');
+           $schedule->command('tourvisorhotel:cron')->everySixHours($minutes = 0);
          //  $schedule->command('userstest:cron')->everyMinute()->withoutOverlapping(10);
-            $schedule->command('hottour:cron')->hourly();
+            $schedule->command('hottour:cron')->hourly(15);
       //   $schedule->command('sitemap-hotels:cron')->everyMinute();
 
     }
