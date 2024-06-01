@@ -187,10 +187,28 @@ $('body').on('click','.menu_cab_m__js', function(event){
  * Меню в ЛК menu_cab_m__js
  */
 
+/**
+ * поиск по чекбоксам
+ */
 
 
+$('#filter_jq').on('keyup', function () {
+    var query = this.value;
+    $('#hotels-area .checkbox_choice__item').each(function (i, elem) {
+        if ($(this).text().indexOf(query) != -1) {
+            $(this).show();
+            $(this).prev(':checkbox').show();
+        } else {
+            $(this).hide();
+            $(this).prev(':checkbox').hide();
+        }
+    });
+});
 
 
+/**
+ *  ///поиск по чекбоксам
+ */
 
 
 

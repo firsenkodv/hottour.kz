@@ -582,6 +582,13 @@
 #search_loader.active {
   display: flex; }
 
+/* поиск по чекбоксам -  script.js*/
+.filter_jq {
+  border: none;
+  border-bottom: 1px solid #dddddd;
+  text-transform: uppercase; }
+
+/**/
 #hotels-area {
   position: relative; }
 
