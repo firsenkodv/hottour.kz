@@ -193,7 +193,7 @@ $('body').on('click','.menu_cab_m__js', function(event){
 
 
 $('#filter_jq').on('keyup', function () {
-    var query = this.value;
+    var query = this.value.toUpperCase();
     $('#hotels-area .checkbox_choice__item').each(function (i, elem) {
         if ($(this).text().indexOf(query) != -1) {
             $(this).show();
