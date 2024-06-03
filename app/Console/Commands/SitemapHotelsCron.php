@@ -36,14 +36,14 @@ class SitemapHotelsCron extends Command
         if(!Storage::disk('sitemap')->exists('sitemap')) {
             Storage::disk('sitemap')->makeDirectory('sitemap');
             /**
-             * создадим если нет директориии sitemap
+             * создадим если нет директории sitemap
              */
 
         } else {
             Storage::disk('sitemap')->deleteDirectory('sitemap');
             Storage::disk('sitemap')->makeDirectory('sitemap');
             /**
-             * удалим и создадим заново директориии sitemap
+             * удалим и создадим заново директории sitemap
              */
 
         }
