@@ -26,6 +26,7 @@ class SitemapController
 
     public function index()
     {
+
         $page = Page::query()->orderBy('updated_at', 'desc')->first();
         $travel = Travelitem::query()->orderBy('updated_at', 'desc')->first();
         $tour = Tour::query()->orderBy('updated_at', 'desc')->first();
@@ -37,23 +38,27 @@ class SitemapController
          * отели выводим физическими файлами
          */
 
-        $files = Storage::disk('sitemap')->allFiles('sitemap');;
-        $hs = array_map(function ($file) {
-            return basename($file); // remove the folder name
-        }, $files);
-        foreach ($hs as $h) {
-            $hotels[] = Storage::disk('sitemap')->url($h);
-        }
+       $hotels = [];
+       $files = Storage::disk('sitemap')->allFiles('sitemap');
+       if($files) {
+           $hs = array_map(function ($file) {
+               return basename($file); // remove the folder name
+           }, $files);
+           foreach ($hs as $h) {
+               $hotels[] = Storage::disk('sitemap')->url($h);
+           }
+       }
+		//dd($hotels);
 
 
         return response()->view('sitemap.index', [
-            'page' => $page,
+           'page' => $page,
             'travel' => $travel,
             'tour' => $tour,
             'dump' => $dump,
             'dump2' => $dump2,
             'country' => $country,
-            'hotels' => $hotels,
+           'hotels' => $hotels,
 
         ])->header('Content-Type', 'text/xml');
     }
