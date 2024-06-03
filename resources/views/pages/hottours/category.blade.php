@@ -1,5 +1,9 @@
 @extends('layouts.layout')
-<x-seo.meta/>
+<x-seo.meta
+    title="{{($category->metatitle)?:$category->title}}"
+    description="{{$category->description}}"
+    keywords="{{$category->keywords}}"
+/>
 @section('content')
 
     <main class="page_site background_f7f7f7">
