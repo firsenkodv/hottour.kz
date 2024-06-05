@@ -267,19 +267,30 @@ class Tourvisor
      */
     public function getRequestid($params, $script = 'search.php')
     {
-        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&departure=60&country=". $params['country_id'] ."&hotels=". $params['id'] ."&nightsfrom=6&nightsto=12&adults=2&currency=3&action=searchTour&regions=".$params['region_id']."&datefrom=04.06.2024&dateto=10.06.2024&priceto=10000000&pricefrom=0&child=";
+        /**
+         * date 7 days +
+         */
+        $time7 = strtotime('+7 days', time());
+        $d7 =  date('d.m.Y', $time7);
+        $time1 = strtotime('+1 days', time());
+        $d1 =  date('d.m.Y', $time1);
+
+
+        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&departure=60&country=". $params['country_id'] ."&hotels=". $params['id'] ."&nightsfrom=6&nightsto=12&adults=2&currency=3&action=searchTour&regions=".$params['region_id']."&datefrom=".$d1."&dateto=".$d7."&priceto=10000000&pricefrom=0&child=";
 
         $result = file_get_contents($url);
         return json_decode($result);
 
     }
+
     public function getToursForHotel($requestid, $script = 'result.php')
     {
 
-        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&requestid=". $requestid ."&type=status";
+        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&requestid=". $requestid ."&type=result";
 
-        $result = file_get_contents($url);
-        return json_decode($result);
+             $result = file_get_contents($url);
+            return json_decode($result);
+
 
     }
     /**

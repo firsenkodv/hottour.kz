@@ -86,7 +86,13 @@ class SitemapHotelsCron extends Command
             $data .= $schemas_close;
 
             file_put_contents(Storage::disk('sitemap')->path('sitemap').'/sitemap_'.$y.'.xml', "$data");
-            $mailbody[] = asset(Storage::disk('sitemap')->url('/sitemap_'.$y.'.xml'));
+
+            sleep(5);
+
+            dump('Cознан sitemap - ' . env('APP_URL').'/storage/sitemap/sitemap_'.$y.'.xml'); // в консоль
+            \Log::info('Cознан sitemap - ' . env('APP_URL').'/storage/sitemap/sitemap_'.$y.'.xml'); // в логи
+            $mailbody[] = 'Cознан sitemap - ' . env('APP_URL').'/storage/sitemap/sitemap_'.$y.'.xml'; // в письмо
+
 
         }
         /**

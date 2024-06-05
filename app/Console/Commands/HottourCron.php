@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\SystemMessageEvent;
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
 use App\Mail\SendMails;
 use App\Models\CustomerHotTour;
@@ -46,9 +47,7 @@ class HottourCron extends Command
 
             if (!empty($result_api)) {
                 if ((int)$result_api->hottours->hotcount > 0) {
-                    // $tours =  $result_api->hottours->tour;
                     $first = current($result_api->hottours->tour);
-                    // $last = end($result_api->hottours->tour);
 
                     $item->params = $first;
                     $price = round($first->price);
@@ -63,14 +62,19 @@ class HottourCron extends Command
                         $item->procent = 0; // Число отрицательное
                     }
                     $item->save();
-                    \Log::info("Cron в таблице customer_hot_tours сработал");
+                    \Log::info("Горящие туры - на главной. Страна  - " .  $item->countryname .". Отель добавлен." );  // в логи
+                    dump("Горящие туры - на главной. Страна  - " .  $item->countryname .". Отель добавлен." ); // в консоль
+                    $mailbody[] = "Горящие туры - на главной. Страна  - " .  $item->countryname .". Отель добавлен."; // в письмо
+
 
                 } else {
                     $item->params = [];
                     $item->procent = 0;
                     $item->published = 0;
                     $item->save();
-                    \Log::info("Tourvisor для customer_hot_tours выдал  0!");
+                    \Log::info("Горящие туры - на главной. Страна  - " .  $item->countryname .". ОШИБКА -  туров нет hotcount - 0."); // в логи
+                    dump("Горящие туры - на главной. Страна  - " .  $item->countryname .". ОШИБКА -  туров нет hotcount - 0." ); // в консоль
+                    $mailbody[] = "Горящие туры - на главной. Страна  - " .  $item->countryname .". ОШИБКА -  туров нет hotcount - 0." ; // в письмо
                 }
 
 
@@ -79,9 +83,15 @@ class HottourCron extends Command
                 $item->procent = 0;
                 $item->published = 0;
                 $item->save();
-                \Log::info("Cron в таблице customer_hot_tours выдал ошибку!");
+                \Log::info('Горящие туры - на главной. Страна  - ' .  $item->countryname .'. ОШИБКА - $api->getHotTours($city, $country)'); // в логи
+                dump('Горящие туры - на главной. Страна  - ' .  $item->countryname .'. ОШИБКА - $api->getHotTours($city, $country)'); // в консоль
+                $mailbody[] = 'Горящие туры - на главной. Страна  - ' .  $item->countryname .'. ОШИБКА - $api->getHotTours($city, $country)' ; // в письмо
+
+
 
             }
+
+            sleep(5);
 
         }
 
@@ -95,8 +105,7 @@ class HottourCron extends Command
 
             if (!empty($result_api)) {
                 if ((int)$result_api->hottours->hotcount > 0) {
-                    // $tours =  $result_api->hottours->tour; // первый
-                    // $last = end($result_api->hottours->tour); // последний
+
                     if ($remove) {
                         $result = array_splice($result_api->hottours->tour, $remove);
                         $item->params = $result;
@@ -105,26 +114,44 @@ class HottourCron extends Command
                         $item->params = $result_api->hottours->tour;
                     }
                     $item->save();
-                    \Log::info("Cron в таблице tours сработал");
+                    \Log::info("Страница Туры. Страна  - " .  $item->title .". Отель добавлен." );  // в логи
+                    dump("Страница Туры. Страна  - " .  $item->title .". Отель добавлен." ); // в консоль
+                    $mailbody[] = "Страница Туры.  Страна  - " .  $item->title .". Отель добавлен."; // в письмо
 
                 } else {
                     $item->params = [];
                     $item->published = 0;
                     $item->save();
-                    \Log::info("Tourvisor для tours выдал  0!");
+
+
+                    \Log::info("Страница Туры. Страна  - " .  $item->title .". ОШИБКА -  туров нет hotcount - 0."); // в логи
+                    dump("Страница Туры. Страна  - " .  $item->title .". ОШИБКА -  туров нет hotcount - 0." ); // в консоль
+                    $mailbody[] = "Страница Туры. Страна  - " .  $item->title .". ОШИБКА -  туров нет hotcount - 0." ; // в письмо
+
+
+
                 }
             } else {
                 $item->params = [];
                 $item->published = 0;
                 $item->save();
-                \Log::info("Cron в таблице tours выдал ошибку!");
+
+                \Log::info('Горящие туры - на главной. Страна  - ' .  $item->title .'. ОШИБКА - $api->getHotTours($city, $country)'); // в логи
+                dump('Горящие туры - на главной. Страна  - ' .  $item->title .'. ОШИБКА - $api->getHotTours($city, $country)'); // в консоль
+                $mailbody[] = 'Горящие туры - на главной. Страна  - ' .  $item->title .'. ОШИБКА - $api->getHotTours($city, $country)' ; // в письмо
+
             }
 
+            sleep(5);
         }
 
 
-            $a = new SendMails;
-            $a->sendTestSystemMessage('app/Console/Commands/HottourCron.php');
+        /**
+         * Событие отправка сообщения админу
+         */
+
+        $request = ['commands'=> 'hottour:cron','file_commands'=> 'HottourCron.php','body'=> $mailbody];
+        SystemMessageEvent::dispatch($request);
 
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\SystemMessageEvent;
 use App\Http\Controllers\Tourvisor\Service\Ajax;
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
 use App\Mail\SendMails;
@@ -11,6 +12,7 @@ use App\Models\HotelMain;
 use App\Models\Tour;
 use Illuminate\Console\Command;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MainHotelsCron extends Command
 {
@@ -44,109 +46,96 @@ class MainHotelsCron extends Command
             ->take(20)
             ->get();
 
-        $price = '';
         if ($hotels->count() > 6) {
 
             HotelMain::truncate();
 
             foreach ($hotels as $hotel) {
 
+
+                settype($h, "array");
+
+
                 $result = $api->getHotel($hotel->slug);
                 $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id];
 
                 $api = new Tourvisor();
                 $r = $api->getRequestid($params);
+
                 $requestid = $r->result->requestid;
-                $res = $api->getToursForHotel($requestid);
 
-                dump($requestid);
-                dd($res);
+                for ($i = 1; $i < 6; $i++) {
+                    $res = $api->getToursForHotel($requestid);
 
+                    if ($res->data->status->progress == 100) {
 
-                for ($i = 0; $i < 2; $i++) {
-                    $response2 = $this->loop($params);
-                    if ($response2->data->status->toursfound != 0) {
+                        dump('Сработало - 100%');
+                        \Log::info('Сработало - 100%'); // в логи
+
                         break;
+
                     }
+                    sleep(10);
+                    dump('Попытка - ' . $i);
+                    \Log::info('Попытка - ' . $i); // в логи
+
 
                 }
 
 
-                if (count($response2->data->result->hotel[0]->tours->tour)) {
-                    $price = $response2->data->result->hotel[0]->tours->tour[0]->price;
+                if ($res->data->status->toursfound != 0) {
+
+
+                    $h['slug'] = $hotel->slug;
+                    $h['name'] = $result->data->hotel->name;
+                    $h['img'] = $result->data->hotel->images->image[0];
+                    $h['star'] = $result->data->hotel->stars;
+                    $h['country'] = $result->data->hotel->country;
+
+
+                    $h['price'] = ($res->data->result->hotel[0]->tours->tour[0]->price)?:'';
+                    $h['meal'] = ($res->data->result->hotel[0]->tours->tour[0]->meal)?:'';
+                    $h['mealrussian'] = ($res->data->result->hotel[0]->tours->tour[0]->mealrussian)?:'';
+                    $h['placement'] = ($res->data->result->hotel[0]->tours->tour[0]->placement)?:'';
+                    $h['room'] = ($res->data->result->hotel[0]->tours->tour[0]->room)?:'';
+
+
+
+                    HotelMain::query()->create([
+                        'title' => $h['name'],
+                        'slug' => $h['slug'],
+                        'img' => $h['img'],
+                        'star' => $h['star'],
+                        'country' => $h['country'],
+                        'price' => $h['price'],
+                        'meal' => $h['meal'],
+                        'placement' => $h['placement'],
+                        'mealrussian' => $h['mealrussian'],
+                        'room' => $h['room'],
+                    ]);
+
+                    dump("Загружен отель  - " . $h['name']); // в консоль
+                    \Log::info("Загружен отель  - " . $h['name']); // в логи
+                    $mailbody[] = "Загружен отель  - " . $h['name']; // в письмо
                 }
 
 
-                HotelMain::query()->create([
-                    'title' => $result->data->hotel->name,
-                    'slug' => $hotel->slug,
-                    'price' => ($price) ?: '',
-                    'img' => $result->data->hotel->images->image[0],
-                    'star' => $result->data->hotel->stars,
-                    'country' => $result->data->hotel->country,
-                    'meal' => ''
-                ]);
-
+                sleep(10);
 
             }
 
+            /**
+             * Событие отправка сообщения админу
+             */
+
+            $request = ['commands'=> 'mainhotels:cron','file_commands'=> 'MainHotelsCron.php','body'=> $mailbody];
+            SystemMessageEvent::dispatch($request);
+
+
 
         }
 
 
     }
 
-    public function loop($params)
-    {
-
-
-        $request = new Request([
-            'departure' => 60,
-            'region' => ($params['region_id']) ?: '',
-            'country' => ($params['country_id']) ?: '',
-            'hotels' => $params['id'],
-            'daterange' => '04.06.2024 - 10.06.2024',
-            'nightsfrom' => '6',
-            'nightsto' => '12',
-            'adults' => '2',
-            'currency' => '3',
-            'action' => 'searchTour',
-        ]);
-
-        $api = new Tourvisor();
-        $ajax = new Ajax($request);
-
-        $action = $ajax->input['action'];
-
-        if ($action) {
-            $response = $ajax->$action();
-        }
-
-         dump($response);
-
-        $request2 = new Request([
-            'departure' => 60,
-            'region' => ($params['region_id']) ?: '',
-            'country' => ($params['country_id']) ?: '',
-            'hotels' => $params['id'],
-            'daterange' => '04.06.2024 - 10.06.2024',
-            'nightsfrom' => '6',
-            'nightsto' => '12',
-            'adults' => '2',
-            'currency' => '3',
-            'action' => 'searchTourResult',
-            'requestid' => $response->result->requestid,
-
-        ]);
-
-        $ajax2 = new Ajax($request2);
-        $action2 = $ajax2->input['action'];
-
-        if ($action2) {
-            $response2 = $ajax2->$action2();
-        }
-
-        dd($response2);
-        return $response2;
-    }
 }
