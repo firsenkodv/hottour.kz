@@ -58,6 +58,7 @@ class Tourvisor
         }
         return $cuntry_id;
     }
+
     public function getCountries(){
 
        //$default = json_decode(file_get_contents(__DIR__. '/countries.json'), true);
@@ -223,8 +224,6 @@ class Tourvisor
 
     }
 
-
-
     public function getFlag($name){
         $name = str_replace(" ", '_', mb_strtolower($name));
         $simbol = ['а','б','в','г','д','е','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','щ','ш','ъ','ь','э','ю','я','ы'];
@@ -252,6 +251,7 @@ class Tourvisor
         $result = file_get_contents($url);
         return json_decode($result);
     }
+
     public function getHotel($id)
     {
         $url = 'https://tourvisor.ru/xml/hotel.php?format=json&hotelcode=' . $id . '&imgbig=1&authlogin=' . $this->login . '&authpass=' . $this->password;
@@ -259,6 +259,30 @@ class Tourvisor
         return json_decode($result);
 
     }
+    /**
+     * Для корнсольной команды tourvisorhotel
+     */
+    /**
+     * Для корнсольной команды mainhotels
+     */
+    public function getRequestid($params, $script = 'search.php')
+    {
+        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&departure=60&country=". $params['country_id'] ."&hotels=". $params['id'] ."&nightsfrom=6&nightsto=12&adults=2&currency=3&action=searchTour&regions=".$params['region_id']."&datefrom=04.06.2024&dateto=10.06.2024&priceto=10000000&pricefrom=0&child=";
 
+        $result = file_get_contents($url);
+        return json_decode($result);
 
+    }
+    public function getToursForHotel($requestid, $script = 'result.php')
+    {
+
+        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&requestid=". $requestid ."&type=status";
+
+        $result = file_get_contents($url);
+        return json_decode($result);
+
+    }
+    /**
+     * Для корнсольной команды mainhotels
+     */
 }

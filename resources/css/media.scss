@@ -708,12 +708,13 @@ $maxWidth: 1440;
             justify-content: space-between;
 
             .mobile_version__logo {
-                height: 42px;
+                height: 42px !important;
 
                 img {
-                    background: #EF533F;
                     border-radius: 25px;
-                    padding: 5px 0;
+                    background: #e52423;
+                    height: 42px !important;
+
                 }
             }
 
@@ -1280,6 +1281,25 @@ $maxWidth: 1440;
     /* Переход на мобильную версию */
 
     .mobile_version {
+        .mobile_version__flex {
+            .mobile_version__logo {
+                height: 38px !important;
+                padding-top: 1px;
+
+                img {
+
+                    border-radius: 25px;
+                    padding: 5px 0;
+                    width: 200px;
+                    height: 38px;
+                }
+            }
+        }
+    }
+
+
+
+    .mobile_version {
         padding-top: 8px;
         padding-bottom: 8px;
 
@@ -1294,19 +1314,6 @@ $maxWidth: 1440;
         }
 
 
-        .mobile_version__logo {
-            height: 38px !important;
-            padding-top: 1px;
-
-            img {
-
-                background: #EF533F;
-                border-radius: 25px;
-                padding: 5px 0;
-                width: 200px;
-                height: 38px;
-            }
-        }
 
         .top_socialBig {
             a {
@@ -1447,6 +1454,8 @@ $maxWidth: 1440;
     .n_vid_item:nth-child(2) {
         display: none;
     }
+
+
 }
 
 @media (max-width: 340px) {

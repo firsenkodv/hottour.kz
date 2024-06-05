@@ -409,11 +409,11 @@
       display: flex;
       justify-content: space-between; }
       .mobile_version .mobile_version__flex .mobile_version__logo {
-        height: 42px; }
+        height: 42px !important; }
         .mobile_version .mobile_version__flex .mobile_version__logo img {
-          background: #EF533F;
           border-radius: 25px;
-          padding: 5px 0; }
+          background: #e52423;
+          height: 42px !important; }
       .mobile_version .mobile_version__flex .top_socialBig {
         padding-right: 0; }
 
@@ -751,6 +751,15 @@
 
   /*размер шрифтов*/
   /* Переход на мобильную версию */
+  .mobile_version .mobile_version__flex .mobile_version__logo {
+    height: 38px !important;
+    padding-top: 1px; }
+    .mobile_version .mobile_version__flex .mobile_version__logo img {
+      border-radius: 25px;
+      padding: 5px 0;
+      width: 200px;
+      height: 38px; }
+
   .mobile_version {
     padding-top: 8px;
     padding-bottom: 8px; }
@@ -758,15 +767,6 @@
       display: none; }
     .mobile_version .s-youtube {
       display: none; }
-    .mobile_version .mobile_version__logo {
-      height: 38px !important;
-      padding-top: 1px; }
-      .mobile_version .mobile_version__logo img {
-        background: #EF533F;
-        border-radius: 25px;
-        padding: 5px 0;
-        width: 200px;
-        height: 38px; }
     .mobile_version .top_socialBig a {
       width: 38px;
       height: 38px; }

@@ -175,6 +175,9 @@
 
             form.append('action', 'searchTour')
 
+
+            console.log(form);
+
             const data = new URLSearchParams(form);
 
             let opts = {

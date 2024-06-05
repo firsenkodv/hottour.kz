@@ -60,8 +60,8 @@ class SitemapHotelsCron extends Command
         $url_country = config('links.link.countries');
 
 /*        $p = 5000;
-        $model = Hotel::all();
-        $paginator = ceil(count($model) / $p);*/
+          $model = Hotel::all();
+          $paginator = ceil(count($model) / $p);*/
 
         $hotels = Hotel::query()->select('slug', 'hot_category_id', 'updated_at')->where('published', 1)->get();
 

@@ -21,13 +21,14 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         //->everyMinute();
 
-           $schedule->command('hottour:cron')->everySixHours($minutes = 0); // sitemap раз в 6 часов
-           $schedule->command('tourvisorhotel:cron')->dailyAt('01:00'); // отели один раз в сутки
-           $schedule->command('sitemap-hotels:cron')->hourly(15); // горящие туры - каждый час + 15 минут
+        //   $schedule->command('hottour:cron')->everySixHours($minutes = 0); // sitemap раз в 6 часов
+        //   $schedule->command('tourvisorhotel:cron')->dailyAt('01:00'); // отели один раз в сутки
+        //   $schedule->command('')->everyMinute(); // горящие туры - каждый час + 15 минут
+        // $schedule->command('mainhotels:cron')->everyMinute(); // Инфо про отели - каждый час + 25 минут
 
 
         //  $schedule->command('userstest:cron')->everyMinute()->withoutOverlapping(10);
-      //   $schedule->command('sitemap-hotels:cron')->everyMinute();
+        //  $schedule->command('sitemap-hotels:cron')->everyMinute();
 
     }
 

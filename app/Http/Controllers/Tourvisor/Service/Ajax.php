@@ -159,7 +159,6 @@ class Ajax
         return $result;
     }
 
-
 }
 
 

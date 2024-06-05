@@ -3,7 +3,7 @@
         <div class="f_flextop">
             <div class="f_flextop__left">
                 <div class="fl_1 f_logo">
-                    <x-logo.logo
+                    <x-logo.logo-footer
                         class="footer_logo"
                         width="260"
                         height="59"
