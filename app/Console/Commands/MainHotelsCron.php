@@ -55,9 +55,11 @@ class MainHotelsCron extends Command
 
                 settype($h, "array");
 
+                $departure['code'] = 60; // Алматы
+                $departure['city'] = getDepartureName(60);
 
                 $result = $api->getHotel($hotel->slug);
-                $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id];
+                $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id, 'departure' => 60];
 
                 $api = new Tourvisor();
                 $r = $api->getRequestid($params);
@@ -84,6 +86,7 @@ class MainHotelsCron extends Command
 
 
                 if ($res->data->status->toursfound != 0) {
+
 
 
                     $h['slug'] = $hotel->slug;

@@ -24,10 +24,9 @@
 
 .popular_item {
   border-radius: 12px;
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
-  border: 3px solid rgba(224, 224, 224, 0.4);
   width: 100%;
-  position: relative; }
+  position: relative;
+  height: 453px; }
   .popular_item__top {
     border-radius: 12px 12px 0 0;
     overflow: hidden; }
@@ -49,10 +48,13 @@
       z-index: 10; }
   .popular_item__bottom {
     padding: 16px 16px 24px 16px;
-    border-radius: 0 0 12px 12px;
+    border-radius: 12px;
     overflow: hidden;
-    background: #f7f7f7;
-    color: #667085; }
+    background: #fff;
+    color: #667085;
+    transition: top 0.3s ease-out 0.1s;
+    top: 0;
+    position: relative; }
     .popular_item__bottom .popular_item__avia {
       display: flex;
       position: relative;
@@ -70,8 +72,12 @@
       font-size: 18px;
       color: #282828;
       padding: 0 0 8px 0;
-      height: 54px;
-      overflow: hidden; }
+      height: 32px;
+      width: 214px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 214px; }
     .popular_item__bottom .popular_item__sity {
       font-size: 14px;
       padding: 6px 0 0 0; }
@@ -80,5 +86,12 @@
       padding: 1px 0 18px 0;
       font-weight: 600;
       color: #282828; }
+    .popular_item__bottom .popular_item__odred {
+      display: none; }
+  .popular_item__bottom:hover {
+    background: #f7f7f7;
+    top: -100px; }
+    .popular_item__bottom:hover .popular_item__odred {
+      display: block; }
 
 /*# sourceMappingURL=popular.css.map */

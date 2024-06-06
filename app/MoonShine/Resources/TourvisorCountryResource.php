@@ -80,6 +80,14 @@ class TourvisorCountryResource extends TreeResource
                                 ->columnSpan(6),
 
                                 Column::make([
+
+
+                                    Collapse::make('Выбрать категорию', [
+                                        BelongsTo::make('Категория', 'parent', resource: new HotCategoryResource())->nullable()->searchable(),
+
+                                    ]),
+
+
                                 Collapse::make('Данные для поиска', [
 
                                     Select::make('Страна', 'country_id')
@@ -93,10 +101,8 @@ class TourvisorCountryResource extends TreeResource
                                     Switcher::make('По умолчанию', 'default'),
 
                                 ]),
-                                Collapse::make('Выбрать категорию', [
-                                    BelongsTo::make('Категория', 'parent', resource: new HotCategoryResource())->nullable()->searchable(),
 
-                                ]),
+
 
 
                             ])

@@ -62,10 +62,12 @@ $maxWidth: 1440;
 .popular_item {
 
     border-radius: 12px;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
-    border: 3px solid rgba(224, 224, 224, 0.4);
+ //   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
+  //  border: 3px solid rgba(224, 224, 224, 0.4);
     width: 100%;
     position: relative;
+    height: 453px;
+
     // .popular_item__top
     &__top {
         border-radius: 12px 12px 0 0;
@@ -104,10 +106,14 @@ $maxWidth: 1440;
     // .popular_item__bottom
     &__bottom {
         padding: 16px 16px 24px 16px;
-        border-radius: 0 0 12px 12px;
+        border-radius:12px;
         overflow: hidden;
-        background: #f7f7f7;
+        background: #fff;
         color: $colorGrey;
+        transition: top 0.3s ease-out 0.1s;
+        top: 0;
+        position: relative;
+
 
 
         // .popular_item__avia
@@ -138,14 +144,19 @@ $maxWidth: 1440;
             font-size: 18px;
             color: $color;
             padding: 0 0 8px 0;
-            height: 54px;
+            height: 32px;
+            width: 214px;
             overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 214px;
         }
 
         .popular_item__sity {
             font-size: 14px;
             padding: 6px 0 0 0;
         }
+
         .popular_item__price {
             font-size: 18px;
             padding: 1px 0 18px 0;
@@ -154,7 +165,18 @@ $maxWidth: 1440;
 
         }
 
+        .popular_item__odred {
+    display: none;
+        }
 
+    }
+    &__bottom:hover {
+        background: #f7f7f7;
+        top: -100px;
+
+        .popular_item__odred {
+            display: block;
+        }
     }
 }
 

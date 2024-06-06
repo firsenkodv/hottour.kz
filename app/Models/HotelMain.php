@@ -19,6 +19,6 @@ class HotelMain extends Model
 
       'placement',
       'mealrussian',
-      '',
+      'room',
   ];
 }

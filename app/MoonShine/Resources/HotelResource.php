@@ -19,6 +19,7 @@ use MoonShine\Fields\Date;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Json;
 use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Select;
 use MoonShine\Fields\Slug;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
@@ -146,6 +147,16 @@ class HotelResource extends ModelResource
                                         ->showOnExport(),
                                     Switcher::make('Публикация', 'published')->default(1)->hideOnIndex(),
                                     Switcher::make('На главной', 'index')->default(0)->hideOnIndex(),
+                                        Select::make('Город вылета', 'city')
+                                            ->options([
+                                                'Казахстан' => config('tourvisor.city_kz'),
+                                                'Россия' => config('tourvisor.city_rus')
+
+                                            ]) ->searchable()->hideOnIndex(),
+
+
+
+
 
                                 ]),
                                 Collapse::make('Вложенность', [

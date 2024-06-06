@@ -276,7 +276,7 @@ class Tourvisor
         $d1 =  date('d.m.Y', $time1);
 
 
-        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&departure=60&country=". $params['country_id'] ."&hotels=". $params['id'] ."&nightsfrom=6&nightsto=12&adults=2&currency=3&action=searchTour&regions=".$params['region_id']."&datefrom=".$d1."&dateto=".$d7."&priceto=10000000&pricefrom=0&child=";
+        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&departure=".$params['departure'] ."&country=". $params['country_id'] ."&hotels=". $params['id'] ."&nightsfrom=6&nightsto=12&adults=2&currency=3&action=searchTour&regions=".$params['region_id']."&datefrom=".$d1."&dateto=".$d7."&priceto=10000000&pricefrom=0&child=";
 
         $result = file_get_contents($url);
         return json_decode($result);

@@ -39,12 +39,18 @@ class Hotel extends Model
         'country_id',
         'region_id',
 
+
+        'index',
+        'city',
+
         'published',
         'params',
         'metatitle',
         'description',
         'keywords',
-        'sorting'
+        'sorting',
+
+
     ];
 
 
