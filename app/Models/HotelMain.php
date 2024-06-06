@@ -16,9 +16,13 @@ class HotelMain extends Model
       'star',
       'country',
       'meal',
-
+        'nights',
+        'flydate',
       'placement',
       'mealrussian',
+      'city',
       'room',
+      'adults',
+      'child',
   ];
 }

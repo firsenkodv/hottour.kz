@@ -37,15 +37,15 @@
                             </div>
 
                             <div class="popular_item__sity">
-                                Из Алматы
+                                Из  {{ $hotel->city }} {{$hotel->nights}} ночей
                             </div>
                             <div class="popular_item__price">
                                 {{ price($hotel->price) }} {{ config('currency.currency.KZT') }}
                             </div>
                             <div class="popular_item__odred h_order">
-                                <a href="" type="submit" class="button button_normal button_green  order_call_js">
-                                    Забронировать
-                                </a>
+
+                                <a href="#reserve_hotel" data-fancybox data-tout_data='{"price":"{{number_format($hotel->price, 0, '', ' ')}}", "dateFrom":"{{rusdate2($hotel->flydate)}}", "dateTo":"{{rusdate2(date('d.m.Y', strtotime('+'. $hotel->nights .' days', strtotime($hotel->flydate))))}}", "nights":"{{$hotel->nights}}", "room":"", "mealrussian":"", "meal":"{{ $hotel->meal }}", "adults":"{{ $hotel->adults }}", "child":"{{ $hotel->child }}", "tourname":"", "sity":"{{ $hotel->city}}","hotel":"{{ $hotel->title}}","country":"{{ $hotel->country}}","stars":"{{ $hotel->star}}","operatorname":"", "hotelregionname" : "", "currency":"{{ config('currency.currency.KZT') }}"}' class="line_info__link line_info__link--big btnPinkGradientTour button button_normal button_green tour_button_js" data-hotelcode="" data-tourid="-"><span>Забронировать</span></a>
+
                             </div>
                         </div><!--.pad_16-->
                     </div>

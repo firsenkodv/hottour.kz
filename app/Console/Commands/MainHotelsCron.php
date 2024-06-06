@@ -55,11 +55,11 @@ class MainHotelsCron extends Command
 
                 settype($h, "array");
 
-                $departure['code'] = 60; // Алматы
-                $departure['city'] = getDepartureName(60);
+                $departure = ['code' => $hotel->city, 'city' => getDepartureName($hotel->city)]; // город вылета выставляется в админке Model Hotel
+                $adults = ['adults' => 2, 'child' => 0]; // взрослые и дети
 
                 $result = $api->getHotel($hotel->slug);
-                $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id, 'departure' => 60];
+                $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id, 'departure' => $departure['code'], 'adults' => $adults['adults'],  'child' => $adults['child'], ];
 
                 $api = new Tourvisor();
                 $r = $api->getRequestid($params);
@@ -101,6 +101,12 @@ class MainHotelsCron extends Command
                     $h['mealrussian'] = ($res->data->result->hotel[0]->tours->tour[0]->mealrussian)?:'';
                     $h['placement'] = ($res->data->result->hotel[0]->tours->tour[0]->placement)?:'';
                     $h['room'] = ($res->data->result->hotel[0]->tours->tour[0]->room)?:'';
+                    $h['nights'] = ($res->data->result->hotel[0]->tours->tour[0]->nights)?:'';
+                    $h['flydate'] = ($res->data->result->hotel[0]->tours->tour[0]->flydate)?:'';
+                    $h['city'] = ($departure['city'])?:'';
+                    $h['adults'] = ($adults['adults'])?:'';
+                    $h['child'] = ($adults['child'])?:'';
+
 
 
 
@@ -115,6 +121,11 @@ class MainHotelsCron extends Command
                         'placement' => $h['placement'],
                         'mealrussian' => $h['mealrussian'],
                         'room' => $h['room'],
+                        'nights' => $h['nights'],
+                        'flydate' => $h['flydate'],
+                        'city' => $h['city'],
+                        'adults' => $h['adults'],
+                        'child' => $h['child'],
                     ]);
 
                     dump("Загружен отель  - " . $h['name']); // в консоль
