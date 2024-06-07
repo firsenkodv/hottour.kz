@@ -21,6 +21,8 @@ use MoonShine\Fields\Slug;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
 use MoonShine\Fields\TinyMce;
+use MoonShine\Handlers\ExportHandler;
+use MoonShine\Handlers\ImportHandler;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Decorations\Block;
 use MoonShine\Fields\ID;
@@ -154,6 +156,18 @@ class ModuleResource extends ModelResource
     {
         return [];
     }
+
+    public function import(): ?ImportHandler
+    {
+        return null;
+    }
+
+
+    public function export(): ?ExportHandler
+    {
+        return null;
+    }
+
     public function getActiveActions(): array
     {
         return ['create', /*'view',*/ 'update', 'delete', 'massDelete'];

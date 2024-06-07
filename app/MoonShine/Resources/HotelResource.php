@@ -277,13 +277,13 @@ class HotelResource extends ModelResource
 
     public function import(): ?ImportHandler
     {
-        return ImportHandler::make('Import');
+        return null;
     }
+
 
     public function export(): ?ExportHandler
     {
         return null;
-        //return ExportHandler::make('Export');
     }
 
 }

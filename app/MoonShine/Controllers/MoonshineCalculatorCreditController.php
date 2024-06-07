@@ -6,6 +6,7 @@ namespace App\MoonShine\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use MoonShine\Components\Layout\Flash;
 use MoonShine\MoonShineRequest;
@@ -20,11 +21,9 @@ final class MoonshineCalculatorCreditController extends MoonShineController
 
         $data = $request->all();
 
-       // dd($data);
-
+      //  dd($data);
 
         file_put_contents(base_path('config') . '/site/calculator-credit.php', "<?php\n\n" . 'return ' . var_export($data, true) . ";\n");
-
 
 
         return back();

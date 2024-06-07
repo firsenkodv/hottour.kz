@@ -241,7 +241,7 @@ class ResortResource extends ModelResource
 
     public function import(): ?ImportHandler
     {
-        return ImportHandler::make('Import');
+        return null;
     }
 
 

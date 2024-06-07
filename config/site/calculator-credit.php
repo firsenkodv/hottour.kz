@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  '_token' => 'C46kg6rfQQ1ohjAmD6S45kdcXSRX0y5tHBypst6i',
+  '_token' => 'TCRUOAwkseZUtd9zu8Po1PRczyvUOeU571MtT3jb',
   'banks' => 
   array (
     1 => 
@@ -39,12 +39,6 @@ return array (
           'month' => '24',
           'procent' => '0.0516675',
           'month_rus' => '24 месяца',
-        ),
-        6 => 
-        array (
-          'month' => '36',
-          'procent' => '0.0516675',
-          'month_rus' => '36 месяцев',
         ),
       ),
     ),

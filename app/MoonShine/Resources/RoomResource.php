@@ -279,15 +279,14 @@ class RoomResource extends ModelResource
 
     public function import(): ?ImportHandler
     {
-        return HotelHandler::make('Import')->queue();
-        // ->queue()
+        return null;
     }
+
 
     public function export(): ?ExportHandler
     {
-        return ExportHandler::make('Export');
+        return null;
     }
-
 
     public function formPageComponents(): array
     {

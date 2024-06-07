@@ -262,16 +262,14 @@ class PublResource extends ModelResource
     }
     public function import(): ?ImportHandler
     {
-        return ImportHandler::make('Import');
+        return null;
     }
-
 
 
     public function export(): ?ExportHandler
     {
         return null;
     }
-
     public function getActiveActions(): array
     {
         return ['create', /*'view',*/ 'update', 'delete', 'massDelete'];

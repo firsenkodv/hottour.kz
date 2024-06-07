@@ -202,8 +202,9 @@ class InfoResource extends ModelResource
 
     public function import(): ?ImportHandler
     {
-        return ImportHandler::make('Import');
+        return null;
     }
+
 
     public function export(): ?ExportHandler
     {

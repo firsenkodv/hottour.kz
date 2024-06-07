@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages;
 
+use Illuminate\Support\Facades\Cache;
 use MoonShine\Components\FormBuilder;
 use MoonShine\Decorations\Block;
 use MoonShine\Decorations\Column;
@@ -35,11 +36,11 @@ class MoonshineCalculatorCreditPage extends Page
 
     public function components(): array
     {
+        Cache::flush();
 
-       // $test = (config('site.calculator-credit.test'))?:'';
-        $banks = (config('site.calculator-credit.banks'))?:'';
-        $countries = (config('site.calculator-credit.countries'))?:'';
-
+        // $test = (config('site.calculator-credit.test'))?:'';
+        $banks = (config('site.calculator-credit.banks')) ?: '';
+        $countries = (config('site.calculator-credit.countries')) ?: '';
 
 
         return [
@@ -53,80 +54,65 @@ class MoonshineCalculatorCreditPage extends Page
 
                         Tab::make(__('Общие настройки'), [
 
-                    Grid::make([
-                        Column::make([
-                            Divider::make('Общие константы'),
-                            Block::make([
+                            Grid::make([
+                                Column::make([
+                                    Divider::make('Общие константы'),
+                                    Block::make([
 
-                            Json::make('Банки', 'banks')->fields([
-                                    Position::make(),
-                                Text::make('Название', 'title'),
-                                Text::make('Процент', 'procent'),
+                                        Json::make('Банки', 'banks')->fields([
+                                            Position::make(),
+                                            Text::make('Название', 'title'),
+                                            Text::make('Процент', 'procent'),
 
-                                Json::make('Ставки', 'koff')->fields([
+                                            Json::make('Ставки', 'koff')->fields([
 
-                                    Text::make('Месяц', 'month'),
-                                    Text::make('Процент', 'procent'),
-                                    Text::make('Месяц по русски', 'month_rus'),
-
-
-
-                                ])->creatable(limit: 15)
-                                    ->removable(),
+                                                Text::make('Месяц', 'month'),
+                                                Text::make('Процент', 'procent'),
+                                                Text::make('Месяц по русски', 'month_rus'),
 
 
-                            ])->vertical()->creatable(limit: 15)
-                                ->removable()->default($banks),
+                                            ])->creatable(limit: 15)
+                                                ->removable(),
 
 
+                                        ])->vertical()->creatable()
+                                            ->removable()->default($banks),
 
 
+                                    ])
+
+                                ])->columnSpan(6),
+                                Column::make([
+
+                                    Divider::make('Страны'),
+                                    Block::make([
+
+                                        Json::make('Список', 'countries')->fields([
+                                            Position::make(),
+                                            Text::make('Название', 'title'),
 
 
+                                        ])->creatable(limit: 15)
+                                            ->removable()->default($countries),
+
+                                    ]),
 
 
+                                ])->columnSpan(6),
+                            ])
 
 
-])
+                        ]),
+                        Tab::make(__('Дополнительно'), [
 
-                        ])->columnSpan(6),
-                        Column::make([
-
-                            Divider::make('Страны'),
-                            Block::make([
-
-                                Json::make('Список', 'countries')->fields([
-                                    Position::make(),
-                                    Text::make('Название', 'title'),
-
-
-
-                                ])->creatable(limit: 15)
-                                    ->removable()->default($countries),
-
-                            ]),
-
-
-
-
-                        ])->columnSpan(6),
-                    ])
-
-
-                    ]),
-                            Tab::make(__('Дополнительно'), [
-
-                    ]),
+                        ]),
                     ]),
 
 
-
-
-                ]) ->submit(label: 'Сохранить', attributes: ['class' => 'btn-primary'])
+                ])->submit(label: 'Сохранить', attributes: ['class' => 'btn-primary'])
 
         ];
     }
-
 
 
 }
