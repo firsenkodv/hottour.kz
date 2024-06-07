@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Pages\MoonshineCalculatorCreditPage;
 use App\MoonShine\Pages\MoonshineSettingPage;
 use App\MoonShine\Pages\ReplacementPage;
 use App\MoonShine\Resources\CompanyResource;
@@ -189,7 +190,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 )->icon('heroicons.arrow-path'),
                 MenuItem::make(
                     static fn() => __('Кредитный калькулятор'),
-                    new ModuleResource()
+                    new MoonshineCalculatorCreditPage()
                 )->icon('heroicons.calculator'),
                 MenuItem::make(
                     static fn() => __('API Горящие туры'),

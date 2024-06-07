@@ -9,6 +9,8 @@ use MoonShine\Decorations\Block;
 use MoonShine\Decorations\Column;
 use MoonShine\Decorations\Divider;
 use MoonShine\Decorations\Grid;
+use MoonShine\Decorations\Tab;
+use MoonShine\Decorations\Tabs;
 use MoonShine\Fields\Text;
 use MoonShine\Fields\Textarea;
 use MoonShine\Pages\Page;
@@ -54,6 +56,12 @@ class MoonshineSettingPage extends Page
 
             FormBuilder::make('/moonshine/setting-website', 'POST')
                 ->fields([
+
+
+                    Tabs::make([
+
+                        Tab::make(__('Общие настройки'), [
+
                     Grid::make([
                         Column::make([
                             Divider::make('Общие константы'),
@@ -91,6 +99,17 @@ class MoonshineSettingPage extends Page
 
                         ])->columnSpan(6),
                     ])
+
+
+                    ]),
+                            Tab::make(__('Дополнительно'), [
+
+                    ]),
+                    ]),
+
+
+
+
                 ]) ->submit(label: 'Сохранить', attributes: ['class' => 'btn-primary'])
 
         ];

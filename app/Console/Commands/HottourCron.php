@@ -114,9 +114,9 @@ class HottourCron extends Command
                         $item->params = $result_api->hottours->tour;
                     }
                     $item->save();
-                    \Log::info("Страница Туры. Страна  - " .  $item->title .". Отель добавлен." );  // в логи
-                    dump("Страница Туры. Страна  - " .  $item->title .". Отель добавлен." ); // в консоль
-                    $mailbody[] = "Страница Туры.  Страна  - " .  $item->title .". Отель добавлен."; // в письмо
+                    \Log::info("Страница Туры. Страна  - " .  $item->title .". Туры добавлены." );  // в логи
+                    dump("Страница Туры. Страна  - " .  $item->title .". Туры добавлены." ); // в консоль
+                    $mailbody[] = "Страница Туры.  Страна  - " .  $item->title .". Туры добавлены."; // в письмо
 
                 } else {
                     $item->params = [];

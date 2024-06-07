@@ -1,7 +1,6 @@
 //todo:jquery
 $(document).ready(function () {
 
-
     function OnlyNum(str, min, max) {
 
         var value = str.replace(/[^0-9]/g, '');
@@ -103,6 +102,10 @@ $(document).ready(function () {
 
 
             });
+
+
+
+
         });
 
 
@@ -113,6 +116,12 @@ $(document).ready(function () {
         });
 
         $('body').on('click', '.mod_axeld_credit_192 .mod_axeld_credit__start', function (event) {
+
+
+
+            $('.mod_axeld_cс__bank__js').text($('.valueTag_Bank').text());
+            $('.mod_axeld_cс__country__js').text($('.valueTag_credit').text());
+
 
             let THIS_Parent = $(this).parents('.mod_axeld_credit_192');
             let BankName = THIS_Parent.find('.valueTag_Bank').text();
@@ -182,6 +191,7 @@ $(document).ready(function () {
 
                 return false;
             }
+
 
 
             /*  console.log('Price ' + Price + '; Банк' + Bank + '; Процент ' + Procent + ' ; Кредит ' + Credit + '; Месяц ' + Mouth + '; Месяц ' + MouthText + '; Коэф. ' + Koff);*/

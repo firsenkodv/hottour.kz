@@ -19,6 +19,7 @@ use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Tour\TourController;
 use App\Http\Controllers\Tourvisor\TourvisorController;
+use App\MoonShine\Controllers\MoonshineCalculatorCreditController;
 use App\MoonShine\Controllers\MoonshineSettingController;
 use App\MoonShine\Controllers\ReplacementController;
 use Illuminate\Support\Facades\Route;
@@ -528,6 +529,7 @@ Route::controller(SitemapController::class)->group(function () {
 });
 
 Route::post('/moonshine/setting-website', MoonshineSettingController::class);
+Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController::class);
 
 
 

@@ -1,6 +1,7 @@
 <div class="mod_axeld_credit mod_axeld_credit_192"
-     data-banks='{"banks" : { "bank1" : { "title" : "Халык банк" , "procent" : "1" ,"koff" : { "3" : "0.34333375&3 месяца" ,"6" : "0.1766675&6 месяцев" ,"12" : "0.0925925&12 месяцев" ,"18" : "0.06555625&18 месяцев" ,"24" : "0.0516675&24 месяца" }},"bank2" : { "title" : "Kaspi банк" , "procent" : "1" ,"koff" : { "3" : "0.34333375&3 месяца" ,"6" : "0.1766675&6 месяцев" ,"18" : "0.0925925&12 месяцев"  ,"24" : "0.0516675&24 месяца" }},"bank3" : { "title" : "Home Credit Банк" , "procent" : "1" ,"koff" : { "3" : "0.34333375&3 месяца" ,"6" : "0.1766675&6 месяцев" ,"12" : "0.0925925&12 месяцев" ,"18" : "0.06555625&18 месяцев" ,"24" : "0.0516675&24 месяца" }}}}'
->
+     data-banks=' {"banks" : {@foreach(config('site.calculator-credit.banks') as $k => $bank)"bank{{$k++}}" : {"title": "{{  $bank['title']}}","procent": "{{  $bank['procent']}}","koff" : {@foreach($bank['koff'] as $option)"{{$option['month']}}" : "{{$option['procent']}}&{{$option['month_rus']}}"@if(!$loop->last),@endif @endforeach }}@if(!$loop->last),@endif @endforeach}}'>
+
+
     <div id="loader_wrapper" class="loader_wrapper active ">
         <x-forms.loader class="br_12 active"/>
     </div>
@@ -9,6 +10,9 @@
         <div class="mod_axeld_credit_calculator__h3 desc_static">
             <p class="colorGrey pad_t16 pad_b6">{{ __('Покажем точную ставку, сумму и платеж по кредиту от нескольких банков') }}</p>
         </div>
+
+        {{--   @dd(config('site.calculator-credit.banks'))--}}
+
 
         <div class="mod_axeld_credit_calculator__block mod_axeld_credit_calculator__block_1">
             <div class="selectBox" style="z-index: 11;">
@@ -21,15 +25,12 @@
                 <!-- тот самый выпадающий список -->
                 <ul class="selectMenuBox selectMenuBox_Bank">
 
-                    <li data-bank="bank1" data-title="{{__('Халык банк')}}" data-procent="1"
-                        class="option">{{__('Халык банк')}}</li>
+                    @foreach(config('site.calculator-credit.banks') as $k => $bank)
 
-                    <li data-bank="bank2" data-title="{{__('Kaspi банк')}}" data-procent="1"
-                        class="option">{{__('Kaspi банк')}}</li>
+                        <li data-bank="bank{{$k++}}" data-title="{{$bank['title']}}" data-procent="{{$bank['procent']}}"
+                            class="option">{{$bank['title']}}</li>
 
-                    <li data-bank="bank3" data-title="{{__('Home Credit Банк')}}" data-procent="1"
-                        class="option">{{__('Home Credit Банк')}}</li>
-
+                    @endforeach
                 </ul>
             </div> <!-- .selectBox  -->
         </div>
@@ -44,10 +45,11 @@
                 <p data-label="{{ __('Кредит') }}" class="valueTag valueTag_credit">{{ __('Кредит') }}</p>
                 <!-- тот самый выпадающий список -->
                 <ul class="selectMenuBox selectMenuBox_Credit">
-                    <li class="option">{{ __('Тур в Турцию') }}</li>
-                    <li class="option">{{ __('Тур в Египет') }}</li>
-                    <li class="option">{{ __('Тур в ОАЭ') }}</li>
-                    <li class="option">{{ __('Тур во Вьетнам') }}</li>
+
+                    @foreach(config('site.calculator-credit.countries') as $k => $country)
+                        <li class="option">{{ $country['title'] }}</li>
+                    @endforeach
+
                 </ul>
             </div> <!-- .selectBox  -->
         </div>
@@ -60,8 +62,8 @@
                 <input type="text" class="mod_c_c_val" data-min="0" data-max="10000000" value="300000">
                 <div
                     class="mod_axeld_credit_calculator__slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
-                          style="left: 2.0202%;"></span></div>
+<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+      style="left: 2.0202%;"></span></div>
             </div><!--.mod_axeld_credit_calculator__slider___block-->
 
             <div class="m_c__c_50 mod_axeld_credit_calculator__selectBox___block">
@@ -96,6 +98,16 @@
         <h2 class="mod_axeld_credit_calculator__h2">{{ __('Результаты расчета') }} <span><a
                     class="mod_axeld_credit__redirect axeld_button "
                     href="{{ url()->previous() }}">{{ __('Пересчитать') }}</a></span></h2>
+
+
+        <div class="mod_axeld_cс">
+
+            <div class="mod_axeld_cс__bank_wr">
+            <span class="mod_axeld_cс__bank mod_axeld_cс__bank__js">Название банка</span> /
+            <span class="mod_axeld_cс__country  mod_axeld_cс__country__js">Страна</span>
+            </div>
+        </div>
+
 
         <div class="mod_axeld_credit_calculator__result___wrapp">
             <div class="mod_axeld_credit__labels">

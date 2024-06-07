@@ -67,6 +67,7 @@ class MainHotelsCron extends Command
                 $requestid = $r->result->requestid;
 
                 for ($i = 1; $i < 6; $i++) {
+
                     $res = $api->getToursForHotel($requestid);
 
                     if ($res->data->status->progress == 100) {

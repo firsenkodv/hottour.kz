@@ -352,6 +352,32 @@ ul.selectMenuBox li.active {
     padding: 19px 0 26px 0 !important;
 }
 
+
+.mod_axeld_cс__bank_wr {
+    border-top: 1px solid #dddddd;
+    padding: 13px 0 10px 0;
+    margin: 17px 0 0 0;
+}
+.mod_axeld_cс__bank {
+    font-size: 20px;
+    line-height: 1.3em;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 10px 0 4px 0;
+    padding: 10px 0 0 0;
+    color: #EF533F;
+
+}
+
+.mod_axeld_cс__country   {
+    font-size: 20px;
+    line-height: 1.3em;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 11px;
+}
+
+
 /* классы на форму */
 
 @media screen and (max-width: 668px) {

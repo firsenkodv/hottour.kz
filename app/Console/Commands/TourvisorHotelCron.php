@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\SystemMessageEvent;
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
 use App\Mail\SendMails;
 use App\Models\CustomerHotTour;
@@ -32,6 +33,8 @@ class TourvisorHotelCron extends Command
      */
     public function handle()
     {
+        ini_set('memory_limit', '8192M');
+
         $t = new Tourvisor();
         $t_getCountries = [];
         $t_getCountries = $t->getCountries(); // это страны из таблицы tourvisor_counrties
@@ -154,11 +157,20 @@ class TourvisorHotelCron extends Command
                 }
 
 
+
+                dump("Обработана страна - " . $country['name']); // в консоль
+                \Log::info("Обработана страна - " . $country['name']); // в логи
+                $mailbody[] = "Обработана страна - " . $country['name']; // в письмо
+
+
             } // forteach
         } // if
 
-        $a = new SendMails;
-        $a->sendTestSystemMessage('app/Console/Commands/TourvisorHotelCron.php');
+        /**
+         * Событие отправка сообщения админу
+         */
+        $request = ['commands'=> 'tourvisorhotel:cron','file_commands'=> 'TourvisorHotelCron.php','body'=> $mailbody];
+        SystemMessageEvent::dispatch($request);
 
     }
 

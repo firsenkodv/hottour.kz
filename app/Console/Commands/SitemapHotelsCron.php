@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Console\Commands;
 
+namespace App\Console\Commands;
 use App\Events\SystemMessageEvent;
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
 use App\Models\CustomerHotTour;
@@ -32,6 +32,7 @@ class SitemapHotelsCron extends Command
      */
     public function handle()
     {
+        ini_set('memory_limit', '8192M');
 
         if(!Storage::disk('sitemap')->exists('sitemap')) {
             Storage::disk('sitemap')->makeDirectory('sitemap');

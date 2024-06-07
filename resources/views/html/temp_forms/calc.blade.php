@@ -100,6 +100,7 @@
                         name="total_payout"
                         value=""
                     />
+                    <br>
                 <x-forms.trick-button class="button_normal calc_js">
                     {{__('Отправить расчет')}}
                 </x-forms.trick-button>
