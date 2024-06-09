@@ -57,7 +57,6 @@ class CountryController extends Controller
         $country = CountryViewModel::make()->OneCountry($slug_country); // страна
 
 
-
         $hot_category = CountryViewModel::make()->HotCategoryRelation($slug_subcountry); // курорт страны (подлкатегория страны)
 
 
@@ -97,29 +96,58 @@ class CountryController extends Controller
         $hot_category = CountryViewModel::make()->HotCategoryRelation($slug_subcountry);  // курорт страны (подлкатегория страны)
         $subcountries = CountryViewModel::make()->SubCountries($slug_country); // подкатегории страны
 
+        settype($resorts, "array");
+        settype($excursions, "array");
+        settype($hotels, "array");
+        settype($infos, "array");
+
         //$resorts = $hot_category->resorts()->where('slug', $slug_subcountry__item)->where('published', 1)->first();
-        $resorts = (count($hot_category->resorts))?$hot_category->resorts()->get():[];
-        $excursions = (count($hot_category->excursions))?$hot_category->excursions()->get():[];
-        $hotels = (count($hot_category->hotels))?$hot_category->hotels()->get():[];
-        $infos = (count($hot_category->infos))?$hot_category->infos()->get():[];
+        if (isset($hot_category->resorts)){
+            $resorts = (count($hot_category->resorts)) ? $hot_category->resorts()->get() : [];
+         }
+
+        if (isset($hot_category->excursions)) {
+            $excursions = (count($hot_category->excursions)) ? $hot_category->excursions()->get() : [];
+        }
+
+        if (isset($hot_category->hotels)) {
+            $hotels = (count($hot_category->hotels)) ? $hot_category->hotels()->get() : [];
+        }
+        if (isset($hot_category->infos)) {
+            $infos = (count($hot_category->infos)) ? $hot_category->infos()->get() : [];
+        }
+
         $view = 'pages.countries.item';
+
+ /*       dump($resorts);
+        dump($excursions);
+        dump($hotels);
+        dump($infos);*/
 
         if($resorts) {
             $item = ResortViewModel::make()->OneResort($slug_subcountry__item); // материал курорта
+
         }
 
         if($excursions) {
             $item = ExcursionViewModel::make()->OneExcursion($slug_subcountry__item); // материал экскурсии
+
         }
 
         if($hotels) {
             $item = HotelViewModel::make()->OneHotel($slug_subcountry__item); // материал отеля
             $view = 'pages.countries.hotel';
+
+
         }
 
         if($infos) {
             $item = InfoViewModel::make()->OneInfo($slug_subcountry__item); // материал полезного
+
+
         }
+
+
         return view($view, [
             'hot_category' => $hot_category,
             'item' => $item,
