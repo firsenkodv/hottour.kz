@@ -44,6 +44,23 @@ class ResortResource extends ModelResource
 
     protected ?ClickAction $clickAction = ClickAction::EDIT;
 
+    public function filters(): array
+    {
+        return [
+            ID::make()
+                ->useOnImport()
+                ->showOnExport(),
+
+            Text::make('Название', 'title')
+                ->useOnImport()
+                ->showOnExport(),
+
+            BelongsTo::make('Категория', 'parent', resource: new HotCategoryResource())->nullable()->searchable(),        ];
+    }
+
+
+
+
     /**
      * @return //array, выводим teaser
      */
