@@ -709,7 +709,8 @@
     line-height: 1.1em;
     padding: 0 0 16px 0; }
   .h_sw .swiper_hottours .swiper-slide {
-    max-width: 280px; }
+    max-width: 280px;
+    margin-right: 30px; }
 
   .p_sw .h1, .p_sw .h2, .p_sw .h3, .p_sw h1, .p_sw h2, .p_sw h3 {
     font-size: 32px !important;
