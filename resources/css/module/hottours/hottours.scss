@@ -61,8 +61,9 @@ $maxWidth: 1440;
     border-radius: 12px;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
     border: 3px solid rgba(224, 224, 224, 0.4);
-    width: 100%;
+    width: 289px;
     position: relative;
+    margin: 0 auto;
     // .hot_item__top
     &__top {
         border-radius: 12px 12px 0 0;

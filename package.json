@@ -16,6 +16,7 @@
         "@fontsource/source-sans-pro": "^5.0.8",
         "imask": "^7.3.0",
         "sass": "^1.70.0",
+        "slick-carousel": "^1.8.1",
         "swiper": "^10.3.1"
     }
 }

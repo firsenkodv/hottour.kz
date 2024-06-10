@@ -6,7 +6,8 @@
 />
 @section('content')
     <section class="good_summer"></section>
-    <main>
+
+ <main>
         <div class="background_mobile">
         <section class="block z-index-24 pad_t16 pad_b16 ">
             @include('include.search.select.select_search')

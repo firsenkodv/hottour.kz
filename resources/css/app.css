@@ -11,6 +11,12 @@
 @import "@fontsource/philosopher/700.css";
 @import "./fancybox.scss";
 
+@import "slick-carousel/slick/slick.scss";
+@import "slick-carousel/slick/slick-theme.scss";
+/*
+@import "./click/click.scss";
+*/
+
 @import "./module/banner/banner.scss";
 @import "./module/news/index_news.scss";
 @import "./module/index_text/index_text.scss";
@@ -66,4 +72,3 @@
 @import "./style.scss";
 @import "./media_cabinet.scss";
 @import "./media.scss";
-

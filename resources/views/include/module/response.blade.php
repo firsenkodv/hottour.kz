@@ -6,15 +6,15 @@
         </div>
         <div class="r_sw__right">
             <div class="r_nav">
-                <button type="button" class="swiper-prev swiper-button-prev-swiper_responce"><span>‹</span></button>
-                <button type="button" class="swiper-next swiper-button-next-swiper_responce"><span>›</span></button>
+                <button type="button" class="swiper-prev swiper-button-prev-swiper_responce click_slider_p__js"><span>‹</span></button>
+                <button type="button" class="swiper-next swiper-button-next-swiper_responce click_slider_n__js"><span>›</span></button>
             </div>
         </div>
 
     </div>
 
     <div class="swiper swiper_responce">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper  slick_slider__responcescarusel">
         @foreach($main_otz as $item)
             <div class="swiper-slide">
                 <div class="responce_item">

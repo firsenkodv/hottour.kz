@@ -51,7 +51,7 @@
                                 @endforeach
 
                             </div>
-
+                            <div class="view_subcategories_countries__mobile menu_cab_m__js"></div>
                         </div>
                     </div>
                     <div class="hbox__middle country_page ">

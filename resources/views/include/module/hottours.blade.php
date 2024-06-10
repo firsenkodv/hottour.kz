@@ -17,7 +17,7 @@
         <x-forms.loader class="active"/>
     <div class="swiper swiper_hottours">
 
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper slick_slider__carusel">
             @foreach($swiper_hot_tours as $k=>$item)
                 <div class="swiper-slide">
                     <div class="hot_item">
@@ -27,7 +27,7 @@
                             @endif
                             @if($item->img)
                                 <div class="hot_item__img" style="
-                                            width: 310px;
+                                            width: 285px;
                                             height: 200px;
                                             background-position: center;
                                             background-repeat: no-repeat;
@@ -36,7 +36,7 @@
                             @elseif($item->params)
                                 @if($item->params['hotelpicture'])
                                     <div class="hot_item__img" style="
-                                            width: 310px;
+                                            width: 285px;
                                             height: 200px;
                                             background-position: center;
                                             background-repeat: no-repeat;

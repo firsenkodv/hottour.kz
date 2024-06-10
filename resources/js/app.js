@@ -7,16 +7,24 @@ import IMask from 'imask';
 window.IMask = IMask;
 
 // core version + navigation, pagination modules:
-import Swiper from 'swiper';
+/*import Swiper from 'swiper';
 import {Navigation, Pagination, Controller} from 'swiper/modules';
-Swiper.use([Navigation, Pagination, Controller]);
+Swiper.use([Navigation, Pagination, Controller]);*/
+
+
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import './swiper';
+
+//import './swiper';
 import './translate/translate';
 import './chosen/chosen.jquery';
+
+//import 'slick-carousel/slick/slick';
+
+
 import './imask';
 import './select';
 import './ajax';

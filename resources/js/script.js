@@ -1,4 +1,72 @@
 //todo:jquery
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    $('.slick_slider__carusel').slick({
+        slidesToShow: 5,
+        slidesToScroll: 2,
+        // centerMode: true,
+        swipeToSlide: true,
+        variableWidth: true,
+        infinite: true,
+        speed: 700,
+        autoplay: true,
+        autoplaySpeed: 7000,
+    });
+
+    $('.slick_slider__popularscarusel').slick({
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        // centerMode: true,
+        swipeToSlide: true,
+        variableWidth: true,
+        infinite: true,
+        speed: 700,
+        autoplay: true,
+        autoplaySpeed: 7000,
+    });
+
+    $('body').on('click', '.p_sw .click_slider_p__js', function (event) {
+     $('.slick_slider__popularscarusel  .slick-prev').trigger('click');
+    });
+
+    $('body').on('click', '.p_sw .click_slider_n__js', function (event) {
+     $('.slick_slider__popularscarusel  .slick-next').trigger('click');
+    });
+
+    $('.slick_slider__responcescarusel').slick({
+      //  slidesToShow: 4,
+        slidesToScroll: 3,
+     //    centerMode: true,
+        swipeToSlide: true,
+        variableWidth: true,
+        infinite: true,
+        speed: 700,
+        autoplay: false,
+        autoplaySpeed: 7000,
+    });
+    $('body').on('click', '.r_sw .click_slider_p__js', function (event) {
+        $('.slick_slider__responcescarusel  .slick-prev').trigger('click');
+    });
+
+    $('body').on('click', '.r_sw .click_slider_n__js', function (event) {
+        $('.slick_slider__responcescarusel  .slick-next').trigger('click');
+    });
+
+    $('.slick_slider__bannercarusel').slick({
+
+    });
+    $('body').on('click', '.b_nav .click_slider_p__js', function (event) {
+        $('.slick_slider__bannercarusel  .slick-prev').trigger('click');
+    });
+
+    $('body').on('click', '.b_nav .click_slider_n__js', function (event) {
+        $('.slick_slider__bannercarusel  .slick-next').trigger('click');
+    });
+
+
+});
+
 $(document).ready(function () {
 
     /**
@@ -167,6 +235,8 @@ $(document).ready(function () {
 
     /* Открытия значка вопроса*/
 
+
+
 });
 
 /**
@@ -209,6 +279,11 @@ $('#filter_jq').on('keyup', function () {
 /**
  *  ///поиск по чекбоксам
  */
+
+
+
+
+
 
 
 

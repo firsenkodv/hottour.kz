@@ -1,5 +1,6 @@
 <div class="swiper swiper_banner">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper slick_slider__bannercarusel">
+
         <div class="swiper-slide">
         <div class="b_banner  b_banner_1" style="background-image: url('/images/baner/samolet_new.jpg'); background-repeat: no-repeat; background-size: cover;      background-position: center; ">
             <div class="b_banner__1000 b_banner__800">
@@ -20,6 +21,7 @@
             </div>
         </div>
         </div>
+
         <div class="swiper-slide">
             <div class="b_banner b_banner_2" style="background-image: url('/images/baner/samolet_new2.jpg'); background-repeat: no-repeat; background-size: cover ">
                 <div class="b_banner__1000 b_banner__800">
@@ -42,6 +44,7 @@
                 </div>
             </div>
         </div>
+
         <div class="swiper-slide">
             <div class="b_banner  b_banner_3" style="background-image: url('/images/baner/samolet_new3.jpg'); background-repeat: no-repeat; background-size: cover ">
                 <div class="b_banner__1000 b_banner__800">
@@ -68,8 +71,8 @@
     </div>
     <div class="block">
         <div class="b_nav">
-            <button type="button" class="swiper-prev swiper-button-prev-swiper_banner"><span>‹</span></button>
-            <button type="button" class="swiper-next swiper-button-next-swiper_banner"><span>›</span></button>
+            <button type="button" class="swiper-prev swiper-button-prev-swiper_banner click_slider_p__js"><span>‹</span></button>
+            <button type="button" class="swiper-next swiper-button-next-swiper_banner click_slider_n__js"><span>›</span></button>
         </div>
     </div>
 </div>

@@ -11,16 +11,14 @@ new Swiper('.mainswiper', {
     },
 });
 
-// init swiper_researches:
+/*
 new Swiper('.swiper_hottours', {
 
-    // configure Swiper to use modules
     modules: [Navigation, Pagination],
     spaceBetween: 30,
 
     loop: true,
     slidesPerView: "auto",
-   // slidesPerColumn: 1, //number
 
 
     navigation: {
@@ -28,7 +26,6 @@ new Swiper('.swiper_hottours', {
         prevEl: ".swiper-button-prev-swiper_hottours",
     },
     breakpoints: {
-        // mobile + tablet - 320-990
         320: {
             slidesPerView: 1,
             spaceBetween: 10,
@@ -39,7 +36,6 @@ new Swiper('.swiper_hottours', {
         742: {
             slidesPerView: "auto",
         },
-        // desktop >= 991
         991: {
             slidesPerView: 3,
             spaceBetween: 20,
@@ -59,6 +55,7 @@ new Swiper('.swiper_hottours', {
         }
     }
 });
+*/
 
 
 var swiper_test = new Swiper(".mySwiper", {
@@ -77,9 +74,8 @@ var swiper_test = new Swiper(".mySwiper", {
 
 
 
-// init swiper_expertise:
+/*
 new Swiper('.swiper_populars', {
-    // configure Swiper to use modules
     modules: [Navigation, Pagination],
     slidesPerView: 4,
     spaceBetween: 30,
@@ -89,7 +85,6 @@ new Swiper('.swiper_populars', {
         prevEl: ".swiper-button-prev-swiper_populars",
     },
     breakpoints: {
-        // mobile + tablet - 320-990
         320: {
             slidesPerView: 1
         },
@@ -99,7 +94,6 @@ new Swiper('.swiper_populars', {
         742: {
             slidesPerView: 3
         },
-        // desktop >= 991
         991: {
             slidesPerView: 4,
             loop: true,
@@ -107,6 +101,7 @@ new Swiper('.swiper_populars', {
         }
     }
 });
+*/
 
 
 

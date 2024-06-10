@@ -9,14 +9,14 @@
     </div>
     <div class="p_sw__right">
         <div class="p_nav">
-            <button type="button" class="swiper-prev swiper-button-prev-swiper_populars"><span>‹</span></button>
-            <button type="button" class="swiper-next swiper-button-next-swiper_populars"><span>›</span></button>
+            <button type="button" class="swiper-prev swiper-button-prev-swiper_populars click_slider_p__js"><span>‹</span></button>
+            <button type="button" class="swiper-next swiper-button-next-swiper_populars click_slider_n__js"><span>›</span></button>
         </div>
     </div>
 </div>
 
     <div class="swiper swiper_populars">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper slick_slider__popularscarusel">
 
             @foreach($hotel_swiper as $hotel)
 

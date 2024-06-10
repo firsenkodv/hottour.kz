@@ -123,6 +123,8 @@ $maxWidth: 1440;
 
 @media screen and (max-width: 1068px) {
 
+
+
     .view_subcategories_countries__mobile {
         position: absolute;
         right: 10px;
@@ -161,7 +163,7 @@ $maxWidth: 1440;
             .v_s_c__item {
                 margin: 0;
 
-                a {
+                a, span {
                     height: 47px;
                     align-items: start;
                     border-bottom: 1px solid #ccc;
@@ -170,7 +172,10 @@ $maxWidth: 1440;
 
         }
     }
-
+    .v_s_c__flex .v_s_c__item.active span:before,
+    .v_s_c__flex .v_s_c__item.active a:before {
+display: none;
+    }
 
     .hbox__submenuBorder {
         .v_s_c {
