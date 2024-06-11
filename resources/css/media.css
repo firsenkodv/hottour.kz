@@ -439,7 +439,7 @@
     bottom: 70px;
     width: 100%;
     height: 100%;
-    background: #949491;
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 150; }
     .mob_menu_content .mob_menu_content_absol {
@@ -541,15 +541,23 @@
       background-position: 0 0;
       background-repeat: no-repeat;
       background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAuOCAxMkMwLjggNS44MTQ4MyA1LjgxNDgzIDAuOCAxMiAwLjhDMTguMTg1MiAwLjggMjMuMiA1LjgxNDgzIDIzLjIgMTJDMjMuMiAxOC4xODUyIDE4LjE4NTIgMjMuMiAxMiAyMy4yQzUuODE0ODMgMjMuMiAwLjggMTguMTg1MiAwLjggMTJaIiBzdHJva2U9IiNFRjUzM0YiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxwYXRoIGQ9Ik0xMiA2QzE0LjQ4MSA2IDE2LjUgOC4wMTkgMTYuNSAxMC41QzE2LjUgMTIuOTgxIDE0LjQ4MSAxNSAxMiAxNUM5LjUxOSAxNSA3LjUgMTIuOTgxIDcuNSAxMC41QzcuNSA4LjAxOSA5LjUxOSA2IDEyIDZaIiBmaWxsPSIjRUY1MzNGIi8+CjxwYXRoIGQ9Ik0xMS45OTk5IDIzQzkuNDE5ODggMjMgNy4wNzI4OCAyMi4wMSA1LjI5Njg4IDIwLjM5OUM2LjE0Mjg4IDE4LjQ0MSA4LjgxNTg4IDE3IDExLjk5OTkgMTdDMTUuMTgzOSAxNyAxNy44NTY5IDE4LjQ0MSAxOC43MDI5IDIwLjM5OUMxNi45MjY5IDIyLjAxIDE0LjU3OTkgMjMgMTEuOTk5OSAyM1oiIGZpbGw9IiNFRjUzM0YiLz4KPC9zdmc+Cg=="); }
+    .mob_flex .m_f5 form {
+      text-align: center; }
+      .mob_flex .m_f5 form .m_img {
+        margin: 0 auto; }
+      .mob_flex .m_f5 form button {
+        text-align: center;
+        border: none;
+        background: none; }
 
-  .fMenu {
+  .fMenu, .fLogin {
     position: relative;
     height: 80%;
     z-index: 5; }
-    .fMenu li {
+    .fMenu li, .fLogin li {
       min-height: 56px;
       border-bottom: 1px solid rgba(40, 40, 40, 0.1); }
-      .fMenu li a {
+      .fMenu li a, .fLogin li a {
         box-sizing: border-box;
         min-height: 56px;
         color: #282828;
@@ -558,26 +566,30 @@
         line-height: 56px;
         padding: 0 16px;
         font-size: 18px; }
-      .fMenu li a:hover, .fMenu li a.active {
+      .fMenu li a:hover, .fMenu li a.active, .fLogin li a:hover, .fLogin li a.active {
         color: #EF533F; }
-    .fMenu li:last-child {
+    .fMenu li:last-child, .fLogin li:last-child {
       border-bottom: none; }
 
-  .fMenu {
+  .fMenu, .fLogin {
     width: 100%;
     overflow-y: scroll; }
 
-  .fMenu::-webkit-scrollbar-track {
+  .fMenu::-webkit-scrollbar-track,
+  .fLogin::-webkit-scrollbar-track {
     border-radius: 4px; }
 
-  .fMenu::-webkit-scrollbar {
+  .fMenu::-webkit-scrollbar,
+  .fLogin::-webkit-scrollbar {
     width: 6px; }
 
-  .fMenu::-webkit-scrollbar-thumb {
+  .fMenu::-webkit-scrollbar-thumb,
+  .fLogin::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background: #EF533F; }
 
-  .fMenu:hover::-webkit-scrollbar-thumb {
+  .fMenu:hover::-webkit-scrollbar-thumb,
+  .fLogin:hover::-webkit-scrollbar-thumb {
     background: #ebebed; }
 
   /* Переход на мобильную версию */ }

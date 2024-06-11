@@ -79,4 +79,31 @@
   margin: 0 5px 0 12px;
   display: block; }
 
+.enter_to_website__a2__mob {
+  width: 100%;
+  position: relative;
+  display: block;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 56px;
+  text-decoration: none;
+  line-height: 56px;
+  font-size: 18px;
+  border: none !important; }
+  .enter_to_website__a2__mob span {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 56px;
+    color: #EF533F;
+    text-decoration: none;
+    line-height: 56px;
+    padding: 0 16px;
+    font-size: 18px; }
+
+.enter_to_website__a2__mob:hover span {
+  color: #EF533F !important; }
+
 /*# sourceMappingURL=header.css.map */
