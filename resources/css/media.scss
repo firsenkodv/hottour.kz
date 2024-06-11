@@ -190,6 +190,7 @@ $maxWidth: 1440;
         display: none;
     }
 }
+
 @media screen and (max-width: 1168px) {
 
     .h_sw,
@@ -256,11 +257,13 @@ $maxWidth: 1440;
     }
     .page_site__flex {
         display: block !important;
+
         .page_site__left {
             width: 100% !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
         }
+
         .page_site__rihgt {
             width: 100% !important;
             padding-left: 0 !important;
@@ -321,6 +324,7 @@ $maxWidth: 1440;
     .F_form_pick_tour {
         .F_form__pick {
             width: 100%;
+
             .F_form__pick_left__noImg {
                 .scroll-block {
                     height: 288px;
@@ -469,9 +473,11 @@ $maxWidth: 1440;
 
     .b_banner__1000 .b_banner__right_flex {
         justify-content: end;
+
         .b_banner__right_flex__left {
             padding-right: 20px;
         }
+
         .b_banner__right_flex__right {
             padding-right: 20px;
         }
@@ -681,7 +687,6 @@ $maxWidth: 1440;
 
         }
     }
-
 
 
     /* Переход на мобильную версию */
@@ -939,17 +944,21 @@ $maxWidth: 1440;
                 }
 
             }
-form {
-    text-align: center;
-    .m_img {
-        margin: 0 auto;
-    }
-    button {
-        text-align: center;
-        border: none;
-        background: none;
-    }
-}    }
+
+            form {
+                text-align: center;
+
+                .m_img {
+                    margin: 0 auto;
+                }
+
+                button {
+                    text-align: center;
+                    border: none;
+                    background: none;
+                }
+            }
+        }
 
 
     }
@@ -994,14 +1003,12 @@ form {
     }
 
     .fMenu::-webkit-scrollbar-track,
-    .fLogin::-webkit-scrollbar-track
-    {
+    .fLogin::-webkit-scrollbar-track {
         border-radius: 4px;
     }
 
     .fMenu::-webkit-scrollbar,
-    .fLogin::-webkit-scrollbar
-    {
+    .fLogin::-webkit-scrollbar {
         width: 6px;
     }
 
@@ -1065,8 +1072,6 @@ form {
 /* xiaomi pro6 */
 
 @media (max-width: 666px) {
-
-
 
 
     .p_plane {
@@ -1153,6 +1158,16 @@ form {
 
         padding-top: 0;
     }
+
+    .bg_kab.flex {
+        display: block;
+        height: auto !important;
+        .axeld_flex {
+            width: 100% !important;
+            padding-bottom: 20px;
+        }
+    }
+  
 }
 
 @media (max-width: 521px) {
@@ -1189,6 +1204,7 @@ form {
 
             left: 16px;
         }
+
         .pc_category_flag {
 
             bottom: 30px;
@@ -1317,7 +1333,6 @@ form {
     }
 
 
-
     .mobile_version {
         padding-top: 8px;
         padding-bottom: 8px;
@@ -1331,7 +1346,6 @@ form {
             display: none;
 
         }
-
 
 
         .top_socialBig {
@@ -1440,6 +1454,7 @@ form {
 
     .hbox.temp_img .hrow {
         display: block !important;
+
         .hcol {
             width: 100%;
 

@@ -678,7 +678,14 @@
     height: 142px !important; }
 
   .android_ios {
-    padding-top: 0; } }
+    padding-top: 0; }
+
+  .bg_kab.flex {
+    display: block;
+    height: auto !important; }
+    .bg_kab.flex .axeld_flex {
+      width: 100% !important;
+      padding-bottom: 20px; } }
 @media (max-width: 521px) {
   .v_vid__flickity {
     flex-wrap: wrap; }
