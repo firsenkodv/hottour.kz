@@ -38,6 +38,7 @@ class MainHotelsCron extends Command
 
     public function handle()
     {
+
         $api = new Tourvisor();
 
         $hotels = Hotel::query()
@@ -131,6 +132,10 @@ class MainHotelsCron extends Command
                         dump("Загружен отель  - " . $h['name']); // в консоль
                         \Log::info("Загружен отель  - " . $h['name']); // в логи
                         $mailbody[] = "Загружен отель  - " . $h['name']; // в письмо
+                    } else {
+                        dump("Нет туров  - " . $h['name']); // в консоль
+                        \Log::info("Нет туров  - " . $h['name']); // в логи
+                        $mailbody[] = "Нет туров  - " . $h['name']; // в письмо
                     }
                 }
 
