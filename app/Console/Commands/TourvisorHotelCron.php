@@ -55,98 +55,99 @@ class TourvisorHotelCron extends Command
                     $array = [];
                     foreach ($r as $k => $item) {
                         $hotel = $t->getHotel($item->id);
-                        if ($hotel->data->hotel->countrycode) {
-                            $images = '';
-                            $site_img = '';
-                            $metatitle = '';
-                            $description = '';
-                            $array[$k]['title'] = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
-                            $array[$k]['slug'] = $item->id;
-                            $array[$k]['hot_category_id'] = $hot_category_id;
-                            $array[$k]['country_id'] = ($hotel->data->hotel->countrycode) ?: '';
-                            $array[$k]['region_id'] = ($hotel->data->hotel->regioncode) ?: '';
-                            $array[$k]['stars'] = ($hotel->data->hotel->stars) ?: '';
-                            $array[$k]['rating'] = ($hotel->data->hotel->rating) ?: '';
-                            $array[$k]['placement'] = (isset($hotel->data->hotel->placement)) ? strip_tags(ucfirst($hotel->data->hotel->placement)) : '';
-                            $array[$k]['desc'] = (isset($hotel->data->hotel->description)) ? strip_tags(ucfirst($hotel->data->hotel->description)) : '';
+                        if($hotel) { /** если есть результат по отелю **/
+                            if ($hotel->data->hotel->countrycode) {
+                                $images = '';
+                                $site_img = '';
+                                $metatitle = '';
+                                $description = '';
+                                $array[$k]['title'] = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
+                                $array[$k]['slug'] = $item->id;
+                                $array[$k]['hot_category_id'] = $hot_category_id;
+                                $array[$k]['country_id'] = ($hotel->data->hotel->countrycode) ?: '';
+                                $array[$k]['region_id'] = ($hotel->data->hotel->regioncode) ?: '';
+                                $array[$k]['stars'] = ($hotel->data->hotel->stars) ?: '';
+                                $array[$k]['rating'] = ($hotel->data->hotel->rating) ?: '';
+                                $array[$k]['placement'] = (isset($hotel->data->hotel->placement)) ? strip_tags(ucfirst($hotel->data->hotel->placement)) : '';
+                                $array[$k]['desc'] = (isset($hotel->data->hotel->description)) ? strip_tags(ucfirst($hotel->data->hotel->description)) : '';
 
-                            $array[$k]['imagescount'] = ($hotel->data->hotel->imagescount) ?: 0;
+                                $array[$k]['imagescount'] = ($hotel->data->hotel->imagescount) ?: 0;
 
-                            if (isset($hotel->data->hotel->images->image)) {
-                                $images = '[';
-                                foreach ($hotel->data->hotel->images->image as $img) {
-                                    if ($img == end($hotel->data->hotel->images->image)) {
-                                        $images .= '"' . $img . '"';
-                                    } else {
-                                        $images .= '"' . $img . '",';
+                                if (isset($hotel->data->hotel->images->image)) {
+                                    $images = '[';
+                                    foreach ($hotel->data->hotel->images->image as $img) {
+                                        if ($img == end($hotel->data->hotel->images->image)) {
+                                            $images .= '"' . $img . '"';
+                                        } else {
+                                            $images .= '"' . $img . '",';
+                                        }
                                     }
+                                    $images .= ']';
                                 }
-                                $images .= ']';
-                            }
 
-                            $array[$k]['params'] = ($images) ?: '';
-                            $params = ($array[$k]['imagescount']) ? $hotel->data->hotel->images->image : null;
+                                $array[$k]['params'] = ($images) ?: '';
+                                $params = ($array[$k]['imagescount']) ? $hotel->data->hotel->images->image : null;
 
-                            $array[$k]['region'] = strip_tags($hotel->data->hotel->region);
-                            $array[$k]['build'] = (isset($hotel->data->hotel->build)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->build))) : '';
-                            $array[$k]['repair'] = (isset($hotel->data->hotel->repair)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->repair))) : '';
-                            $array[$k]['coord'] = ($hotel->data->hotel->coord1 and $hotel->data->hotel->coord2) ? $hotel->data->hotel->coord1 . ',' . $hotel->data->hotel->coord2 : '';
-                            $metatitle = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
-                            if (isset($hotel->data->hotel->country)) {
-                                $metatitle .= ' | ' . $hotel->data->hotel->country;
-                            }
-                            if (isset($hotel->data->hotel->region)) {
-                                $metatitle .= ' | ' . $hotel->data->hotel->region;
-                            }
-                            if (isset($hotel->data->hotel->stars)) {
-                                $metatitle .= ' | звезд ' . $hotel->data->hotel->stars;
-                            }
-                            if (isset($hotel->data->hotel->rating)) {
-                                $metatitle .= ' | рейтинг ' . $hotel->data->hotel->rating;
-                            }
-                            $array[$k]['metatitle'] = ($metatitle) ?: '';
-
-                            if (isset($hotel->data->hotel->placement)) {
-                                $description = strip_tags($hotel->data->hotel->placement);
-                            } else {
-                                $description .= 'Hotel ' . strip_tags(ucfirst(strtolower($hotel->data->hotel->name))) . ', ' . $hotel->data->hotel->country . ', звёздность ' . $hotel->data->hotel->stars;
-                                if (isset($hotel->data->hotel->build)) {
-                                    $description .= ', построен в ' . strip_tags($hotel->data->hotel->build);
+                                $array[$k]['region'] = strip_tags($hotel->data->hotel->region);
+                                $array[$k]['build'] = (isset($hotel->data->hotel->build)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->build))) : '';
+                                $array[$k]['repair'] = (isset($hotel->data->hotel->repair)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->repair))) : '';
+                                $array[$k]['coord'] = ($hotel->data->hotel->coord1 and $hotel->data->hotel->coord2) ? $hotel->data->hotel->coord1 . ',' . $hotel->data->hotel->coord2 : '';
+                                $metatitle = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
+                                if (isset($hotel->data->hotel->country)) {
+                                    $metatitle .= ' | ' . $hotel->data->hotel->country;
                                 }
-                                if (isset($hotel->data->hotel->repair)) {
-                                    $description .= ', прошел реконструкцию  ' . strip_tags($hotel->data->hotel->repair);
+                                if (isset($hotel->data->hotel->region)) {
+                                    $metatitle .= ' | ' . $hotel->data->hotel->region;
+                                }
+                                if (isset($hotel->data->hotel->stars)) {
+                                    $metatitle .= ' | звезд ' . $hotel->data->hotel->stars;
                                 }
                                 if (isset($hotel->data->hotel->rating)) {
-                                    $description .= ', имеет рейтинг ' . $hotel->data->hotel->rating;
+                                    $metatitle .= ' | рейтинг ' . $hotel->data->hotel->rating;
                                 }
+                                $array[$k]['metatitle'] = ($metatitle) ?: '';
+
+                                if (isset($hotel->data->hotel->placement)) {
+                                    $description = strip_tags($hotel->data->hotel->placement);
+                                } else {
+                                    $description .= 'Hotel ' . strip_tags(ucfirst(strtolower($hotel->data->hotel->name))) . ', ' . $hotel->data->hotel->country . ', звёздность ' . $hotel->data->hotel->stars;
+                                    if (isset($hotel->data->hotel->build)) {
+                                        $description .= ', построен в ' . strip_tags($hotel->data->hotel->build);
+                                    }
+                                    if (isset($hotel->data->hotel->repair)) {
+                                        $description .= ', прошел реконструкцию  ' . strip_tags($hotel->data->hotel->repair);
+                                    }
+                                    if (isset($hotel->data->hotel->rating)) {
+                                        $description .= ', имеет рейтинг ' . $hotel->data->hotel->rating;
+                                    }
+                                }
+
+                                $array[$k]['description'] = ($description) ?: '';
+                                $array[$k]['keywords'] = 'id объекта ' . $item->id . ', ' . strip_tags($hotel->data->hotel->name) . ', ' . $hotel->data->hotel->country . ', ' . $hotel->data->hotel->region;
+
+                                Hotel::updateOrCreate(['slug' => $array[$k]['slug']],
+                                    [
+                                        'title' => $array[$k]['title'],
+                                        'slug' => $array[$k]['slug'],
+                                        'hot_category_id' => $array[$k]['hot_category_id'],
+                                        'country_id' => ($array[$k]['country_id']) ?: null,
+                                        'region_id' => ($array[$k]['region_id']) ?: null,
+                                        'stars' => ($array[$k]['stars']) ?: null,
+                                        'rating' => ($array[$k]['rating']) ?: null,
+                                        'placement' => ($array[$k]['placement']) ?: '',
+                                        'desc' => ($array[$k]['desc']) ?: '',
+                                        'imagescount' => $array[$k]['imagescount'],
+                                        'params' => $params,
+                                        'region' => ($array[$k]['region']) ?: '',
+                                        'build' => ($array[$k]['build']) ?: '',
+                                        'coord' => ($array[$k]['coord']) ?: '',
+                                        'metatitle' => ($array[$k]['metatitle']) ?: '',
+                                        'description' => ($array[$k]['description']) ?: '',
+                                        'keywords' => ($array[$k]['keywords']) ?: '',
+                                    ]);
+
                             }
-
-                            $array[$k]['description'] = ($description) ?: '';
-                            $array[$k]['keywords'] = 'id объекта ' . $item->id . ', ' . strip_tags($hotel->data->hotel->name) . ', ' . $hotel->data->hotel->country . ', ' . $hotel->data->hotel->region;
-
-                            Hotel::updateOrCreate(['slug' => $array[$k]['slug']],
-                                [
-                                    'title' => $array[$k]['title'],
-                                    'slug' => $array[$k]['slug'],
-                                    'hot_category_id' => $array[$k]['hot_category_id'],
-                                    'country_id' => ($array[$k]['country_id']) ?: null,
-                                    'region_id' => ($array[$k]['region_id']) ?: null,
-                                    'stars' => ($array[$k]['stars']) ?: null,
-                                    'rating' => ($array[$k]['rating']) ?: null,
-                                    'placement' => ($array[$k]['placement']) ?: '',
-                                    'desc' => ($array[$k]['desc']) ?: '',
-                                    'imagescount' => $array[$k]['imagescount'],
-                                    'params' => $params,
-                                    'region' => ($array[$k]['region']) ?: '',
-                                    'build' => ($array[$k]['build']) ?: '',
-                                    'coord' => ($array[$k]['coord']) ?: '',
-                                    'metatitle' => ($array[$k]['metatitle']) ?: '',
-                                    'description' => ($array[$k]['description']) ?: '',
-                                    'keywords' => ($array[$k]['keywords']) ?: '',
-                                ]);
-
                         }
-
 
                     }
 

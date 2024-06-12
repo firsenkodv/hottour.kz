@@ -59,81 +59,80 @@ class MainHotelsCron extends Command
                 $adults = ['adults' => 2, 'child' => 0]; // взрослые и дети
 
                 $result = $api->getHotel($hotel->slug);
-                $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id, 'departure' => $departure['code'], 'adults' => $adults['adults'],  'child' => $adults['child'], ];
 
-                $api = new Tourvisor();
-                $r = $api->getRequestid($params);
+                if($result) { /** если есть результат по отелю **/
+                    $params = ['region_id' => $hotel->region_id, 'id' => $hotel->slug, 'country_id' => $hotel->country_id, 'departure' => $departure['code'], 'adults' => $adults['adults'], 'child' => $adults['child'],];
 
-                $requestid = $r->result->requestid;
+                    $api = new Tourvisor();
+                    $r = $api->getRequestid($params);
 
-                for ($i = 1; $i < 6; $i++) {
+                    $requestid = $r->result->requestid;
 
-                    $res = $api->getToursForHotel($requestid);
+                    for ($i = 1; $i < 6; $i++) {
 
-                    if ($res->data->status->progress == 100) {
+                        $res = $api->getToursForHotel($requestid);
 
-                        dump('Сработало - 100%');
-                        \Log::info('Сработало - 100%'); // в логи
+                        if ($res->data->status->progress == 100) {
 
-                        break;
+                            dump('Сработало - 100%');
+                            \Log::info('Сработало - 100%'); // в логи
+
+                            break;
+
+                        }
+                        sleep(10);
+                        dump('Попытка - ' . $i);
+                        \Log::info('Попытка - ' . $i); // в логи
+
 
                     }
-                    sleep(10);
-                    dump('Попытка - ' . $i);
-                    \Log::info('Попытка - ' . $i); // в логи
 
 
+                    if ($res->data->status->toursfound != 0) {
+
+
+                        $h['slug'] = $hotel->slug;
+                        $h['name'] = $result->data->hotel->name;
+                        $h['img'] = $result->data->hotel->images->image[0];
+                        $h['star'] = $result->data->hotel->stars;
+                        $h['country'] = $result->data->hotel->country;
+
+
+                        $h['price'] = ($res->data->result->hotel[0]->tours->tour[0]->price) ?: '';
+                        $h['meal'] = ($res->data->result->hotel[0]->tours->tour[0]->meal) ?: '';
+                        $h['mealrussian'] = ($res->data->result->hotel[0]->tours->tour[0]->mealrussian) ?: '';
+                        $h['placement'] = ($res->data->result->hotel[0]->tours->tour[0]->placement) ?: '';
+                        $h['room'] = ($res->data->result->hotel[0]->tours->tour[0]->room) ?: '';
+                        $h['nights'] = ($res->data->result->hotel[0]->tours->tour[0]->nights) ?: '';
+                        $h['flydate'] = ($res->data->result->hotel[0]->tours->tour[0]->flydate) ?: '';
+                        $h['city'] = ($departure['city']) ?: '';
+                        $h['adults'] = ($adults['adults']) ?: '';
+                        $h['child'] = ($adults['child']) ?: '';
+
+
+                        HotelMain::query()->create([
+                            'title' => $h['name'],
+                            'slug' => $h['slug'],
+                            'img' => $h['img'],
+                            'star' => $h['star'],
+                            'country' => $h['country'],
+                            'price' => $h['price'],
+                            'meal' => $h['meal'],
+                            'placement' => $h['placement'],
+                            'mealrussian' => $h['mealrussian'],
+                            'room' => $h['room'],
+                            'nights' => $h['nights'],
+                            'flydate' => $h['flydate'],
+                            'city' => $h['city'],
+                            'adults' => $h['adults'],
+                            'child' => $h['child'],
+                        ]);
+
+                        dump("Загружен отель  - " . $h['name']); // в консоль
+                        \Log::info("Загружен отель  - " . $h['name']); // в логи
+                        $mailbody[] = "Загружен отель  - " . $h['name']; // в письмо
+                    }
                 }
-
-
-                if ($res->data->status->toursfound != 0) {
-
-
-
-                    $h['slug'] = $hotel->slug;
-                    $h['name'] = $result->data->hotel->name;
-                    $h['img'] = $result->data->hotel->images->image[0];
-                    $h['star'] = $result->data->hotel->stars;
-                    $h['country'] = $result->data->hotel->country;
-
-
-                    $h['price'] = ($res->data->result->hotel[0]->tours->tour[0]->price)?:'';
-                    $h['meal'] = ($res->data->result->hotel[0]->tours->tour[0]->meal)?:'';
-                    $h['mealrussian'] = ($res->data->result->hotel[0]->tours->tour[0]->mealrussian)?:'';
-                    $h['placement'] = ($res->data->result->hotel[0]->tours->tour[0]->placement)?:'';
-                    $h['room'] = ($res->data->result->hotel[0]->tours->tour[0]->room)?:'';
-                    $h['nights'] = ($res->data->result->hotel[0]->tours->tour[0]->nights)?:'';
-                    $h['flydate'] = ($res->data->result->hotel[0]->tours->tour[0]->flydate)?:'';
-                    $h['city'] = ($departure['city'])?:'';
-                    $h['adults'] = ($adults['adults'])?:'';
-                    $h['child'] = ($adults['child'])?:'';
-
-
-
-
-                    HotelMain::query()->create([
-                        'title' => $h['name'],
-                        'slug' => $h['slug'],
-                        'img' => $h['img'],
-                        'star' => $h['star'],
-                        'country' => $h['country'],
-                        'price' => $h['price'],
-                        'meal' => $h['meal'],
-                        'placement' => $h['placement'],
-                        'mealrussian' => $h['mealrussian'],
-                        'room' => $h['room'],
-                        'nights' => $h['nights'],
-                        'flydate' => $h['flydate'],
-                        'city' => $h['city'],
-                        'adults' => $h['adults'],
-                        'child' => $h['child'],
-                    ]);
-
-                    dump("Загружен отель  - " . $h['name']); // в консоль
-                    \Log::info("Загружен отель  - " . $h['name']); // в логи
-                    $mailbody[] = "Загружен отель  - " . $h['name']; // в письмо
-                }
-
 
                 sleep(10);
 

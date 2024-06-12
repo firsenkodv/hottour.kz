@@ -248,16 +248,21 @@ class Tourvisor
     {
         $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&" . $query;
 
-        $result = file_get_contents($url);
-        return json_decode($result);
+        $result = (file_get_contents($url))?:null;
+        if($result) {
+            return json_decode($result);
+        }
+        return null;
     }
 
     public function getHotel($id)
     {
         $url = 'https://tourvisor.ru/xml/hotel.php?format=json&hotelcode=' . $id . '&imgbig=1&authlogin=' . $this->login . '&authpass=' . $this->password;
-        $result = file_get_contents($url);
-        return json_decode($result);
-
+        $result = (file_get_contents($url))?:null;
+        if($result) {
+            return json_decode($result);
+        }
+        return null;
     }
     /**
      * Для корнсольной команды tourvisorhotel
