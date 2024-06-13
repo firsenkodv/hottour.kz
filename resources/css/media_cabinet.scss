@@ -124,7 +124,6 @@ $maxWidth: 1440;
 @media screen and (max-width: 1068px) {
 
 
-
     .view_subcategories_countries__mobile {
         position: absolute;
         right: 10px;
@@ -145,6 +144,7 @@ $maxWidth: 1440;
     .view_subcategories_countries__mobile:hover {
         background-color: $colorRed;
     }
+
     .v_s_c {
         position: relative;
         height: 62px;
@@ -167,6 +167,7 @@ $maxWidth: 1440;
                     height: 47px;
                     align-items: start;
                     border-bottom: 1px solid #ccc;
+
                 }
             }
 
@@ -174,7 +175,7 @@ $maxWidth: 1440;
     }
     .v_s_c__flex .v_s_c__item.active span:before,
     .v_s_c__flex .v_s_c__item.active a:before {
-display: none;
+        display: none;
     }
 
     .hbox__submenuBorder {
@@ -192,7 +193,33 @@ display: none;
     }
 
 
-    .cabinet {
+.v_s_c__no {
+    .v_s_c__flex {
+        display: flex;
+        padding: 4px;
+        background: none;
+        border-radius: 0;
+        position: relative;
+        z-index: 100;
+        height: auto;
+        box-shadow:none;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        .v_s_c__item {
+            margin: 0;
+
+            a, span {
+                height: 47px;
+                align-items: start;
+                border: 0;
+                padding: 5px 20px 0 0;
+            }
+        }
+    }
+}
+
+.cabinet {
         input[type=text].input, input[type=email].input, input[type=date].input, input[type=number].input, input[type=password].input {
             font-size: 14px;
         }
@@ -326,21 +353,21 @@ display: none;
 
     }
 
-.fLogin {
-    .textnohtml_rel {
-        width: 100%;
+    .fLogin {
+        .textnohtml_rel {
+            width: 100%;
 
-        i {
-            width: 96%;
-            max-width: 96% !important;
-            left: 2% !important;
-            top: -70px;
-            margin: 0 auto;
+            i {
+                width: 96%;
+                max-width: 96% !important;
+                left: 2% !important;
+                top: -70px;
+                margin: 0 auto;
+            }
         }
+
+
     }
-
-
-}
 
     /* Переход на мобильную версию */
 

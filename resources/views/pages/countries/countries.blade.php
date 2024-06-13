@@ -33,6 +33,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                                {{ $countries->withQueryString()->links('pagination::default') }}
 
 
                         </div>

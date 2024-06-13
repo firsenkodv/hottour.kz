@@ -47,6 +47,8 @@ class MainHotelsCron extends Command
             ->take(20)
             ->get();
 
+
+
         if ($hotels->count() > 6) {
 
             HotelMain::truncate();
@@ -133,9 +135,9 @@ class MainHotelsCron extends Command
                         \Log::info("Загружен отель  - " . $h['name']); // в логи
                         $mailbody[] = "Загружен отель  - " . $h['name']; // в письмо
                     } else {
-                        dump("Нет туров  - " . $h['name']); // в консоль
-                        \Log::info("Нет туров  - " . $h['name']); // в логи
-                        $mailbody[] = "Нет туров  - " . $h['name']; // в письмо
+                        dump("Нет туров"); // в консоль
+                        \Log::info("Нет туров"); // в логи
+                        $mailbody[] = "Нет туров"; // в письмо
                     }
                 }
 

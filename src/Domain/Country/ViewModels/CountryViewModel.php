@@ -14,12 +14,12 @@ class CountryViewModel
     public function listCountries()
     {
 
-        $countries = Cache::rememberForever('list_countries', function () {
+       // $countries = Cache::rememberForever('list_countries', function () {
 
-            return HotCategory::query()
+            $countries =  HotCategory::query()
                 ->get_countries()
                 ->paginate(20);
-        });
+       // });
 
 
         return $countries;

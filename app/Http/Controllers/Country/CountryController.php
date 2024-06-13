@@ -23,6 +23,7 @@ class CountryController extends Controller
 
         $countries = CountryViewModel::make()->listCountries();
 
+
         return view('pages.countries.countries', [
             'countries' => $countries
         ]);

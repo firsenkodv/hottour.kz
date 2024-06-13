@@ -35,7 +35,7 @@ keywords="{{$country->keywords}}"
                     </div>
 
                     <div class="hbox__submenu">
-                        <div class="view_subcategories_countries v_s_c ">
+                        <div class="view_subcategories_countries v_s_c v_s_c__no ">
                             <div class="flex v_s_c__flex">
 
                                 <div class="v_s_c__item active"><span>{{ __('О стране') }}</span></div>
@@ -47,7 +47,6 @@ keywords="{{$country->keywords}}"
                                 @endforeach
 
                             </div>
-                            <div class="view_subcategories_countries__mobile menu_cab_m__js"></div>
 
 
                         </div>

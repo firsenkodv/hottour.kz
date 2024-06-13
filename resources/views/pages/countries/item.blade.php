@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="hbox__submenu">
-                        <div class="view_subcategories_countries v_s_c ">
+                        <div class="view_subcategories_countries v_s_c v_s_c__no">
 
                             <div class="flex v_s_c__flex">
 
@@ -52,7 +52,6 @@
                   @endforeach
 
                             </div>
-                            <div class="view_subcategories_countries__mobile menu_cab_m__js"></div>
 
                         </div>
                     </div>
