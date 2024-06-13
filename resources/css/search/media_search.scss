@@ -311,6 +311,7 @@ $maxWidth: 1440;
        }
    }
 }
+
 @media screen and (max-width: 793px) {
 
     #resultHotel {
@@ -592,12 +593,12 @@ $maxWidth: 1440;
         }
 
         .rating-area {
-            width: 100%;
+            width: 142px;
 
         }
 
         .rating-area:not(:checked) > label {
-            float: left;
+          /*  float: left;*/
 
         }
     }

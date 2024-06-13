@@ -812,8 +812,8 @@
   .b_banner_1 {
     background-position: left !important; }
     .b_banner_1 .s_p {
-      background: #fff;
-      padding: 2px 10px; }
+      /*            background: #fff;
+                  padding: 2px 10px;*/ }
 
   .quality_servise,
   .good_summer {

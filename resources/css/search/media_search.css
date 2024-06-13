@@ -351,9 +351,9 @@
     .s_bottomright__top .s_stars__label {
       text-align: left; }
     .s_bottomright__top .rating-area {
-      width: 100%; }
+      width: 142px; }
     .s_bottomright__top .rating-area:not(:checked) > label {
-      float: left; }
+      /*  float: left;*/ }
 
   .s_bottomright__middle {
     width: 100%;
