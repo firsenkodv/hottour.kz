@@ -1,3 +1,6 @@
+@include('include.connect.cart.cart')
+
+
 <div class="connection_fixed">
 <div class="connection_absol">
     <a href="#pick_tour" data-fancybox="" data-touch="false" class="con_item con_item__1">
@@ -29,7 +32,7 @@
         <div class="con_item__left"><span>{{__('Написать в Telegram')}}</span></div>
         <div class="con_item__right"><div class="con_item__telegram"></div></div>
 
-    </a>
+</a>
 
 </div>
 </div>

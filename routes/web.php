@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignUpController;
+use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Dashboard\AdminController;
@@ -536,6 +537,14 @@ Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController:
 Route::controller(PageController::class)->group(function () {
 
     Route::get('{page:slug}', 'page')->name('page');
+
+});
+
+
+Route::controller(CartController::class)->group(function () {
+
+    Route::post('/temp/cart', 'cart_form')->name('cart_form');
+    Route::get('/temp/cart', 'cart')->name('cart');
 
 });
 

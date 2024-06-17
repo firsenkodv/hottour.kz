@@ -1,4 +1,11 @@
 @section('tourvisor')
+
+    @if(cart())
+        @php
+            $isGood = true;
+        @endphp
+    @endif
+
     <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}"/>
     <script src="{{ asset('js/moment.js') }}"></script>
     <script src="{{ asset('js/jquery.daterangepicker.min.js') }}"></script>
@@ -332,7 +339,7 @@
                 html += getTabResultHotelHtml(v);
                 html += `<div class="search_result__text">${v.hoteldescription}</div></div><div class="search_result__price"><div class="search_result__coast">от <span>`;
                 html += km;
-                html += `</span> <span class="c__currency">` + currency(v.currency) + `</span> </div><div class="wrap_button"><button type="button" data-target="hotel_price" class="search_result__button button  search_result__tour_button btnPinkGradient DetailedTourGTM isClick">Подробнее</button></div></div></div></div><div class="search_result__switch search_choose_switch">`;
+                html += `</span> <span class="c__currency">` + currency(v.currency) + `</span> </div><div class="wrap_button"><button type="button" data-target="hotel_price" class="search_result__button button  search_result__tour_button btnPinkGradient DetailedTourGTM isClick">Подробнее</button></div>@if(isset($isGood))<div class="favourites"><i></i><span></span></div>@endif</div></div></div><div class="search_result__switch search_choose_switch">`;
                 if ($('#hotel-' + v.hotelcode + ' .hotel_about.active').length) html += `<div class="hotel_about active">`;
                 else html += `<div class="hotel_about">`;
                 html += `<div class="hotel_about__photo"><div class="photo_collage">`;
@@ -358,6 +365,7 @@
                 if (typeof v.hotels_info.inroom !== 'undefined') {
                     html += `<p><span>В номерах:</span></p>${v.hotels_info.inroom}`;
                 }
+
                 /*           if (typeof v.hotels_info.roomtypes !== 'undefined') {
                                html += `<p><span>Типы номеров:</span></p>${v.hotels_info.roomtypes}`;
                            }
@@ -366,7 +374,9 @@
                            }
                            if (typeof v.hotels_info.child  !== "undefined") {
                                html += `<p><span>Для детей:</span></p>${v.hotels_info.child}`;
-                           } */
+                           }
+                            */
+
                 if (typeof v.hotels_info.beach !== 'undefined') {
                     html += `<p><span>Пляж:</span></p>${v.hotels_info.beach}`
                 }
@@ -542,7 +552,10 @@
                 let result = await api(data);
                 if (typeof result.data == "object") {
                     if (typeof result.data.status == 'object') {
+
                         if (result.data.status.progress == 100) {
+
+
                             if (result.data.result.hotel.length > 0) {
                                 searchComplete = true;
                                 page++;
@@ -572,6 +585,10 @@
             if (typeof result.data == "object") {
                 if (typeof result.data.status == 'object') {
                     if (result.data.status.progress == 100) {
+
+
+
+
                         searchComplete = true;
                         count = result.data.status.hotelsfound
                         countPage = (count / 25).toFixed(0)
@@ -593,9 +610,12 @@
                         renderResultHotels(result.data.result.hotel, containerTour, searchPage * 1 + 1)
                     } else if (result.data.status.progress == 100) {
 
+
+
                         $(containerTour).html('<h2 class="no__result" style="text-align: center">Нет результатов</h2>');
                     }
                 } else if (result.data.status.progress == 100 && result.data.status.hotelsfound == 0) {
+
 
                     $(containerTour).html('<h2 class="no__result" style="text-align: center">Нет результатов</h2>');
                 }
@@ -750,6 +770,7 @@
                 $('.s_rating__label').removeClass('active');
                 $(this).addClass('active');
             });
+
 
             $('.js-chosen').trigger("chosen:updated");
 
@@ -1051,6 +1072,48 @@
                 $('.form_modal input:checkbox').prop('checked', false);
             });
 
+
+            $('body').on('click', '.favourites', function (event) {
+
+                $(this).find('i').toggleClass('active');
+
+                // our object array
+                let big_data = [];
+                let tour_data = [];
+
+
+
+
+
+                        $('#resultHotel .search_result__tour').each(function( index ) {
+
+                             if($(this).find('.favourites i').hasClass('active')) {
+
+                                 let object = {};
+
+                                 object.hotel = $(this).data('id');
+
+                                 $(this).find('.hotel_price__table .line_info').each(function() {
+
+                                     let object_tour = {};
+
+                                     object_tour.tour = $(this).find('.line_info_btn-wrap a').data('tout_data');
+                                     // console.log($(this).find('.line_info_btn-wrap a').data('tout_data'));
+                                     tour_data.push(object_tour);
+                                 });
+                                 object.tour = tour_data;
+                                 big_data.push(object);
+
+                             }
+
+                         });
+
+                 console.log(big_data);
+
+                 //   console.log($(this).parents('.search_result__tour').data('id'));
+                  $('.tour_data').attr('value',  JSON.stringify(big_data));
+
+            });
 
         });
     </script>

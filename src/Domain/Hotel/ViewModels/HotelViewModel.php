@@ -13,11 +13,23 @@ class HotelViewModel
     {
        // $hotels = Cache::rememberForever('hotel', function () {
         $hotel =  Hotel::query()
-                ->get_hotels($slug)
+                ->get_hotel($slug)
                 ->first();
        // });
       //  $hotel = $hotels->firstWhere('slug', $slug);
         return $hotel;
+
+    }
+
+    public function Hotels($array)
+    {
+        $hotels =  Hotel::query()
+                ->get_hotels($array)
+                ->get()
+                ->keyBy('slug')
+                ->toArray();
+
+        return $hotels;
 
     }
 
