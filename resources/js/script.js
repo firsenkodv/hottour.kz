@@ -1,30 +1,35 @@
 //todo:jquery
 document.addEventListener('DOMContentLoaded', function () {
 
+    if($('.slick_slider__carusel').length) {
 
-    $('.slick_slider__carusel').slick({
-        slidesToShow: 5,
-        slidesToScroll: 2,
-        // centerMode: true,
-        swipeToSlide: true,
-        variableWidth: true,
-        infinite: true,
-        speed: 700,
-        autoplay: true,
-        autoplaySpeed: 7000,
-    });
+        $('.slick_slider__carusel').slick({
+            slidesToShow: 5,
+            slidesToScroll: 2,
+            // centerMode: true,
+            swipeToSlide: true,
+            variableWidth: true,
+            infinite: true,
+            speed: 700,
+            autoplay: true,
+            autoplaySpeed: 7000,
+        });
+    }
 
-    $('.slick_slider__popularscarusel').slick({
-        slidesToShow: 4,
-        slidesToScroll: 3,
-        // centerMode: true,
-        swipeToSlide: true,
-        variableWidth: true,
-        infinite: true,
-        speed: 700,
-        autoplay: true,
-        autoplaySpeed: 7000,
-    });
+    if($('.slick_slider__popularscarusel').length) {
+
+        $('.slick_slider__popularscarusel').slick({
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            // centerMode: true,
+            swipeToSlide: true,
+            variableWidth: true,
+            infinite: true,
+            speed: 700,
+            autoplay: true,
+            autoplaySpeed: 7000,
+        });
+    }
 
     $('body').on('click', '.p_sw .click_slider_p__js', function (event) {
      $('.slick_slider__popularscarusel  .slick-prev').trigger('click');
@@ -34,17 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
      $('.slick_slider__popularscarusel  .slick-next').trigger('click');
     });
 
-    $('.slick_slider__responcescarusel').slick({
-      //  slidesToShow: 4,
-        slidesToScroll: 3,
-     //    centerMode: true,
-        swipeToSlide: true,
-        variableWidth: true,
-        infinite: true,
-        speed: 700,
-        autoplay: false,
-        autoplaySpeed: 7000,
-    });
+
+    if($('.slick_slider__responcescarusel').length) {
+
+        $('.slick_slider__responcescarusel').slick({
+            //  slidesToShow: 4,
+            slidesToScroll: 3,
+            //    centerMode: true,
+            swipeToSlide: true,
+            variableWidth: true,
+            infinite: true,
+            speed: 700,
+            autoplay: false,
+            autoplaySpeed: 7000,
+        });
+    }
     $('body').on('click', '.r_sw .click_slider_p__js', function (event) {
         $('.slick_slider__responcescarusel  .slick-prev').trigger('click');
     });
@@ -53,9 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.slick_slider__responcescarusel  .slick-next').trigger('click');
     });
 
-    $('.slick_slider__bannercarusel').slick({
 
-    });
     $('body').on('click', '.b_nav .click_slider_p__js', function (event) {
         $('.slick_slider__bannercarusel  .slick-prev').trigger('click');
     });
@@ -278,6 +285,52 @@ $('#filter_jq').on('keyup', function () {
 
 /**
  *  ///поиск по чекбоксам
+ */
+
+
+
+/**
+ *  ///корзина список отелей и туров
+ */
+
+$('body').on('click', '.hotel_about__js', function (event) {
+
+    let Parent = $(this).parents('.search_result__tour');
+    Parent.find('.hotel_about').slideToggle();
+    Parent.find('.hotel_map').slideUp();
+    Parent.find('.hotel_price').slideUp();
+});
+
+$('body').on('click', '.hotel_map__js', function (event) {
+
+    let Parent = $(this).parents('.search_result__tour');
+    Parent.find('.hotel_map').slideToggle();
+    Parent.find('.hotel_about').slideUp();
+    Parent.find('.hotel_price').slideUp();
+});
+
+$('body').on('click', '.hotel_price__js', function (event) {
+
+    let Parent = $(this).parents('.search_result__tour');
+    Parent.find('.hotel_price').slideToggle();
+    Parent.find('.hotel_about').slideUp();
+    Parent.find('.hotel_map').slideUp();
+
+});
+
+$('body').on('click', '.search_result__button', function (event) {
+
+    let Parent = $(this).parents('.search_result__tour');
+    Parent.find('.hotel_price').slideToggle();
+    Parent.find('.hotel_about').slideUp();
+    Parent.find('.hotel_map').slideUp();
+
+});
+
+
+
+/**
+ *  ///корзина список отелей и туров
  */
 
 

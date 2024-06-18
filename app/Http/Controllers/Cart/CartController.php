@@ -13,6 +13,7 @@ class CartController
 
        $data =  json_decode($request->tour_data);
 
+
        if($data) {
 
            $hotels = [];
@@ -22,7 +23,6 @@ class CartController
            {
                $hotel_ids[$h->hotel] = $h->hotel;
            }
-
 
            $hotels = HotelViewModel::make()->Hotels($hotel_ids); // array c ключами из slug
 
@@ -54,7 +54,7 @@ class CartController
 
     public function cart(){
 
-          return view('cart/cart', []);
+          return view('cart/cart', ['tour_data' => []]);
     }
 
 }

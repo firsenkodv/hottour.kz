@@ -55,8 +55,14 @@ class TourvisorHotelCron extends Command
                     $array = [];
                     foreach ($r as $k => $item) {
                         $hotel = $t->getHotel($item->id);
+                      //  dd($hotel);
+
+
+
                         if($hotel) { /** если есть результат по отелю **/
                             if ($hotel->data->hotel->countrycode) {
+
+
                                 $images = '';
                                 $site_img = '';
                                 $metatitle = '';
@@ -66,6 +72,7 @@ class TourvisorHotelCron extends Command
                                 $array[$k]['hot_category_id'] = $hot_category_id;
                                 $array[$k]['country_id'] = ($hotel->data->hotel->countrycode) ?: '';
                                 $array[$k]['region_id'] = ($hotel->data->hotel->regioncode) ?: '';
+                                $array[$k]['region'] = strip_tags($hotel->data->hotel->region);
                                 $array[$k]['stars'] = ($hotel->data->hotel->stars) ?: '';
                                 $array[$k]['rating'] = ($hotel->data->hotel->rating) ?: '';
                                 $array[$k]['placement'] = (isset($hotel->data->hotel->placement)) ? strip_tags(ucfirst($hotel->data->hotel->placement)) : '';
@@ -88,7 +95,7 @@ class TourvisorHotelCron extends Command
                                 $array[$k]['params'] = ($images) ?: '';
                                 $params = ($array[$k]['imagescount']) ? $hotel->data->hotel->images->image : null;
 
-                                $array[$k]['region'] = strip_tags($hotel->data->hotel->region);
+
                                 $array[$k]['build'] = (isset($hotel->data->hotel->build)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->build))) : '';
                                 $array[$k]['repair'] = (isset($hotel->data->hotel->repair)) ? strip_tags(ucfirst(strtolower($hotel->data->hotel->repair))) : '';
                                 $array[$k]['coord'] = ($hotel->data->hotel->coord1 and $hotel->data->hotel->coord2) ? $hotel->data->hotel->coord1 . ',' . $hotel->data->hotel->coord2 : '';
@@ -125,6 +132,8 @@ class TourvisorHotelCron extends Command
                                 $array[$k]['description'] = ($description) ?: '';
                                 $array[$k]['keywords'] = 'id объекта ' . $item->id . ', ' . strip_tags($hotel->data->hotel->name) . ', ' . $hotel->data->hotel->country . ', ' . $hotel->data->hotel->region;
 
+
+
                                 Hotel::updateOrCreate(['slug' => $array[$k]['slug']],
                                     [
                                         'title' => $array[$k]['title'],
@@ -132,13 +141,13 @@ class TourvisorHotelCron extends Command
                                         'hot_category_id' => $array[$k]['hot_category_id'],
                                         'country_id' => ($array[$k]['country_id']) ?: null,
                                         'region_id' => ($array[$k]['region_id']) ?: null,
+                                        'region' => ($array[$k]['region']) ?: '',
                                         'stars' => ($array[$k]['stars']) ?: null,
                                         'rating' => ($array[$k]['rating']) ?: null,
                                         'placement' => ($array[$k]['placement']) ?: '',
                                         'desc' => ($array[$k]['desc']) ?: '',
                                         'imagescount' => $array[$k]['imagescount'],
                                         'params' => $params,
-                                        'region' => ($array[$k]['region']) ?: '',
                                         'build' => ($array[$k]['build']) ?: '',
                                         'coord' => ($array[$k]['coord']) ?: '',
                                         'metatitle' => ($array[$k]['metatitle']) ?: '',

@@ -1695,3 +1695,13 @@ $maxWidth: 1440;
         margin-bottom: 16px;
     }
 }
+
+.hotel_map__item {
+    h5 {
+        font-size: 17px;
+        font-weight: 600;
+        span {
+            color: $colorRed;
+        }
+    }
+}

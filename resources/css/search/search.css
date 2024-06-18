@@ -1152,4 +1152,10 @@
     font-weight: 600;
     margin-bottom: 16px; }
 
+.hotel_map__item h5 {
+  font-size: 17px;
+  font-weight: 600; }
+  .hotel_map__item h5 span {
+    color: #EF533F; }
+
 /*# sourceMappingURL=search.css.map */

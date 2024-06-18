@@ -570,7 +570,11 @@ if (!function_exists('currency')) {
 if (!function_exists('price')) {
     function price($price)
     {
-        return number_format($price, 0, '.', ' ');
+
+        if(is_int($price)) {
+            return number_format($price, 0, '.', ' ');
+        }
+        return $price;
     }
 }
 

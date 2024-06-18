@@ -25,7 +25,6 @@ class Hotel extends Model
         'text3',
         'pageimg2',
         'text',
-
         'stars',
         'rating',
         'placement',
@@ -38,19 +37,15 @@ class Hotel extends Model
         'hot_category_id',
         'country_id',
         'region_id',
-
-
+        'region',
         'index',
         'city',
-
         'published',
         'params',
         'metatitle',
         'description',
         'keywords',
         'sorting',
-
-
     ];
 
 

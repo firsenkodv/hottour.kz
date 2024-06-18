@@ -1079,16 +1079,13 @@
 
                 // our object array
                 let big_data = [];
-                let tour_data = [];
-
-
 
 
 
                         $('#resultHotel .search_result__tour').each(function( index ) {
 
                              if($(this).find('.favourites i').hasClass('active')) {
-
+                                 let tour_data = [];
                                  let object = {};
 
                                  object.hotel = $(this).data('id');
@@ -1096,12 +1093,10 @@
                                  $(this).find('.hotel_price__table .line_info').each(function() {
 
                                      let object_tour = {};
-
                                      object_tour.tour = $(this).find('.line_info_btn-wrap a').data('tout_data');
-                                     // console.log($(this).find('.line_info_btn-wrap a').data('tout_data'));
                                      tour_data.push(object_tour);
                                  });
-                                 object.tour = tour_data;
+                                 object.tours = tour_data;
                                  big_data.push(object);
 
                              }

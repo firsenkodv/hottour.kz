@@ -238,12 +238,21 @@ $(document).ready(function () {
         });
 
     });
-    /* oкредитный калькулятор*/
+    /* кредитный калькулятор*/
 
 
     /* take a tour in the holel  */
     $('body').on('click', '.tour_button_js', function (event) {
+
+
+
         var dataJson = $(this).data("tout_data");
+
+       // console.log(dataJson);
+
+
+
+
         //  const jsonObject = JSON.parse(Data);
         let price = dataJson.price.toLocaleString();
         let currency = dataJson.currency;
