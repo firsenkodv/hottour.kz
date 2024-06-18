@@ -592,6 +592,9 @@
   .fLogin:hover::-webkit-scrollbar-thumb {
     background: #ebebed; }
 
+  .cart_left .submit_cart {
+    bottom: 93px; }
+
   /* Переход на мобильную версию */ }
 /* pocofon  x3 */
 /* xiaomi pro6 */
@@ -622,7 +625,12 @@
       display: none; }
 
   .hbox__top {
-    padding-right: 0; } }
+    padding-right: 0; }
+
+  .favourites {
+    flex-direction: row-reverse !important; }
+    .favourites span {
+      margin-right: 10px; } }
 /* xiaomi pro6 */
 @media (max-width: 666px) {
   .p_plane {

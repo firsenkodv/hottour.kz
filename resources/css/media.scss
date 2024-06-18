@@ -1023,6 +1023,16 @@ $maxWidth: 1440;
         background: #ebebed;
     }
 
+
+    .cart_left {
+        .submit_cart {
+
+            bottom: 93px;
+
+        }
+    }
+
+
     /* Переход на мобильную версию */
 
 
@@ -1065,6 +1075,13 @@ $maxWidth: 1440;
     }
     .hbox__top {
         padding-right: 0;
+    }
+
+    .favourites {
+        flex-direction: row-reverse !important;
+        span {
+            margin-right: 10px;
+        }
     }
 
 }
