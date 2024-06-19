@@ -151,14 +151,10 @@ class HotelResource extends ModelResource
                                             ->options([
                                                 'Казахстан' => config('tourvisor.city_kz'),
                                                 'Россия' => config('tourvisor.city_rus')
-
-                                            ]) ->searchable()->hideOnIndex(),
-
-
-
-
+                                            ])->searchable()->hideOnIndex()
 
                                 ]),
+
                                 Collapse::make('Вложенность', [
                                     BelongsTo::make('Категория', 'parent', resource: new HotCategoryResource())->nullable()->searchable()->hideOnIndex(),
                                     Text::make('country Id', 'country_id')->hideOnIndex()
@@ -170,6 +166,7 @@ class HotelResource extends ModelResource
                                         ->showOnExport()
                                         ->hint('обязательно для поиска'),
                                 ]),
+
                             ])->columnSpan(6),
 
 

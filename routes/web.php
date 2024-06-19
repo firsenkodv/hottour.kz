@@ -546,6 +546,9 @@ Route::controller(CartController::class)->group(function () {
     Route::post('/temp/cart', 'cart_form')->name('cart_form');
     Route::get('/temp/cart', 'cart')->name('cart');
 
+    Route::post('/temp/cart/step2', 'cart_form_step2')->name('cart_form_step2');
+    Route::get('/temp/cart/step2', 'cart_step2')->name('cart_step2');
+
 });
 
 

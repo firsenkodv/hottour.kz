@@ -161,17 +161,18 @@ class TourvisorHotelCron extends Command
                     }
 
                      $list = collect($array);
-
                      (new FastExcel($list))->export('storage/app/public/excel/' . $country_id . '.xlsx');
 
+                    dump("Обработана страна - " . $country['name']); // в консоль
+                    \Log::info("Обработана страна - " . $country['name']); // в логи
+                    $mailbody[] = "Обработана страна - " . $country['name']; // в письмо
+                } else {
+
+                    dump("Cтрана не обнаружена - " . $country['name']); // в консоль
+                    \Log::info("Cтрана не обнаружена  - " . $country['name']); // в логи
+                    $mailbody[] = "Cтрана не обнаружена  - " . $country['name']; // в письмо
+
                 }
-
-
-
-                dump("Обработана страна - " . $country['name']); // в консоль
-                \Log::info("Обработана страна - " . $country['name']); // в логи
-                $mailbody[] = "Обработана страна - " . $country['name']; // в письмо
-
 
             } // forteach
         } // if

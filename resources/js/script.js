@@ -327,10 +327,55 @@ $('body').on('click', '.search_result__button', function (event) {
 
 });
 
+$('body').on('click', '#MainCart .roll_back_js', function (event) {
+
+    let Parent = $(this).parents('.search_result__tour');
+    Parent.find('.hotel_about').slideUp();
+    Parent.find('.hotel_map').slideUp();
+    Parent.find('.hotel_price').slideUp();
+
+});
+
+
+
 
 
 /**
  *  ///корзина список отелей и туров
+ */
+
+
+/**
+ *  ///удаление отелей из корзины
+ */
+
+$('body').on('click', '.favourites2', function (event) {
+
+
+    $(this).parents('.search_result__tour').remove();
+
+    // our object array
+    let big_data = [];
+
+    $('#resultHotel .search_result__tour').each(function( index ) {
+
+            let object = {};
+
+            object.hotel = $(this).data('id');
+            big_data.push(object);
+
+    });
+
+
+    //   console.log($(this).parents('.search_result__tour').data('id'));
+    $('.tour_data').attr('value',  JSON.stringify(big_data));
+
+});
+
+
+
+/**
+ *  ///удаление отелей из корзины
  */
 
 

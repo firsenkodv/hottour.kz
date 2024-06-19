@@ -49,6 +49,8 @@ class TourvisorController extends Controller
         $hotels = [];
        // $hotels = $api->getHotels()->lists->hotels->hotel;
 
+    //   dd($countries);
+
        return view('pages.find-tour', [
            'departures' => $departures,
            'countries' => $countries,

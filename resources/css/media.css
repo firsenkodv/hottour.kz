@@ -630,6 +630,11 @@
   .favourites {
     flex-direction: row-reverse !important; }
     .favourites span {
+      margin-right: 10px; }
+
+  .favourites2 {
+    flex-direction: row-reverse !important; }
+    .favourites2 span {
       margin-right: 10px; } }
 /* xiaomi pro6 */
 @media (max-width: 666px) {

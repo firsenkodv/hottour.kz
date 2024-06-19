@@ -127,7 +127,8 @@ class Tourvisor
         $default = TourvisorCountryViewModel::make()->Countries();
         $_d = [];
 
-        foreach($default as $country){
+
+        foreach($default as $country) {
 
             $_d[$country['country_id']] = $country;
             if(!empty($_REQUEST['country']) && !empty($country['default']) && $_REQUEST['country'] != $country['country_id']){
@@ -158,6 +159,9 @@ class Tourvisor
 
         $result = $this->_get($query, 'list.php');
         $tourv_countries = $result->lists->countries->country;
+
+
+
         $list = ['popular'=>[], 'other'=>[]];
 
         foreach ($default as $k => $c)

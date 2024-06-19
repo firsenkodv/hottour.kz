@@ -1083,6 +1083,12 @@ $maxWidth: 1440;
             margin-right: 10px;
         }
     }
+    .favourites2 {
+        flex-direction: row-reverse !important;
+        span {
+            margin-right: 10px;
+        }
+    }
 
 }
 
