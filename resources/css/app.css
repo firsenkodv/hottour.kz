@@ -24,6 +24,7 @@
 @import "./module/response/response.scss";
 @import "./module/popular_country/popular_country.scss";
 @import "./module/popular/popular.scss";
+@import "./module/popular/popular.scss";
 @import "./module/video/video.scss";
 @import "./module/plane/plane.scss";
 @import "./module/questions/questions.scss";

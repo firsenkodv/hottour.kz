@@ -27,7 +27,7 @@
 
             @if($tour_data)
 
-                 @include('cart.partial.hotels', ['tour_data' => $tour_data])
+                 @include('cart.partial.hotels', ['tour_data' => $tour_data, 'favourites' => 'ok'])
 
                     <x-forms.form-cart
                         action="{{ route('cart_form_step2') }}"

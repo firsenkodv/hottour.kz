@@ -14,7 +14,6 @@
         >
             @csrf
             {{ $slot  }}
-
             {{ $buttons  }}
         </form>
     </div><!--.blockForm-->

@@ -546,8 +546,11 @@ Route::controller(CartController::class)->group(function () {
     Route::post('/temp/cart', 'cart_form')->name('cart_form');
     Route::get('/temp/cart', 'cart')->name('cart');
 
-    Route::post('/temp/cart/step2', 'cart_form_step2')->name('cart_form_step2');
-    Route::get('/temp/cart/step2', 'cart_step2')->name('cart_step2');
+    Route::post('/temp/cart/finish', 'cart_form_step2')->name('cart_form_step2');
+    Route::get('/temp/cart/finish', 'cart_form_finish')->name('cart_form_finish');
+    Route::get('/temp/cart/orders', 'cart_orders')->name('cart_orders');
+    Route::post('/temp/cart/clear', 'cart_form_clear')->name('cart_form_clear');
+    Route::get('/collection/{url}', 'collection_tours')->name('collection_tours');
 
 });
 

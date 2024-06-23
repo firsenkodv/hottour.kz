@@ -4,45 +4,47 @@
 
     @if($hotel->site_hotel)
 
-        <div id="hotel-{{ $hotel->site_hotel['slug'] }}" class="search_result__tour search_tabs_switch"
-             style="background-color: #fff" data-id="{{ $hotel->site_hotel['slug'] }}" data-key="0"
-             data-rating="{{ $hotel->site_hotel['rating'] }}" data-cost="{{(isset($hotel->tours[0]->tour))? price($hotel->tours[0]->tour->price): ''}}">
+
+
+        <div id="hotel-{{ $hotel->site_hotel->slug }}" class="search_result__tour search_tabs_switch"
+             style="background-color: #fff" data-id="{{ $hotel->site_hotel->slug }}" data-key="0"
+             data-rating="{{ $hotel->site_hotel->rating }}" data-cost="{{(isset($hotel->tours[0]->tour))? price($hotel->tours[0]->tour->price): ''}}">
             <div class="search_result__flex"><a rel="nofollow"
-                                                href="/go-to-the-hotel's-page/{{ $hotel->site_hotel['slug'] }}"
+                                                href="/go-to-the-hotel's-page/{{ $hotel->site_hotel->slug }}"
                                                 target="_blank">
                     <div class="search_result__photo search_result__photo2"
 
-                         @if(isset($hotel->site_hotel['params']))
-                             style="background:url({{ $hotel->site_hotel['params']['0']}});"
+                         @if(isset($hotel->site_hotel->params))
+                             style="background:url({{ $hotel->site_hotel->params['0']}});"
                         @endif
                     >
                         <ul class="hotel_star search_result__hotel_star">
                             @for($i=1;$i<=5;$i++)
-                                @if($hotel->site_hotel['stars'] < $i )
+                                @if($hotel->site_hotel->stars < $i )
                                     <li>★</li>
                                 @else
                                     <li><i class="star">★</i></li>
                                 @endif
                             @endfor
                         </ul>
-                        <div class="search_result__rating good">{{ $hotel->site_hotel['rating'] }}</div>
+                        <div class="search_result__rating good">{{ $hotel->site_hotel->rating }}</div>
                     </div>
                 </a>
                 <div class="search_result__info-wrap">
                     <div class="search_result__info">
                         <div class="search_result__hotel"><h3 class="hotel_name"
-                                                              style="text-transform: uppercase">{{ $hotel->site_hotel['title'] }}</h3>
+                                                              style="text-transform: uppercase">{{ $hotel->site_hotel->title }}</h3>
                         </div>
-                        <div class="search_result__city"><span class="search_result__city-name">{{ getCountryName($hotel->site_hotel['country_id']) }}, {{ $hotel->site_hotel['region']  }}</span>
+                        <div class="search_result__city"><span class="search_result__city-name">{{ getCountryName($hotel->site_hotel->country_id) }}, {{ $hotel->site_hotel->region  }}</span>
                         </div>
                         <ul class="search_result__tabs">
                             <li class="hotel_about__li hotel_about__js"
                                 data-target="hotel_about">{{ __('Об отеле') }}</li>
                             <li class="hotel_map__js" data-target="hotel_map"
-                                data-id="{{ $hotel->site_hotel['slug'] }}"
+                                data-id="{{ $hotel->site_hotel->slug }}"
                                 @php
                                     settype($data_coord, "string");
-                                    $c = ($hotel->site_hotel['coord']) ?:'';
+                                    $c = ($hotel->site_hotel->coord) ?:'';
                                     if($c) {
                                     $coord = (explode( ",", $c));
                                     $data_coord = 'data-coord_x="'. $coord[0] .'" data-coord_y="'. $coord[1] .'"';
@@ -52,7 +54,7 @@
                             </li>
                             <li class="hotel_price__js" data-target="hotel_price">{{ __('Цены') }}</li>
                         </ul>
-                        <div class="search_result__text">{{  $hotel->site_hotel['description'] }}
+                        <div class="search_result__text">{{  $hotel->site_hotel->description }}
                         </div>
                     </div>
                     <div class="search_result__price">
@@ -65,7 +67,9 @@
                             </button>
                         </div>
 
+                        @if($favourites)
                         <div class="favourites2"><i></i><span></span></div>
+                        @endif
 
                     </div>
                 </div>
@@ -74,11 +78,11 @@
                 <div class="hotel_about">
                     <div class="hotel_about__photo">
                         <div class="photo_collage">
-                            @if($hotel->site_hotel['params'])
-                                @foreach($hotel->site_hotel['params'] as $img)
+                            @if($hotel->site_hotel->params)
+                                @foreach($hotel->site_hotel->params as $img)
                                     <a
                                         href="{{ $img }}"
-                                        data-fancybox="gallery-{{ $hotel->site_hotel['slug'] }}"
+                                        data-fancybox="gallery-{{ $hotel->site_hotel->slug }}"
                                         class="photo_collage__link">
                                         <div class="photo_collage__img"
                                              style="background-image: url({{ $img }})"></div>
@@ -93,25 +97,25 @@
 
 
                         <div class="hotel_about__bottom">
-                            <a rel="nofollow"   href="/go-to-the-hotel's-page/{{ $hotel->site_hotel['slug'] }}"    target="_blank" class="hotel_about__link">{{ __('Подробнее об отеле') }}
+                            <a rel="nofollow"   href="/go-to-the-hotel's-page/{{ $hotel->site_hotel->slug }}"    target="_blank" class="hotel_about__link">{{ __('Подробнее об отеле') }}
                             </a></div>
                     </div>
                 </div>
                 <div class="hotel_map">
-                    <div class="hotel_map__item" id="yandexmap-{{ $hotel->site_hotel['slug'] }}"
+                    <div class="hotel_map__item" id="yandexmap-{{ $hotel->site_hotel->slug }}"
                          style="height: 400px;width: 100%;"></div>
-                    @if($hotel->site_hotel['coord'])
+                    @if($hotel->site_hotel->coord)
                         <script>
                             ymaps.ready(function () {
-                                var map = new ymaps.Map('yandexmap-{{ $hotel->site_hotel['slug'] }}', {
-                                    center: [{{$hotel->site_hotel['coord']}}],
+                                var map = new ymaps.Map('yandexmap-{{ $hotel->site_hotel->slug }}', {
+                                    center: [{{$hotel->site_hotel->coord}}],
                                     zoom: 14,
                                     controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
                                 }, {
                                     searchControlProvider: 'yandex#search'
                                 });
 
-                                myPlacemark_{{ $hotel->site_hotel['slug'] }} = new ymaps.Placemark([{{$hotel->site_hotel['coord']}}], {balloonContent: '<h5><span>Отель:</span>  {{$hotel->site_hotel['title']}}</h5>'}, {
+                                myPlacemark_{{ $hotel->site_hotel->slug }} = new ymaps.Placemark([{{$hotel->site_hotel->coord}}], {balloonContent: '<h5><span>Отель:</span>  {{$hotel->site_hotel->title}}</h5>'}, {
                                     iconLayout: 'default#image',
                                     iconImageHref: '{{ asset('/images/myIcon.svg') }}',
                                     iconImageSize: [58, 55],
@@ -119,7 +123,7 @@
                                 });
 
                                 map.setType(`yandex#hybrid`);
-                                map.geoObjects.add(myPlacemark_{{ $hotel->site_hotel['slug'] }});
+                                map.geoObjects.add(myPlacemark_{{ $hotel->site_hotel->slug }});
 
                                 // меняем тип карты на hybrid
 
@@ -159,7 +163,7 @@
                                     <a href="#reserve_hotel" data-fancybox=""
                                        data-tout_data='{"price":{{ $tour->tour->price }},"dateFrom":"{{ $tour->tour->dateFrom }}","dateTo":"{{ $tour->tour->dateTo }}","nights":{{ $tour->tour->nights }},"room":"{{ $tour->tour->room }}","mealrussian":"{{ $tour->tour->mealrussian }}","meal":"{{ $tour->tour->meal }}","adults":{{ $tour->tour->adults }},"child":{{ $tour->tour->child }},"tourname":"{{ $tour->tour->tourname }}","sity":"{{ trim($tour->tour->sity) }}","hotel":"{{ $tour->tour->hotel }}","country":"{{ $tour->tour->country }}","stars":{{ $tour->tour->stars }},"operatorname":"{{ $tour->tour->operatorname }}","currency":"{{ $tour->tour->currency }}"}'
                                        class="line_info__link line_info__link--big button button_big btnPinkGradientTour tour_button_js"
-                                       data-hotelcode="{{  $hotel->site_hotel['slug'] }}"
+                                       data-hotelcode="{{  $hotel->site_hotel->slug }}"
                                     ><span>{{ price($tour->tour->price) }}</span>
                                         {{ config('currency.currency.KZT') }} </a></div>
                             </div><!--.line_info-->
