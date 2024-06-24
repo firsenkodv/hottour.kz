@@ -199,16 +199,22 @@ class CartController
     public function cart_orders()
     {
 
+
         settype($orders, "array");
         if (auth()->user()) {
-            $orders = UserCart::query()
+
+               $orders = UserCart::query()
                 ->where('user_id', auth()->user()->id)
                 ->orderBy('created_at', 'desc')->get();
+
         } else {
             flash()->alert(config('message_flash.alert.role_error'));
             return redirect()->intended(route('home')); // intended - назад или route
 
         }
+
+
+
         return view('cart/cart_finish', [
             'orders' => $orders,
         ]);
