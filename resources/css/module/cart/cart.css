@@ -1,3 +1,7 @@
+#MainCart {
+  padding-right: 15px !important;
+  padding-left: 15px !important; }
+
 .cart_left {
   position: relative;
   width: 60px;

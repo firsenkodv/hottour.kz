@@ -1,7 +1,7 @@
 <div class="hbox__middle country_page ">
 
     @if($hotel->desc)
-        <div class="philosopher hotel__placement desc">{!!  $hotel->desc !!} {!!  $hotel->desc !!}</div>
+        <div class="philosopher hotel__placement desc">{!!  $hotel->desc !!} </div>
     @endif
 
 

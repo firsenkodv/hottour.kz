@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Cart;
 
-
 use App\Models\User;
 use App\Models\UserCart;
 use Domain\Hotel\ViewModels\HotelViewModel;

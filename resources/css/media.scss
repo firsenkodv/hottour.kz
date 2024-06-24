@@ -321,6 +321,43 @@ $maxWidth: 1440;
 
 @media screen and (max-width: 921px) {
 
+
+    #MainCart {
+        .hotel_about__photo {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+           .photo_collage {
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content:center;
+                padding-right: 0;
+               a {
+                   margin: 8px !important;
+               }
+               .photo_collage__img {
+                   width: 62px;
+                   height: 62px;
+               }
+            }
+        }
+        .hotel_about__flex {
+            display: block;
+        }
+        .hotel_about__text2 {
+            padding-left: 0 !important;
+        }
+        .hotel__services {
+            padding-top: 15px;
+        }
+        .country_page {
+            padding-top: 30px;
+        }
+    }
+
+
+
     .F_form_pick_tour {
         .F_form__pick {
             width: 100%;
