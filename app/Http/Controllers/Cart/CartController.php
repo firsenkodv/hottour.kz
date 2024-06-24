@@ -150,6 +150,7 @@ class CartController
                             $city = (isset($new_tour_data[0]->tours[0]->tour->sity)) ? trim($new_tour_data[0]->tours[0]->tour->sity) : '';
                             $country = (isset($new_tour_data[0]->site_hotel->country_id)) ? getCountryName($new_tour_data[0]->site_hotel->country_id) : '';
 
+
                             $order = UserCart::query()->create([
                                 'city' => $city,
                                 'country' => $country,

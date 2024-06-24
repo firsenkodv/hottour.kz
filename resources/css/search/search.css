@@ -709,7 +709,7 @@
         position: relative;
         display: flex;
         justify-content: flex-end;
-        padding: 26px 5px  10px 10px; }
+        padding: 26px 5px 10px 10px; }
         .search_result__tour .search_result__info-wrap .search_result__price .favourites i {
           color: green;
           padding: 2px 20px 2px 0; }
@@ -732,7 +732,7 @@
         position: relative;
         display: flex;
         justify-content: flex-end;
-        padding: 26px 5px  10px 10px;
+        padding: 26px 5px 10px 10px;
         cursor: pointer; }
         .search_result__tour .search_result__info-wrap .search_result__price .favourites2 i {
           color: red;
@@ -913,6 +913,45 @@
             color: #989898; }
     .search_result__tour .search_result__switch .hotel_price.active {
       display: block; }
+
+.search_result__moreInfo {
+  padding: 20px 0 0 0; }
+  .search_result__moreInfo .search_result__fly {
+    display: flex;
+    position: relative;
+    padding: 0 0 5px 0;
+    font-weight: 600;
+    color: #667085; }
+    .search_result__moreInfo .search_result__fly span {
+      color: #00AFEF;
+      padding-right: 6px; }
+    .search_result__moreInfo .search_result__fly .fly_ {
+      position: relative;
+      margin: 0 8px 0 0;
+      top: 4px;
+      width: 15px;
+      height: 15px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxOCAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNy4xNzQgNS4zMjE5OEMxNi45OTA5IDUuNTMxMjUgMTYuNzY3OCA1LjcwNzcxIDE2LjUwOTcgNS44MzgyM0wzLjg5NTgzIDEyLjE2NTlMMC4yNSA3LjU4MDIxTDAuMzc1NDE3IDcuNTAyOTJMMi40MjUxIDYuNDc0NzlMMy45MTc3MSA3LjA2Njg3TDYuMDM5NTggNi4wMjU2MkwxLjc3Njg4IDEuOTI4NDRMNC42MjUgMC41TDExLjAzOTUgMy41MDU2M0wxNC42MTMxIDEuNzA0NThDMTUuNzAyNSAxLjE1NjI1IDE3LjAwOTIgMS42MzY3NyAxNy41MzI3IDIuNzc3OTJDMTcuOTMyMyAzLjY0NzgxIDE3Ljc2MDkgNC42NTE4NyAxNy4xNzQgNS4zMjE5OFpNMC45NzkxNjcgMTUuMDgzNEgxNy4wMjA4QzE3LjQyMTkgMTUuMDgzNCAxNy43NSAxNS40MTE1IDE3Ljc1IDE1LjgxMjVDMTcuNzUgMTYuMjEzNiAxNy40MjE5IDE2LjU0MTcgMTcuMDIwOCAxNi41NDE3SDAuOTc5MTY3QzAuNTc4MTI1IDE2LjU0MTcgMC4yNSAxNi4yMTM2IDAuMjUgMTUuODEyNUMwLjI1IDE1LjQxMTUgMC41NzgxMjUgMTUuMDgzNCAwLjk3OTE2NyAxNS4wODM0WiIgZmlsbD0iIzAwQUZFRiIvPgo8L3N2Zz4K"); }
+  .search_result__moreInfo .search_result__adults, .search_result__moreInfo .search_result__child {
+    padding: 0 0 5px 0;
+    font-weight: 600;
+    color: #667085; }
+    .search_result__moreInfo .search_result__adults span, .search_result__moreInfo .search_result__child span {
+      color: #282828; }
+
+.hotel_about__text2.desc {
+  padding-left: 30px !important; }
+  .hotel_about__text2.desc h3 {
+    font-size: 24px !important; }
+  .hotel_about__text2.desc h4 {
+    font-size: 22px !important;
+    color: #EF533F !important; }
+    .hotel_about__text2.desc h4 span {
+      color: #282828 !important; }
+  .hotel_about__text2.desc .hbox__middle {
+    padding-top: 0; }
 
 .line_info_plane__day {
   color: #000 !important; }

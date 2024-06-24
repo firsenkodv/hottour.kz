@@ -5,10 +5,9 @@
     @if($hotel->site_hotel)
 
 
-
         <div id="hotel-{{ $hotel->site_hotel->slug }}" class="search_result__tour search_tabs_switch"
              style="background-color: #fff" data-id="{{ $hotel->site_hotel->slug }}" data-key="0"
-             data-rating="{{ $hotel->site_hotel->rating }}" data-cost="{{(isset($hotel->tours[0]->tour))? price($hotel->tours[0]->tour->price): ''}}">
+             data-rating="{{ $hotel->site_hotel->rating }}" data-cost="{{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->price)): ''}}">
             <div class="search_result__flex"><a rel="nofollow"
                                                 href="/go-to-the-hotel's-page/{{ $hotel->site_hotel->slug }}"
                                                 target="_blank">
@@ -54,11 +53,17 @@
                             </li>
                             <li class="hotel_price__js" data-target="hotel_price">{{ __('Цены') }}</li>
                         </ul>
-                        <div class="search_result__text">{{  $hotel->site_hotel->description }}
+                        <div class="search_result__moreInfo">
+                            <div class="search_result__fly"><div class="fly_"></div><span>Вылет: </span> {{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->sity)): ''}}</div>
+
+                            <div class="search_result__adults"><span>Взрослых: </span> {{(isset($hotel->tours[0]->tour))? ($hotel->tours[0]->tour->adults): ' - '}}</div>
+
+                            <div class="search_result__child"><span>Детей: </span> {{(isset($hotel->tours[0]->tour))? ($hotel->tours[0]->tour->child): ' - '}}</div>
+
                         </div>
                     </div>
                     <div class="search_result__price">
-                        <div class="search_result__coast">от <span>{{(isset($hotel->tours[0]->tour))? price($hotel->tours[0]->tour->price): '- '}}</span> <span
+                        <div class="search_result__coast">от <span>{{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->price)): '- '}}</span> <span
                                 class="c__currency">{{ config('currency.currency.KZT') }}</span></div>
                         <div class="wrap_button">
                             <button type="button" data-target="hotel_price"
@@ -75,7 +80,8 @@
                 </div>
             </div>
             <div class="search_result__switch search_choose_switch">
-                <div class="hotel_about">
+                <div class="hotel_about ">
+                    <div class="hotel_about__flex flex">
                     <div class="hotel_about__photo">
                         <div class="photo_collage">
                             @if($hotel->site_hotel->params)
@@ -93,12 +99,14 @@
 
                         </div>
                     </div>
-                    <div class="hotel_about__text desc">
+                    <div class="hotel_about__text hotel_about__text2 desc">
 
+                        @include('cart.partial.hotel_desc', ['hotel' => $hotel->site_hotel])
 
                         <div class="hotel_about__bottom">
                             <a rel="nofollow"   href="/go-to-the-hotel's-page/{{ $hotel->site_hotel->slug }}"    target="_blank" class="hotel_about__link">{{ __('Подробнее об отеле') }}
                             </a></div>
+                    </div>
                     </div>
                 </div>
                 <div class="hotel_map">

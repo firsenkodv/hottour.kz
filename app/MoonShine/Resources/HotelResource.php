@@ -23,6 +23,7 @@ use MoonShine\Fields\Select;
 use MoonShine\Fields\Slug;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
+use MoonShine\Fields\Textarea;
 use MoonShine\Fields\TinyMce;
 use MoonShine\Handlers\ExportHandler;
 use MoonShine\Handlers\ImportHandler;
@@ -218,12 +219,12 @@ class HotelResource extends ModelResource
                             ->showOnExport()
                             ->hideOnIndex(),
 
-                        Text::make(__('Размещение'), 'placement')
+                        Textarea::make(__('Размещение'), 'placement')
                             ->useOnImport()
                             ->showOnExport()
                             ->hideOnIndex(),
 
-                        Text::make(__('Орисание'), 'desc')
+                        Textarea::make(__('Описание'), 'desc')
                             ->useOnImport()
                             ->showOnExport()
                             ->hideOnIndex(),
@@ -242,6 +243,66 @@ class HotelResource extends ModelResource
                             ->useOnImport()
                             ->showOnExport()
                             ->hideOnIndex(),
+
+
+                     Text::make(__('Площадь'), 'square')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Textarea::make(__('Список еды'), 'meallist')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                     Textarea::make(__('Территория'), 'territory')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                     Textarea::make(__('Территория'), 'territory')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                     Textarea::make(__('В номере'), 'inroom')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                     Textarea::make(__('Инфо о номерах'), 'roomtypes')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                     Textarea::make(__('Пляж'), 'beach')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Textarea::make(__('Анимация'), 'animation')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                        Textarea::make(__('Детям'), 'child')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+
+
+                        Textarea::make(__('Бесплатно'), 'servicefree')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+                     Textarea::make(__('Платно'), 'servicepay')
+                            ->useOnImport()
+                            ->showOnExport()
+                            ->hideOnIndex(),
+
+
 
                         Text::make(__('Координаты'), 'coord')
                             ->useOnImport()

@@ -55,20 +55,32 @@ class TourvisorHotelCron extends Command
                     $array = [];
                     foreach ($r as $k => $item) {
                         $hotel = $t->getHotel($item->id);
-                      //  dd($hotel);
+                        //  dd($hotel);
 
 
-
-                        if($hotel) { /** если есть результат по отелю **/
+                        if ($hotel) {
+                            /** если есть результат по отелю **/
                             if ($hotel->data->hotel->countrycode) {
-
-
                                 $images = '';
                                 $site_img = '';
                                 $metatitle = '';
                                 $description = '';
                                 $array[$k]['title'] = strip_tags(ucfirst(strtolower($hotel->data->hotel->name)));
                                 $array[$k]['slug'] = $item->id;
+
+
+                                $array[$k]['territory'] = (isset($hotel->data->hotel->territory)) ? $hotel->data->hotel->territory : '';
+                                $array[$k]['inroom'] = (isset($hotel->data->hotel->inroom)) ? $hotel->data->hotel->inroom : '';
+                                $array[$k]['roomtypes'] = (isset($hotel->data->hotel->roomtypes)) ? $hotel->data->hotel->roomtypes : '';
+                                $array[$k]['beach'] = (isset($hotel->data->hotel->beach)) ? $hotel->data->hotel->beach : '';
+                                $array[$k]['servicefree'] = (isset($hotel->data->hotel->servicefree)) ? $hotel->data->hotel->servicefree : '';
+                                $array[$k]['servicepay'] = (isset($hotel->data->hotel->servicepay)) ? $hotel->data->hotel->servicepay : '';
+                                $array[$k]['animation'] = (isset($hotel->data->hotel->animation)) ? $hotel->data->hotel->animation : '';
+                                $array[$k]['child'] = (isset($hotel->data->hotel->child)) ? $hotel->data->hotel->child : '';
+                                $array[$k]['meallist'] = (isset($hotel->data->hotel->meallist)) ? $hotel->data->hotel->meallist : '';
+                                $array[$k]['square'] = (isset($hotel->data->hotel->square)) ? $hotel->data->hotel->square : '';
+
+
                                 $array[$k]['hot_category_id'] = $hot_category_id;
                                 $array[$k]['country_id'] = ($hotel->data->hotel->countrycode) ?: '';
                                 $array[$k]['region_id'] = ($hotel->data->hotel->regioncode) ?: '';
@@ -133,12 +145,21 @@ class TourvisorHotelCron extends Command
                                 $array[$k]['keywords'] = 'id объекта ' . $item->id . ', ' . strip_tags($hotel->data->hotel->name) . ', ' . $hotel->data->hotel->country . ', ' . $hotel->data->hotel->region;
 
 
-
                                 Hotel::updateOrCreate(['slug' => $array[$k]['slug']],
                                     [
                                         'title' => $array[$k]['title'],
                                         'slug' => $array[$k]['slug'],
                                         'hot_category_id' => $array[$k]['hot_category_id'],
+                                        'territory' => $array[$k]['territory'],
+                                        'inroom' => $array[$k]['inroom'],
+                                        'roomtypes' => $array[$k]['roomtypes'],
+                                        'beach' => $array[$k]['beach'],
+                                        'servicefree' => $array[$k]['servicefree'],
+                                        'servicepay' => $array[$k]['servicepay'],
+                                        'animation' => $array[$k]['animation'],
+                                        'child' => $array[$k]['child'],
+                                        'meallist' => $array[$k]['meallist'],
+                                        'square' => $array[$k]['square'],
                                         'country_id' => ($array[$k]['country_id']) ?: null,
                                         'region_id' => ($array[$k]['region_id']) ?: null,
                                         'region' => ($array[$k]['region']) ?: '',
@@ -160,8 +181,8 @@ class TourvisorHotelCron extends Command
 
                     }
 
-                     $list = collect($array);
-                     (new FastExcel($list))->export('storage/app/public/excel/' . $country_id . '.xlsx');
+ /*                   $list = collect($array);
+                    (new FastExcel($list))->export('storage/app/public/excel/' . $country_id . '.xlsx');*/
 
                     dump("Обработана страна - " . $country['name']); // в консоль
                     \Log::info("Обработана страна - " . $country['name']); // в логи
@@ -180,7 +201,7 @@ class TourvisorHotelCron extends Command
         /**
          * Событие отправка сообщения админу
          */
-        $request = ['commands'=> 'tourvisorhotel:cron','file_commands'=> 'TourvisorHotelCron.php','body'=> $mailbody];
+        $request = ['commands' => 'tourvisorhotel:cron', 'file_commands' => 'TourvisorHotelCron.php', 'body' => $mailbody];
         SystemMessageEvent::dispatch($request);
 
     }

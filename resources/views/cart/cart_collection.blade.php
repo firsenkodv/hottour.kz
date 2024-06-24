@@ -10,14 +10,9 @@
     <main class="pad_t46 pad_b46" id="MainCart">
 
             <div class="s_page  s_page__tours" id="resultHotel">
-
                 @if($tour_data)
-
-
                     @include('cart.partial.hotels', ['tour_data' =>  $tour_data->params, 'favourites' => ''])
-
                 @endif
-
             </div>
     </main>
 @endsection

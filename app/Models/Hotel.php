@@ -46,22 +46,32 @@ class Hotel extends Model
         'description',
         'keywords',
         'sorting',
-    ];
+        'territory',
+        'inroom',
+        'roomtypes',
+        'beach',
+        'servicefree',
+        'servicepay',
+        'animation',
+        'child',
+        'meallist',
+        'square'
+];
 
 
     protected $casts = [
         'params' => 'collection',
     ];
 
-    public function parent():BelongsTo
+    public function parent(): BelongsTo
     {
-        return $this->belongsTo(HotCategory::class,  'hot_category_id');
+        return $this->belongsTo(HotCategory::class, 'hot_category_id');
     }
 
     /**
      * Создание метода вывода со своим HotelQueryBuilder
      */
-    public function newEloquentBuilder($query):HotelQueryBuilder
+    public function newEloquentBuilder($query): HotelQueryBuilder
     {
         return new HotelQueryBuilder($query);
     }

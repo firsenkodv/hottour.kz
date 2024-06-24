@@ -27,6 +27,8 @@
 
             @if($tour_data)
 
+                @dump($tour_data)
+
                  @include('cart.partial.hotels', ['tour_data' => $tour_data, 'favourites' => 'ok'])
 
                     <x-forms.form-cart
