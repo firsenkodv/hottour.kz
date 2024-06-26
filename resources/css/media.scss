@@ -1062,6 +1062,12 @@ $maxWidth: 1440;
 
 
     .cart_left {
+
+
+        .cart_left__myUrls {
+
+            bottom: 168px;
+        }
         .submit_cart {
 
             bottom: 93px;
@@ -1079,6 +1085,12 @@ $maxWidth: 1440;
 
 /* xiaomi pro6 */
 @media (max-width: 742px) {
+
+
+
+    .u_order__title {
+        padding-left: 26px;
+    }
     .b_banner_3 {
         a {
             color: $colorBlue !important;
@@ -1254,6 +1266,10 @@ $maxWidth: 1440;
 
     /*размер шрифтов*/
 
+    .u___title {
+        font-size: 15px !important;
+
+    }
     .page_site_hotel h1, .page_site_hotel h2, .page_site_hotel h3 {
         font-size: 38px;
     }
