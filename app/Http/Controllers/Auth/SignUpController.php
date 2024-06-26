@@ -36,6 +36,7 @@ class SignUpController extends Controller
         $cashback = config('vars.vars.cashback'); // сумма кешбэка
         $promo = ($request->promo)?:''; // введенный промокод
 
+        settype($isset_promocode, 'array');
         if ($promo)
         {
             $isset_promocode = UserPromo::query()->where('code', $promo)->first();

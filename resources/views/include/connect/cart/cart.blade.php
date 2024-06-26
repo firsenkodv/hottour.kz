@@ -1,11 +1,11 @@
 @if(cart())
     <div class="cart_left">
 
-{{--
+
         <div class="cart_left__myUrls">
             <a href="{{ route('cart_orders') }}"></a>
         </div>
---}}
+
 
         <x-forms.form-cart
             action="{{ route('cart_form') }}"
