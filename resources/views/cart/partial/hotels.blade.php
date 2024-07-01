@@ -32,7 +32,9 @@
                 <div class="search_result__info-wrap">
                     <div class="search_result__info">
                         <div class="search_result__hotel"><h3 class="hotel_name"
-                                                              style="text-transform: uppercase">{{ $hotel->site_hotel->title }}</h3>
+                                                              style="text-transform: uppercase"><a rel="nofollow"
+                                                                                                   href="/go-to-the-hotel's-page/{{ $hotel->site_hotel->slug }}"
+                                                                                                   target="_blank">{{ $hotel->site_hotel->title }}</a></h3>
                         </div>
                         <div class="search_result__city"><span class="search_result__city-name">{{ getCountryName($hotel->site_hotel->country_id) }}, {{ $hotel->site_hotel->region  }}</span>
                         </div>

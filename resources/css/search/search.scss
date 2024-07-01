@@ -983,6 +983,14 @@ $maxWidth: 1440;
                     font-size: 20px;
                     font-weight: 600;
                     margin: 0;
+                    a {
+                        color: $color;
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        color: $color;
+                        text-decoration: underline;
+                    }
                 }
             }
 

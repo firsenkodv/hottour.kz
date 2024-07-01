@@ -689,6 +689,12 @@
           font-size: 20px;
           font-weight: 600;
           margin: 0; }
+          .search_result__tour .search_result__info-wrap .search_result__info .search_result__hotel .hotel_name a {
+            color: #282828;
+            text-decoration: none; }
+          .search_result__tour .search_result__info-wrap .search_result__info .search_result__hotel .hotel_name a:hover {
+            color: #282828;
+            text-decoration: underline; }
       .search_result__tour .search_result__info-wrap .search_result__info .search_result__city {
         padding: 4px 0; }
         .search_result__tour .search_result__info-wrap .search_result__info .search_result__city .search_result__city-name {

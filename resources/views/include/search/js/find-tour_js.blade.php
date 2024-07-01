@@ -328,7 +328,7 @@
                 html += `<div id="hotel-${v.hotelcode}" class="search_result__tour search_tabs_switch" data-id="${v.hotelcode}" data-key="${i}" data-rating="${v.hotels_info.rating}" data-cost="${v.price_for_site}"><div class="search_result__flex"><a rel="nofollow" href="/go-to-the-hotel's-page/` + v.hotelcode + `" target="_blank"><div class="search_result__photo" style="background:url(${img});">`;
                 html += getStarHtml(v.hotelstars) + getRatingHtml(v.hotels_info.rating)
                 html += `</div></a><div class="search_result__info-wrap"><div class="search_result__info"><div class="search_result__hotel">`;
-                html += `<h3 class="hotel_name">${v.hotelname}</h3></div><div class="search_result__city"><span class="search_result__city-name">${v.countryname}`
+                html += `<h3 class="hotel_name"><a rel="nofollow" href="/go-to-the-hotel's-page/` + v.hotelcode + `" target="_blank">${v.hotelname}</a></h3></div><div class="search_result__city"><span class="search_result__city-name">${v.countryname}`
                 if (v.regionname != "") {
                     html += `, ` + v.regionname;
                 }
