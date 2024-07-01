@@ -1139,6 +1139,25 @@ $maxWidth: 1440;
         }
     }
 
+
+
+    .form_modal {
+
+
+
+        .form_modal__body {
+
+
+            .checkbox-services {
+
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+            }
+        }
+    }
+
+
 }
 
 /* xiaomi pro6 */
@@ -1263,6 +1282,23 @@ $maxWidth: 1440;
 }
 
 @media (max-width: 468px) {
+
+    .form_modal {
+
+
+
+        .form_modal__body {
+
+
+            .checkbox-services {
+
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+            }
+        }
+    }
+
 
     /*размер шрифтов*/
 

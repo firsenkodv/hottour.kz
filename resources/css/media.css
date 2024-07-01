@@ -664,7 +664,12 @@
   .favourites2 {
     flex-direction: row-reverse !important; }
     .favourites2 span {
-      margin-right: 10px; } }
+      margin-right: 10px; }
+
+  .form_modal .form_modal__body .checkbox-services {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%; } }
 /* xiaomi pro6 */
 @media (max-width: 666px) {
   .p_plane {
@@ -739,6 +744,11 @@
     width: 28px !important;
     height: auto !important; } }
 @media (max-width: 468px) {
+  .form_modal .form_modal__body .checkbox-services {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%; }
+
   /*размер шрифтов*/
   .u___title {
     font-size: 15px !important; }

@@ -428,19 +428,10 @@
             } else {
                 $(con).html(html); // #resultHotel
             }
-
             if (searchComplete == true) {
                 $('.addsearch').each(function () {
                     $(this).remove()
                 });
-
-
-
-                console.log('page');
-                console.log(page);
-                console.log('countPage');
-                console.log(countPage);
-
                 if (con == '#resultHotel' && page <= countPage) {
                     $(con).after('<div id="page-2" class="s_page s_page2"><button style="margin:23px auto" class="s_button_normal addsearch" onclick="continueSearch(event)">Найти еще</button></div>')
                 } else if (next_page > 0 && page <= countPage) {
@@ -548,8 +539,7 @@
                         searchPage = result.result.page
                         if (searchPage > 1) {
                             $('.s_progress .progress').text('0%');
-                          //  intervalId = setInterval(await getResultSearch, 3000);
-                            setTimeout(await getResultSearch, 3000);
+                            intervalId = setInterval(await getResultSearch, 3000);
 
                         }
 
@@ -562,10 +552,13 @@
                 let result = await api(data);
                 if (typeof result.data == "object") {
 
+                    console.log('100%');
 
                     if (typeof result.data.status == 'object') {
 
-                        if (result.data.status.progress > 0) {
+                        if (result.data.status.progress == 100) {
+
+
                             if (result.data.result.hotel.length > 0) {
                                 searchComplete = true;
                                 page++;
@@ -598,17 +591,15 @@
             if (typeof result.data == "object") {
 
                 if (typeof result.data.status == 'object') {
-                    if (result.data.status.progress > 0) {
+                    if (result.data.status.progress == 100) {
 
                         searchComplete = true;
                         count = result.data.status.hotelsfound
-                        countPage = (count / 25).toFixed(0);
-                        console.log(count);
-                        console.log(countPage);
-                       // clearInterval(intervalId)
+                        countPage = (count / 25).toFixed(0)
+                        clearInterval(intervalId)
                         /* конец поиска */
 
-                        console.log('конец типа 100%');
+                        console.log('100%');
                         $('#search_loader').removeClass('active');
                         $('.s_progress .progress').text('');
                         $('#search-button').attr('disabled', false);
@@ -621,18 +612,18 @@
                     }
                 }
 
-
-
                 if (typeof result.data.result == 'object') {
 
+                    console.log('result.data.result');
+                    console.log(result.data.result);
 
                     if (result.data.result.hotel.length > 0) {
                         renderResultHotels(result.data.result.hotel, containerTour, searchPage * 1 + 1)
-                    } else  {
+                    } else if (result.data.status.progress == 100) {
 
                         $(containerTour).html('<h2 class="no__result" style="text-align: center">Нет результатов</h2>');
                     }
-                } else {
+                } else if (result.data.status.progress == 100 && result.data.status.hotelsfound == 0) {
 
                     $(containerTour).html('<h2 class="no__result" style="text-align: center">Нет результатов</h2>');
                 }
@@ -640,18 +631,6 @@
             }
         }
 
-        const MyscrollTop = async () => {
-          //  alert('sss');
-
-
-            var elementClick = $('#search_loader');
-            var destination = $(elementClick).offset().top;
-            $("html, body").animate({ scrollTop: destination }, 1100); //1100 - скорость прокрутки
-
-            return false;
-
-
-        }
         const search = async () => {
             page = 1;
             $('#search-button').attr('disabled', true);
@@ -698,9 +677,8 @@
 
                     if (requestId > 0) {
                         $('.s_progress .progress').text('0%');
-                       // intervalId = setInterval(await getResultSearch, 3000);
+                        intervalId = setInterval(await getResultSearch, 3000);
 
-                        setTimeout(await getResultSearch, 3000);
 
                         /*              console.log('intervalId');
                                         console.log(intervalId);         */
@@ -1082,16 +1060,13 @@
             $('#search-button').on('click', function (e) {
                 e.preventDefault();
                 search()
-                MyscrollTop()
             })
             childAgeAdd()
             peopleSum()
             let detUrl = new URL(window.location.href);
             if (detUrl.searchParams.has('_token')) {
                 /*     console.log(detUrl);*/
-                search()
-                MyscrollTop()
-
+                search();
             }
 
             setTimeout(function () {
