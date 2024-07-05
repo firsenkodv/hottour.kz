@@ -100,9 +100,13 @@ class Ajax
         } else {
             $params['pricefrom'] = (int)trim(str_replace([' ', ' '], '', $params['pricefrom']));
         }
+
         unset($params['infant']);
+
         $params['child'] = 0;
+
         $_i = 1;
+
         if(!empty($child)){
             $params['child'] = $child[0];
             if(!empty($child[1])) {
@@ -114,6 +118,7 @@ class Ajax
                 }
             }
         }
+
         if(!empty($infant)){
             $params['child'] += $infant;
             for($i=0;$i<$infant;$i++){
@@ -121,6 +126,7 @@ class Ajax
                 $_i++;
             }
         }
+
         $result = $this->api->_get($params, 'search.php');
         $result->last_request = $this->api->last_request;
         return $result;
@@ -142,20 +148,47 @@ class Ajax
         if(!empty($this->input['page']))
             $params['page'] = $this->input['page'];
         $result = $this->api->_get($params, 'result.php');
+
+
+       //  dd($result->data->result->hotel[0]->tours->tour[0]->tourid);
+      //  dd($result);
         if($result->data->status->hotelsfound > 0) {
+
             foreach ($result->data->result->hotel as $key => $hotel) {
 
+
                 $hotel_result = $this->api->_get(['hotelcode' => $hotel->hotelcode], 'hotel.php');
+
                 $result->data->result->hotel[$key]->hotels_info = $hotel_result->data->hotel;
+
+                // попытка получения онформации о полетах
+                // большой объем данных (не тянет)
+                
+/*                foreach($hotel->tours->tour as $k=> $tour) {
+
+                    $params_flight['tourid'] = $tour->tourid;
+                    $params_flight['currency'] = 3;
+                    $flight_result = $this->api->_get($params_flight, 'actdetail.php');
+                    $result->data->result->hotel[$key]->tours->tour[$k]->flights =  (object) $flight_result;
+
+                }*/
+
 
                 if (!empty($hotel_result->data->hotel->coord1)) {
                     $result->data->result->hotel[$key]->hotels_info->addinfo = (object)['coord1' => $hotel_result->data->hotel->coord1, 'coord2' => $hotel_result->data->hotel->coord2];
                 } else {
                     $result->data->result->hotel[$key]->hotels_info->addinfo = (object)['coord1' => '', 'coord2' => ''];
                 }
+
+
                 $result->data->result->hotel[$key]->price_for_site = $hotel->tours->tour[0]->price;
-            }
+
+            } // end foreach
+
         }
+
+       // dd($result);
+
         return $result;
     }
 

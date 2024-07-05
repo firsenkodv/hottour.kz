@@ -591,6 +591,19 @@ if (!function_exists('cart')) {
 }
 
 
+if (!function_exists('favorite_user')) {
+    function favorite_user()
+    {
+        if (auth()->user()) {
+            if (role(auth()->user()->id) == "user") {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
 if (!function_exists('intervention')) {
     function intervention(string $size, string $image = null, string $dir = 'countries', string $method = 'fit')
     {

@@ -656,4 +656,55 @@ class AjaxController extends Controller
 
     }
 
+
+
+    /**
+     * Добавление в избранное отеля и туров
+     *
+     */
+
+    public function insertFavorite(Request $request)
+    {
+
+        // $user = User::find($request->user_id);
+        $body = [];
+        // $body['contract'] = $request->contract;
+
+
+       // SignatureEvent::dispatch($body);
+
+        /**
+         * возвращаем назад в браузер
+         */
+        return response()->json([
+            'id' => $request->id,
+
+        ]);
+
+    }
+    /**
+     * Удаление  из избранного -  отеля и туров
+     *
+     */
+
+    public function deleteFavorite(Request $request)
+    {
+
+        // $user = User::find($request->user_id);
+        $body = [];
+        // $body['contract'] = $request->contract;
+
+
+       // SignatureEvent::dispatch($body);
+
+        /**
+         * возвращаем назад в браузер
+         */
+        return response()->json([
+            'id' => $request->id,
+
+        ]);
+
+    }
+
 }

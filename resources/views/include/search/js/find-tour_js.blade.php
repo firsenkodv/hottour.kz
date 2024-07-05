@@ -6,6 +6,12 @@
         @endphp
     @endif
 
+    @if(favorite_user())
+        @php
+            $isFavoriteUser = true;
+        @endphp
+    @endif
+
     <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}"/>
     <script src="{{ asset('js/moment.js') }}"></script>
     <script src="{{ asset('js/jquery.daterangepicker.min.js') }}"></script>
@@ -193,7 +199,7 @@
                 regions.push(this.value)
             })
 
-            console.log(regions);
+           // console.log(regions);
             /*  console.log('hotels ' + hotels);*/
 
 
@@ -227,9 +233,9 @@
 
                         if ($.inArray(hotels[i].region, regions) !== -1) {
                             html += renderHotels(hotels[i])
-                            console.log('есть тольko регион');
+                    /*        console.log('есть тольko регион');
                             console.log(hotels[i].name);
-
+*/
                         }
 
                     }
@@ -254,7 +260,7 @@
             if (e.target.value > 0) {
                 let data = {country_id: e.target.value, action: 'getRegion'};
 
-                console.log(data);
+               // console.log(data);
                 let result = await api(data);
                 $('#regions-area').html(result.regions);
                 hotels = result.lists.hotels.hotel;
@@ -281,8 +287,8 @@
                 console.error(`Error: ${res.statusText}`);
                 return;
             } else {
-                console.log('функция api');
-                console.log(res);
+       /*         console.log('функция api');
+                  console.log(res);*/
                 return await res.json()
             }
         }
@@ -339,7 +345,7 @@
                 html += getTabResultHotelHtml(v);
                 html += `<div class="search_result__text">${v.hoteldescription}</div></div><div class="search_result__price"><div class="search_result__coast">от <span>`;
                 html += km;
-                html += `</span> <span class="c__currency">` + currency(v.currency) + `</span> </div><div class="wrap_button"><button type="button" data-target="hotel_price" class="search_result__button button  search_result__tour_button btnPinkGradient DetailedTourGTM isClick">Подробнее</button></div>@if(isset($isGood))<div class="favourites"><i></i><span></span></div>@endif</div></div></div><div class="search_result__switch search_choose_switch">`;
+                html += `</span> <span class="c__currency">` + currency(v.currency) + `</span> </div><div class="wrap_button"><button type="button" data-target="hotel_price" class="search_result__button button  search_result__tour_button btnPinkGradient DetailedTourGTM isClick">Подробнее</button></div>@if(isset($isGood))<div class="favourites"><i></i><span></span></div>@endif @if(isset($isFavoriteUser))<div class="favourite_user favourite_user__js"><i><a target="_blank" href="{{ route('favorites_user') }}">Избранное</a></i><span></span></div>@endif</div></div></div><div class="search_result__switch search_choose_switch">`;
                 if ($('#hotel-' + v.hotelcode + ' .hotel_about.active').length) html += `<div class="hotel_about active">`;
                 else html += `<div class="hotel_about">`;
                 html += `<div class="hotel_about__photo"><div class="photo_collage">`;
@@ -435,11 +441,11 @@
                 });
 
 
-
+/*
                 console.log('page');
                 console.log(page);
                 console.log('countPage');
-                console.log(countPage);
+                console.log(countPage);*/
 
                 if (con == '#resultHotel' && page <= countPage) {
                     $(con).after('<div id="page-2" class="s_page s_page2"><button style="margin:23px auto" class="s_button_normal addsearch" onclick="continueSearch(event)">Найти еще</button></div>')
@@ -587,8 +593,10 @@
             searchComplete = false;
             let data = {'action': 'searchTourResult', 'requestid': requestId, page: page};
             let result = await api(data);
+
             console.log('функция getResultSearch');
             console.log(result);
+
             let containerTour = '#resultHotel';
             if (searchPage > 1) {
                 containerTour = '#page-' + page;
@@ -603,12 +611,12 @@
                         searchComplete = true;
                         count = result.data.status.hotelsfound
                         countPage = (count / 25).toFixed(0);
-                        console.log(count);
-                        console.log(countPage);
+                    /*    console.log(count);
+                          console.log(countPage);*/
                        // clearInterval(intervalId)
                         /* конец поиска */
 
-                        console.log('конец типа 100%');
+                     //   console.log('конец типа 100%');
                         $('#search_loader').removeClass('active');
                         $('.s_progress .progress').text('');
                         $('#search-button').attr('disabled', false);
@@ -689,7 +697,7 @@
             } else {
                 let result = await res.json();
                 console.log('функция search');
-                console.log(result);
+              //  console.log(result);
 
                 if (typeof result.result == "object") {
                     requestId = result.result.requestid
@@ -755,7 +763,7 @@
 
             let Parents = $(e.target).parents('.search_tabs_switch');
             let hotel_target = e.target.dataset.target;
-            console.log(hotel_target);
+           // console.log(hotel_target);
 
 
             if (hotel_target == 'hotel_about') {
@@ -1142,7 +1150,7 @@
 
                          });
 
-                 console.log(big_data);
+              //   console.log(big_data);
 
                  //   console.log($(this).parents('.search_result__tour').data('id'));
                   $('.tour_data').attr('value',  JSON.stringify(big_data));

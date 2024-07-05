@@ -244,6 +244,23 @@ class DashboardController extends Controller
     }
 
 
+    /**
+     * Метод страница "Избранное"
+     */
+    public function favoritesUser() {
+
+        $user   = auth()->user();
+        $items = '';
+
+        return view('dashboard.favorites_user',
+            [
+                'user' => $user,
+                'items' => $items
+            ]);
+
+    }
+
+
     // blocked
 
 

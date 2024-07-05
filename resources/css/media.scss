@@ -327,35 +327,41 @@ $maxWidth: 1440;
             width: 100% !important;
             max-width: 100% !important;
             min-width: 100% !important;
-           .photo_collage {
+
+            .photo_collage {
                 display: flex;
                 width: 100%;
                 flex-wrap: wrap;
-                justify-content:center;
+                justify-content: center;
                 padding-right: 0;
-               a {
-                   margin: 8px !important;
-               }
-               .photo_collage__img {
-                   width: 62px;
-                   height: 62px;
-               }
+
+                a {
+                    margin: 8px !important;
+                }
+
+                .photo_collage__img {
+                    width: 62px;
+                    height: 62px;
+                }
             }
         }
+
         .hotel_about__flex {
             display: block;
         }
+
         .hotel_about__text2 {
             padding-left: 0 !important;
         }
+
         .hotel__services {
             padding-top: 15px;
         }
+
         .country_page {
             padding-top: 30px;
         }
     }
-
 
 
     .F_form_pick_tour {
@@ -1068,6 +1074,7 @@ $maxWidth: 1440;
 
             bottom: 168px;
         }
+
         .submit_cart {
 
             bottom: 93px;
@@ -1076,6 +1083,13 @@ $maxWidth: 1440;
     }
 
 
+    #search_loader {
+        min-height: 150px !important;
+        height: 150px !important;
+    }
+    .s_page2 {
+        padding-bottom: 50px;
+    }
     /* Переход на мобильную версию */
 
 
@@ -1085,7 +1099,6 @@ $maxWidth: 1440;
 
 /* xiaomi pro6 */
 @media (max-width: 742px) {
-
 
 
     .u_order__title {
@@ -1128,21 +1141,21 @@ $maxWidth: 1440;
 
     .favourites {
         flex-direction: row-reverse !important;
+
         span {
             margin-right: 10px;
         }
     }
     .favourites2 {
         flex-direction: row-reverse !important;
+
         span {
             margin-right: 10px;
         }
     }
 
 
-
     .form_modal {
-
 
 
         .form_modal__body {
@@ -1253,6 +1266,7 @@ $maxWidth: 1440;
     .bg_kab.flex {
         display: block;
         height: auto !important;
+
         .axeld_flex {
             width: 100% !important;
             padding-bottom: 20px;
@@ -1284,7 +1298,6 @@ $maxWidth: 1440;
 @media (max-width: 468px) {
 
     .form_modal {
-
 
 
         .form_modal__body {
@@ -1503,8 +1516,8 @@ $maxWidth: 1440;
         background-position: left !important;
 
         .s_p {
-/*            background: #fff;
-            padding: 2px 10px;*/
+            /*            background: #fff;
+                        padding: 2px 10px;*/
 
         }
     }

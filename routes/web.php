@@ -103,6 +103,7 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/cabinet', 'page')
         ->middleware('auth.published')
         ->name('cabinet');
+
     Route::get('/cabinet/setting', 'setting')
         ->middleware('auth.published')
         ->name('setting');
@@ -110,6 +111,10 @@ Route::controller(DashboardController::class)->group(function () {
     Route::post('/cabinet/setting.handel', 'settingHandel')
         ->middleware('auth.published')
         ->name('setting.handel');
+
+    Route::get('/cabinet/favourites', 'favoritesUser')
+        ->middleware('auth.published')
+        ->name('favorites_user');
 
     Route::post('/cabinet/setting-password.handel', 'settingPasswordHandel')
         ->middleware('auth.published')
@@ -451,6 +456,9 @@ Route::controller(AjaxController::class)->group(function () {
     Route::post('/cabinet/get-newbonus', 'getNewBonus');
     /* ТЕСТ отправка письма*/
     Route::post('/cabinet/send-signature-email', 'sendEmailSignature');
+    /* отправка туров в избранное*/
+    Route::post('/cabinet/insert-favorite', 'insertFavorite');
+    Route::post('/cabinet/delete-favorite', 'deleteFavorite');
 
 });
 

@@ -621,6 +621,13 @@
   .cart_left .submit_cart {
     bottom: 93px; }
 
+  #search_loader {
+    min-height: 150px !important;
+    height: 150px !important; }
+
+  .s_page2 {
+    padding-bottom: 50px; }
+
   /* Переход на мобильную версию */ }
 /* pocofon  x3 */
 /* xiaomi pro6 */

@@ -7,6 +7,10 @@
 
             <div class="v_s_c__item {{ active_linkMenu(asset(route('certificate')), 'find')  }}"><a href="{{ route('certificate') }}">{{ __('Сертификаты') }}</a></div>
 
+            @if(role($user->id) == 'user')
+            <div class="v_s_c__item {{ active_linkMenu(asset(route('favorites_user')), 'find')  }}"><a href="{{ route('favorites_user') }}">{{ __('Избранное') }}</a></div>
+            @endif
+
             <div class="v_s_c__item {{ active_linkMenu(asset(route('important')), 'find')  }}"><a href="{{ route('important') }}">{{ __('Важное') }}</a></div>
 
             <div class="v_s_c__item {{ active_linkMenu(asset(route('setting')))  }}"><a href="{{ route('setting') }}">{{ __('Настройки') }}</a></div>

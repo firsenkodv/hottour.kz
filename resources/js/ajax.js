@@ -984,6 +984,77 @@ $(document).ready(function () {
 
 
 
+    /**
+     *  ///добавление отеля в избранное
+     */
+
+    $('body').on('click', '.favourite_user__js span', function (event) {
+
+
+        var Parent = $(this).parents('.search_result__tour');
+        Parent.find('.favourite_user__js i').toggleClass('active');
+        if($(this).hasClass('active')) {
+
+
+
+            $.ajax({
+                url: "/cabinet/delete-favorite",
+                method: "POST",
+                data: {
+                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                    "id": 'delete',
+                    "url": url(),
+                },
+                success: function (response) {
+                    if (response.error) {
+                        console.log(response.id);
+                        console.log(response.error);
+                    } else {
+                        console.log(response.id);
+
+                    }
+                }
+            });
+
+
+        } else {
+
+
+            $.ajax({
+                url: "/cabinet/insert-favorite",
+                method: "POST",
+                data: {
+                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                    "id": 'insert',
+                    "url": url(),
+                },
+                success: function (response) {
+                    if (response.error) {
+                        console.log(response.id);
+                        console.log(response.error);
+                    } else {
+                        console.log(response.id);
+
+                    }
+                }
+            });
+
+        }
+
+        $(this).toggleClass('active');
+
+
+
+
+
+
+    });
+
+
+
+    /**
+     *  ///добавление отеля в избранное
+     */
 
 
 
