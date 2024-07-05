@@ -677,7 +677,8 @@
     flex-direction: row-reverse !important;
     padding-left: 0 !important; }
     .favourite_user span {
-      margin-right: 10px; }
+      margin-right: 10px;
+      /*pointer-events: none !important;*/ }
 
   .form_modal .form_modal__body .checkbox-services {
     -webkit-box-flex: 0;

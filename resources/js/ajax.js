@@ -993,9 +993,8 @@ $(document).ready(function () {
 
         var Parent = $(this).parents('.search_result__tour');
         Parent.find('.favourite_user__js i').toggleClass('active');
+
         if($(this).hasClass('active')) {
-
-
 
             $.ajax({
                 url: "/cabinet/delete-favorite",
