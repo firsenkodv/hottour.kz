@@ -1068,17 +1068,12 @@ $maxWidth: 1440;
 
 
     .cart_left {
-
-
         .cart_left__myUrls {
-
             bottom: 168px;
         }
 
         .submit_cart {
-
             bottom: 93px;
-
         }
     }
 
@@ -1153,6 +1148,19 @@ $maxWidth: 1440;
             margin-right: 10px;
         }
     }
+
+    .favourite_user {
+        flex-direction: row-reverse !important;
+        padding-left: 0 !important;
+
+        span {
+            margin-right: 10px;
+        }
+    }
+
+
+
+
 
 
     .form_modal {

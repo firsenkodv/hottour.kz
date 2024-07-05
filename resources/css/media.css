@@ -673,6 +673,12 @@
     .favourites2 span {
       margin-right: 10px; }
 
+  .favourite_user {
+    flex-direction: row-reverse !important;
+    padding-left: 0 !important; }
+    .favourite_user span {
+      margin-right: 10px; }
+
   .form_modal .form_modal__body .checkbox-services {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;

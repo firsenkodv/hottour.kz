@@ -790,7 +790,8 @@
         padding: 26px 1px 10px 10px; }
         .search_result__tour .search_result__info-wrap .search_result__price .favourite_user i {
           padding: 2px 33px 2px 0;
-          font-style: normal; }
+          font-style: normal;
+          display: inline-table; }
           .search_result__tour .search_result__info-wrap .search_result__price .favourite_user i a {
             display: none;
             text-decoration: none;
