@@ -5,7 +5,7 @@
     keywords="{{__('Корзина')}}"
 />
 @section('content')
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=43db27ba-be61-4e84-b139-ff37ad4802b8&lang=ru_RU" type="text/javascript"></script>
+    <x-yandex-map.yandex-map/>
     @include('html.temp_forms.reserve_hotel')
     <main class="pad_t46 pad_b46" id="MainCart">
 

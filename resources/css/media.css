@@ -39,7 +39,23 @@
 
   .pageimg img {
     width: 100% !important;
-    height: auto !important; } }
+    height: auto !important; }
+
+  .search_result__favorite .search_result__price .search_result__coast span {
+    font-size: 25px !important;
+    font-weight: 600; } }
+@media screen and (max-width: 1230px) {
+  .search_result__favorite .search_result__photo {
+    width: 10% !important;
+    min-width: 180px;
+    max-width: 180px; }
+  .search_result__favorite .search_result__price {
+    padding: 24px 0 16px 0 !important; }
+    .search_result__favorite .search_result__price .search_result__coast span {
+      font-size: 28px !important;
+      font-weight: 600; }
+  .search_result__favorite .search_result__info {
+    padding: 16px !important; } }
 @media screen and (max-width: 1221px) {
   body .wrapper_ {
     min-height: 1%;
@@ -87,7 +103,25 @@
     display: none; }
 
   .swiper-button-next-swiper_banner {
-    display: none; } }
+    display: none; }
+
+  .search_result__favorite .search_result__photo {
+    width: 10% !important;
+    min-width: 180px;
+    max-width: 180px; }
+  .search_result__favorite .search_result__price {
+    padding: 24px 0 16px 0 !important; }
+    .search_result__favorite .search_result__price .search_result__coast span {
+      font-size: 19px !important;
+      font-weight: 600; }
+  .search_result__favorite .search_result__info {
+    padding: 16px !important; }
+    .search_result__favorite .search_result__info .search_result__tabs li {
+      margin-right: 4px !important; }
+  .search_result__favorite .search_result__switch .hotel_price .line_info .line_info_row {
+    width: 20%; }
+  .search_result__favorite .search_result__switch .hotel_price .line_info .line_info_btn-wrap {
+    width: 32%; } }
 @media screen and (max-width: 1168px) {
   .h_sw,
   .p_sw,
@@ -169,7 +203,21 @@
     padding: 8px 0 12px 0; }
 
   .b_banner_1 {
-    background-position: center; } }
+    background-position: center; }
+
+  .search_result__favorite .search_result__photo {
+    width: 20% !important;
+    min-width: 180px;
+    max-width: 180px; }
+  .search_result__favorite .search_result__price {
+    padding: 24px 0 16px 0 !important; }
+    .search_result__favorite .search_result__price .search_result__coast span {
+      font-size: 36px !important;
+      font-weight: 600; }
+  .search_result__favorite .search_result__info {
+    padding: 16px !important; }
+    .search_result__favorite .search_result__info .search_result__tabs li {
+      margin-right: 10px !important; } }
 @media screen and (max-width: 921px) {
   #MainCart .hotel_about__photo {
     width: 100% !important;
@@ -325,7 +373,28 @@
     .n_vid__flex .n_vid_item img {
       width: auto;
       height: auto;
-      max-width: 100%; } }
+      max-width: 100%; }
+
+  .search_result__tour .hotel_about__flex, .search_result__tour .hotel_about {
+    display: block; }
+    .search_result__tour .hotel_about__flex .hotel_about__photo, .search_result__tour .hotel_about .hotel_about__photo {
+      width: 100% !important;
+      padding-bottom: 16px !important; }
+    .search_result__tour .hotel_about__flex .hotel_about__text, .search_result__tour .hotel_about .hotel_about__text {
+      width: 100% !important;
+      padding-right: 0 !important;
+      padding-left: 0 !important; }
+  .search_result__tour .search_result__switch .hotel_about .hotel_about__photo .photo_collage {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 2px; }
+    .search_result__tour .search_result__switch .hotel_about .hotel_about__photo .photo_collage a {
+      margin: 8px; }
+      .search_result__tour .search_result__switch .hotel_about .hotel_about__photo .photo_collage a .photo_collage__img {
+        width: 62px !important;
+        height: 62px !important; } }
 @media screen and (max-width: 821px) {
   .header_bottom .sp__kab {
     display: none; }
@@ -746,7 +815,14 @@
     height: auto !important; }
     .bg_kab.flex .axeld_flex {
       width: 100% !important;
-      padding-bottom: 20px; } }
+      padding-bottom: 20px; }
+
+  .search_result__favorite .search_result__info {
+    padding: 0 !important; }
+    .search_result__favorite .search_result__info .search_result__tabs {
+      justify-content: start !important; }
+      .search_result__favorite .search_result__info .search_result__tabs li {
+        margin-right: 10px !important; } }
 @media (max-width: 521px) {
   .v_vid__flickity {
     flex-wrap: wrap; }

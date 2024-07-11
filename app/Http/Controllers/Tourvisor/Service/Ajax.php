@@ -128,7 +128,13 @@ class Ajax
         }
 
         $result = $this->api->_get($params, 'search.php');
-        $result->last_request = $this->api->last_request;
+        /**
+         * Просмотр url запроса к tourvisor - у
+         */
+     //   $result->last_request = $this->api->last_request;
+        /**
+         * Просмотр url запроса к tourvisor - у
+         */
         return $result;
     }
 
@@ -163,7 +169,7 @@ class Ajax
 
                 // попытка получения онформации о полетах
                 // большой объем данных (не тянет)
-                
+
 /*                foreach($hotel->tours->tour as $k=> $tour) {
 
                     $params_flight['tourid'] = $tour->tourid;

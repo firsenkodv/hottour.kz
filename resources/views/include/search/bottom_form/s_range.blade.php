@@ -2,16 +2,18 @@
 
     <div class="s_range">
         <div class="range">
+
             <div class="range-price">
                 <label for="min"></label>
-                <input type="number" name="pricefrom" value="50000">
+                <input type="text" name="pricefrom" value="{{price(50000)}}">
                 <label for="max"></label>
-                <input type="number" name="priceto" value="1000000">
+                <input type="text" name="priceto" value="{{price(1000000)}}">
             </div>
 
             <div class="range-slider">
                 <span class="range-selected"></span>
             </div>
+
             <div class="range-input">
                 <input type="range" class="min" min="0" max="10000000" value="50000" step="1000">
                 <input type="range" class="max" min="0" max="10000000" value="1000000" step="1000">

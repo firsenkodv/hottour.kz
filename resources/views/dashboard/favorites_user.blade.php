@@ -1,6 +1,8 @@
 @extends('layouts.layout_cabinet')
 @section('cabinet')
 
+<x-yandex-map.yandex-map/>
+@include('html.temp_forms.reserve_hotel')
     <div class="cabinet background_f7f7f7">
         <div class="block">
             <div class="hbox__top pad_b1">
@@ -9,9 +11,7 @@
             <div class="cabinet__flex  height_100">
                 <div class="cabinet__left">
                     <div class="cl">
-
                         @include('dashboard.left_bar.left')
-
                     </div>
                 </div>
                 <div class="cabinet__right">
@@ -27,11 +27,14 @@
 
                         <div class="page_important page_sertificate">
 
-                           {{-- @foreach($items as $item)--}}
-                                <div class="imp_box imp_box__sertificate">
+                            <div class="s_page  s_page__tours" id="resultHotel">
 
-                                </div>
-                          {{--  @endforeach--}}
+                                @if($tour_data)
+                                    @include('dashboard.favorites.hotels', ['tour_data' => $tour_data])
+
+                                @endif
+
+                            </div>
 
 
                         </div>

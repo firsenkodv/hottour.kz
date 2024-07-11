@@ -56,6 +56,8 @@ class CartController
 
             }
 
+
+
             return view('cart/cart', [
                 'tour_data' => $data,
             ]);
@@ -151,6 +153,7 @@ class CartController
 
 
                             $order = UserCart::query()->create([
+
                                 'city' => $city,
                                 'country' => $country,
                                 'region' => '',

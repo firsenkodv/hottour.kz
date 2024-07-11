@@ -98,7 +98,42 @@ $maxWidth: 1440;
             height: auto !important;
         }
     }
+    .search_result__favorite {
+        .search_result__photo {
 
+
+        }
+
+        .search_result__price .search_result__coast span {
+            font-size: 25px !important;
+            font-weight: 600;
+        }
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .search_result__favorite {
+        .search_result__photo {
+            width: 10% !important;
+            min-width: 180px;
+            max-width: 180px;
+        }
+
+        .search_result__price {
+            padding: 24px 0 16px 0 !important;
+
+            .search_result__coast span {
+
+                font-size: 28px !important;
+                font-weight: 600;
+            }
+        }
+
+        .search_result__info {
+            padding: 16px !important;
+        }
+
+    }
 }
 
 @media screen and (max-width: 1221px) {
@@ -180,6 +215,8 @@ $maxWidth: 1440;
             }
         }
     }
+
+
 }
 
 @media screen and (max-width: 1190px) {
@@ -188,6 +225,45 @@ $maxWidth: 1440;
     }
     .swiper-button-next-swiper_banner {
         display: none;
+    }
+
+    .search_result__favorite {
+
+
+        .search_result__photo {
+            width: 10% !important;
+            min-width: 180px;
+            max-width: 180px;
+        }
+
+        .search_result__price {
+            padding: 24px 0 16px 0 !important;
+
+            .search_result__coast span {
+
+                font-size: 19px !important;
+                font-weight: 600;
+            }
+        }
+
+        .search_result__info {
+            padding: 16px !important;
+
+            .search_result__tabs li {
+                margin-right: 4px !important;
+            }
+        }
+
+        .search_result__switch .hotel_price .line_info {
+            .line_info_row {
+                width: 20%;
+            }
+
+            .line_info_btn-wrap {
+                width: 32%;
+            }
+        }
+
     }
 }
 
@@ -316,7 +392,34 @@ $maxWidth: 1440;
         background-position: center;
 
     }
+    .search_result__favorite {
 
+
+        .search_result__photo {
+            width: 20% !important;
+            min-width: 180px;
+            max-width: 180px;
+        }
+
+        .search_result__price {
+            padding: 24px 0 16px 0 !important;
+
+            .search_result__coast span {
+
+                font-size: 36px !important;
+                font-weight: 600;
+            }
+        }
+
+        .search_result__info {
+            padding: 16px !important;
+
+            .search_result__tabs li {
+                margin-right: 10px !important;
+            }
+        }
+
+    }
 }
 
 @media screen and (max-width: 921px) {
@@ -588,6 +691,42 @@ $maxWidth: 1440;
                 max-width: 100%;
             }
         }
+    }
+
+    .search_result__tour {
+        .hotel_about__flex, .hotel_about {
+            display: block ;
+
+            .hotel_about__photo {
+                width: 100% !important;
+                padding-bottom: 16px !important;
+            }
+
+            .hotel_about__text {
+                width: 100% !important;
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+        }
+
+        .search_result__switch .hotel_about .hotel_about__photo .photo_collage {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-right: 2px;
+
+            a {
+                margin: 8px;
+
+                .photo_collage__img {
+                    width: 62px !important;
+                    height: 62px !important;
+                }
+            }
+
+        }
+
     }
 }
 
@@ -1160,10 +1299,6 @@ $maxWidth: 1440;
     }
 
 
-
-
-
-
     .form_modal {
 
 
@@ -1280,6 +1415,25 @@ $maxWidth: 1440;
             width: 100% !important;
             padding-bottom: 20px;
         }
+    }
+
+
+    .search_result__favorite {
+
+
+        .search_result__info {
+
+            padding: 0 !important;
+
+            .search_result__tabs {
+                justify-content: start !important;
+
+                li {
+                    margin-right: 10px !important;
+                }
+            }
+        }
+
     }
 
 }

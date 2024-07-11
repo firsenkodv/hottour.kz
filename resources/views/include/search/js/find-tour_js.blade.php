@@ -301,6 +301,8 @@
             let html = '';
             h.map((v, i) => {
 
+
+                let FavoriteId =  new Date().getTime()+'-'+v.hotelcode;
                 let img;
                 if (v.hotels_info.images) {
                     if (v.hotels_info.images.image[0]) {
@@ -345,10 +347,12 @@
                 html += getTabResultHotelHtml(v);
                 html += `<div class="search_result__text">${v.hoteldescription}</div></div><div class="search_result__price"><div class="search_result__coast">от <span>`;
                 html += km;
-                html += `</span> <span class="c__currency">` + currency(v.currency) + `</span> </div><div class="wrap_button"><button type="button" data-target="hotel_price" class="search_result__button button  search_result__tour_button btnPinkGradient DetailedTourGTM isClick">Подробнее</button></div>@if(isset($isGood))<div class="favourites"><i></i><span></span></div>@endif @if(isset($isFavoriteUser))<div class="favourite_user favourite_user__js"><i><a target="_blank" href="{{ route('favorites_user') }}">Избранное</a></i><span></span></div>@endif</div></div></div><div class="search_result__switch search_choose_switch">`;
+                html += `</span> <span class="c__currency">` + currency(v.currency) + `</span> </div><div class="wrap_button"><button type="button" data-target="hotel_price" class="search_result__button button  search_result__tour_button btnPinkGradient DetailedTourGTM isClick">Подробнее</button></div>@if(isset($isGood))<div class="favourites"><i></i><span></span></div>@endif @if(isset($isFavoriteUser))<div class="favourite_user favourite_user__js"><i><a target="_blank" href="{{ route('favorites_user') }}">Избранное</a></i><span data-favoriteid="${FavoriteId}"></span></div>@endif</div></div></div><div class="search_result__switch search_choose_switch">`;
                 if ($('#hotel-' + v.hotelcode + ' .hotel_about.active').length) html += `<div class="hotel_about active">`;
                 else html += `<div class="hotel_about">`;
+
                 html += `<div class="hotel_about__photo"><div class="photo_collage">`;
+
                 if (typeof v.hotels_info.images == 'object') {
                     v.hotels_info.images.image.map(
                         (im, p) => {
@@ -823,24 +827,42 @@
             const rangeInput = document.querySelectorAll(".range-input input");
             const rangePrice = document.querySelectorAll(".range-price input");
 
+
+
+
             rangeInput.forEach((input) => {
                 input.addEventListener("input", (e) => {
                     let minRange = parseInt(rangeInput[0].value);
                     let maxRange = parseInt(rangeInput[1].value);
+
+
+
+                    let rangeInput_0, rangeInput_1;
+
+              /*       console.log(minRange);
+                       console.log(maxRange);
+*/
+
                     if (maxRange - minRange < rangeMin) {
                         if (e.target.className === "min") {
                             rangeInput[0].value = maxRange - rangeMin;
+
+
                         } else {
-                            rangeInput[1].value = minRange + rangeMin;
+                            rangeInput[0].value = minRange + rangeMin;
                         }
                     } else {
-                        rangePrice[0].value = minRange;
-                        rangePrice[1].value = maxRange;
+                        rangePrice[0].value = minRange.toLocaleString();
+                        console.log(rangePrice[0].value);
+
+                        rangePrice[1].value = maxRange.toLocaleString();
                         range.style.left = (minRange / rangeInput[0].max) * 100 + "%";
                         range.style.right = 100 - (maxRange / rangeInput[1].max) * 100 + "%";
                     }
                 });
             });
+
+            // .toLocaleString()
 
             rangePrice.forEach((input) => {
                 input.addEventListener("input", (e) => {

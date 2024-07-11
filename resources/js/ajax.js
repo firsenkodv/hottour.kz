@@ -992,6 +992,8 @@ $(document).ready(function () {
 
 
         var Parent = $(this).parents('.search_result__tour');
+        let HotelId = Parent.data('id');
+        let FavoriteId = $(this).data('favoriteid');
         Parent.find('.favourite_user__js i').toggleClass('active');
 
         if($(this).hasClass('active')) {
@@ -1001,15 +1003,18 @@ $(document).ready(function () {
                 method: "POST",
                 data: {
                     "_token": $('meta[name="csrf-token"]').attr('content'),
-                    "id": 'delete',
+                    "hotelid": HotelId,
+                    'favorite_id' : FavoriteId,
+                    'type' : 'delete',
                     "url": url(),
                 },
                 success: function (response) {
                     if (response.error) {
-                        console.log(response.id);
+                        console.log(response.type);
                         console.log(response.error);
                     } else {
-                        console.log(response.id);
+                        console.log(response.type);
+                        console.log(response.res);
 
                     }
                 }
@@ -1019,20 +1024,43 @@ $(document).ready(function () {
         } else {
 
 
+
+            let tour_data = [];
+            let object = {};
+            let big_data = [];
+
+            object.hotel = HotelId;
+
+            Parent.find('.hotel_price__table .line_info').each(function() {
+
+                let object_tour = {};
+                object_tour.tour = $(this).find('.line_info_btn-wrap a').data('tout_data');
+                tour_data.push(object_tour);
+            });
+            object.tours = tour_data;
+            big_data.push(object);
+
+          //  console.log(big_data);
+
+
             $.ajax({
                 url: "/cabinet/insert-favorite",
                 method: "POST",
                 data: {
                     "_token": $('meta[name="csrf-token"]').attr('content'),
-                    "id": 'insert',
+                    "hotelid": HotelId,
+                    "big_data" : big_data,
+                    'favorite_id' : FavoriteId,
+                    'type' : 'insert',
                     "url": url(),
                 },
                 success: function (response) {
                     if (response.error) {
-                        console.log(response.id);
+                        console.log(response.type);
                         console.log(response.error);
                     } else {
-                        console.log(response.id);
+                        console.log(response.type);
+                        console.log(response.data);
 
                     }
                 }

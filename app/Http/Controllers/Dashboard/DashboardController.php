@@ -9,7 +9,9 @@ use App\Http\Requests\UpdatePasswordFormRequest;
 use App\Models\User;
 
 use App\Models\UserCertificate;
+use App\Models\UserFavorite;
 use App\Models\UserImportant;
+use Domain\Hotel\ViewModels\HotelViewModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -249,13 +251,42 @@ class DashboardController extends Controller
      */
     public function favoritesUser() {
 
+
+
+
         $user   = auth()->user();
-        $items = '';
+        $items = UserFavorite::query()->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
+
+        if ($items) {
+
+            $hotels = [];
+            $new_hotels = [];
+            foreach ($items as $k=>$h) {
+                $hotel_ids[$h->hotelid] = $h->hotelid;
+            }
+            $hotels = HotelViewModel::make()->Hotels($hotel_ids); // array c ключами из slug
+
+            foreach ($items as $k=>$h) {
+
+                $p = $h->params;
+                foreach ($p as $params) {
+                    $params->favorite_id = $h->favorite_id;
+                    $params->site_hotel = (object)$hotels[$params->hotel];
+                    $data[$k] = $params;
+                }
+
+            }
+
+        }
+
+
 
         return view('dashboard.favorites_user',
             [
+                'items' => $items,
                 'user' => $user,
-                'items' => $items
+                'tour_data' => $data,
+
             ]);
 
     }

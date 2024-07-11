@@ -2,8 +2,7 @@
 
     @if($hotel->site_hotel)
 
-
-        <div id="hotel-{{ $hotel->site_hotel->slug }}" class="search_result__tour search_tabs_switch"
+        <div id="hotel-{{ $hotel->site_hotel->slug }}" class="search_result__tour search_tabs_switch search_result__favorite"
              style="background-color: #fff" data-id="{{ $hotel->site_hotel->slug }}" data-key="0"
              data-rating="{{ $hotel->site_hotel->rating }}" data-cost="{{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->price)): ''}}">
             <div class="search_result__flex"><a rel="nofollow"
@@ -51,7 +50,7 @@
                                 @endphp
                                 {{ $data_coord }}>{{ __('На карте') }}
                             </li>
-                            <li class="hotel_price__js" data-target="hotel_price">{{ __('Цены') }}</li>
+                         {{--   <li class="hotel_price__js" data-target="hotel_price">{{ __('Цены') }}</li>--}}
                         </ul>
                         <div class="search_result__moreInfo">
                             <div class="search_result__fly"><div class="fly_"></div><span>Вылет: </span> {{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->sity)): ''}}</div>
@@ -72,9 +71,7 @@
                             </button>
                         </div>
 
-                        @if($favourites)
-                        <div class="favourites2"><i></i><span></span></div>
-                        @endif
+
 
                     </div>
                 </div>
@@ -110,12 +107,12 @@
                     </div>
                 </div>
                 <div class="hotel_map">
-                    <div class="hotel_map__item" id="yandexmap-{{ $hotel->site_hotel->slug }}"
+                    <div class="hotel_map__item" id="yandexmap-{{ $hotel->favorite_id }}"
                          style="height: 400px;width: 100%;"></div>
                     @if($hotel->site_hotel->coord)
                         <script>
                             ymaps.ready(function () {
-                                var map = new ymaps.Map('yandexmap-{{ $hotel->site_hotel->slug }}', {
+                                var map = new ymaps.Map('yandexmap-{{ $hotel->favorite_id }}', {
                                     center: [{{$hotel->site_hotel->coord}}],
                                     zoom: 14,
                                     controls: ['zoomControl', 'typeSelector', 'fullscreenControl']

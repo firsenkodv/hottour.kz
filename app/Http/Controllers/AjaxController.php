@@ -13,6 +13,7 @@ use App\Events\SendOrderTourEvent;
 use App\Events\SignatureEvent;
 use App\Http\Controllers\Tourvisor\Service\Tourvisor;
 use App\Models\User;
+use App\Models\UserFavorite;
 use App\Models\UserPromo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -666,22 +667,35 @@ class AjaxController extends Controller
     public function insertFavorite(Request $request)
     {
 
-        // $user = User::find($request->user_id);
-        $body = [];
-        // $body['contract'] = $request->contract;
+      //  dd($request);
 
+        $data = $request->big_data;
 
-       // SignatureEvent::dispatch($body);
+        $city = (isset($data[0]['tours'][0]['tour']['sity'])) ? trim($data[0]['tours'][0]['tour']['sity']) : '';
+        $country = (isset($data[0]['tours'][0]['tour']['country'])) ? trim($data[0]['tours'][0]['tour']['country']) : '';
+
+         UserFavorite::query()->create([
+
+            'city' => $city,
+            'country' => $country,
+            'hotelid' => $request->hotelid,
+            'params' => $data, /** отели и туры к ним   */
+            'favorite_id' => $request->favorite_id, /** уникальный id по каждой записи, для удаления его */
+            'user_id' => auth()->user()->id, /** */
+
+        ]);
 
         /**
          * возвращаем назад в браузер
          */
         return response()->json([
-            'id' => $request->id,
+            'type' => $request->type,
+            'data' => $data,
 
         ]);
 
     }
+
     /**
      * Удаление  из избранного -  отеля и туров
      *
@@ -689,19 +703,17 @@ class AjaxController extends Controller
 
     public function deleteFavorite(Request $request)
     {
+        if($request->favorite_id) {
+            $ok = UserFavorite::query()->where('favorite_id', $request->favorite_id)->delete();
+        }
 
-        // $user = User::find($request->user_id);
-        $body = [];
-        // $body['contract'] = $request->contract;
-
-
-       // SignatureEvent::dispatch($body);
 
         /**
          * возвращаем назад в браузер
          */
         return response()->json([
-            'id' => $request->id,
+            'type' => $request->type,
+            'res' => $ok,
 
         ]);
 
