@@ -257,7 +257,8 @@ class DashboardController extends Controller
         $user   = auth()->user();
         $items = UserFavorite::query()->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(20);
 
-        if ($items) {
+        settype($data, "array");
+        if (count($items)) {
 
             $hotels = [];
             $new_hotels = [];

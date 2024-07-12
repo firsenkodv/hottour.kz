@@ -30,7 +30,7 @@
                             <div class="s_page  s_page__tours" id="resultHotel">
 
 
-                                @if($items)
+                                @if(count($items))
 
                                     @include('dashboard.favorites.hotels', ['tour_data' => $tour_data, 'items' => $items])
 
