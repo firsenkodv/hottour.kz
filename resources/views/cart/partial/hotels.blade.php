@@ -54,7 +54,7 @@
                             <li class="hotel_price__js" data-target="hotel_price">{{ __('Цены') }}</li>
                         </ul>
                         <div class="search_result__moreInfo">
-                            <div class="search_result__fly"><div class="fly_"></div><span>Вылет: </span> {{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->sity)): ''}}</div>
+                            <div class="search_result__fly"><div class="fly_"></div><span>Вылет: </span> {{(isset($hotel->tours[0]->tour))? ($hotel->tours[0]->tour->sity): ''}}</div>
 
                             <div class="search_result__adults"><span>Взрослых: </span> {{(isset($hotel->tours[0]->tour))? ($hotel->tours[0]->tour->adults): ' - '}}</div>
 

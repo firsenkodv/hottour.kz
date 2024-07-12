@@ -6,6 +6,8 @@
         @if($item->favorite_id  == $hotel->favorite_id )
             @if($hotel->site_hotel)
 
+                @dump($hotel->tours[0]->tour)
+
                 <div id="hotel-{{ $hotel->site_hotel->slug }}"
                      class="search_result__tour search_tabs_switch search_result__favorite"
                      style="background-color: #fff" data-id="{{ $hotel->site_hotel->slug }}" data-key="0"
@@ -62,7 +64,7 @@
                                 <div class="search_result__moreInfo">
                                     <div class="search_result__fly">
                                         <div class="fly_"></div>
-                                        <span>Вылет: </span> {{(isset($hotel->tours[0]->tour))? (price($hotel->tours[0]->tour->sity)): ''}}
+                                        <span>Вылет: </span> {{(isset($hotel->tours[0]->tour))? ($hotel->tours[0]->tour->sity): ''}}
                                     </div>
 
                                     <div class="search_result__adults">
