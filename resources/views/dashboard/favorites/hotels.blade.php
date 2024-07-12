@@ -6,7 +6,6 @@
         @if($item->favorite_id  == $hotel->favorite_id )
             @if($hotel->site_hotel)
 
-                @dump($hotel->tours[0]->tour)
 
                 <div id="hotel-{{ $hotel->site_hotel->slug }}"
                      class="search_result__tour search_tabs_switch search_result__favorite"
