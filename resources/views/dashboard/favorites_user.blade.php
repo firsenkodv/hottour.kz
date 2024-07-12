@@ -29,12 +29,15 @@
 
                             <div class="s_page  s_page__tours" id="resultHotel">
 
-                                @if($tour_data)
-                                    @include('dashboard.favorites.hotels', ['tour_data' => $tour_data])
+
+                                @if($items)
+
+                                    @include('dashboard.favorites.hotels', ['tour_data' => $tour_data, 'items' => $items])
 
                                 @endif
 
                             </div>
+                            {{ $items->withQueryString()->links('pagination::default') }}
 
 
                         </div>

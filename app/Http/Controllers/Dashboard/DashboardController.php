@@ -255,7 +255,7 @@ class DashboardController extends Controller
 
 
         $user   = auth()->user();
-        $items = UserFavorite::query()->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
+        $items = UserFavorite::query()->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(20);
 
         if ($items) {
 
