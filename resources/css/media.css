@@ -742,6 +742,9 @@
     .favourites2 span {
       margin-right: 10px; }
 
+  .favourites3 {
+    flex-direction: row-reverse !important; }
+
   .favourite_user {
     flex-direction: row-reverse !important;
     padding-left: 0 !important; }

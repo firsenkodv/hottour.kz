@@ -456,9 +456,12 @@ Route::controller(AjaxController::class)->group(function () {
     Route::post('/cabinet/get-newbonus', 'getNewBonus');
     /* ТЕСТ отправка письма*/
     Route::post('/cabinet/send-signature-email', 'sendEmailSignature');
-    /* отправка туров в избранное*/
+    /* отправка туров в избранное */
     Route::post('/cabinet/insert-favorite', 'insertFavorite');
+    /* отправка туров из избранного */
     Route::post('/cabinet/delete-favorite', 'deleteFavorite');
+    /* удаление Отеля и  туров в лк */
+    Route::post('/cabinet/delete-favorite2', 'deleteFavorite2');
 
 });
 

@@ -718,5 +718,34 @@ class AjaxController extends Controller
         ]);
 
     }
+    /**
+     * Удаление  из избранного (В ЛК user - а ) -  отеля и туров
+     *
+     */
+
+    public function deleteFavorite2(Request $request)
+    {
+        if($request->favorite_id) {
+
+            $user = auth()->user();
+
+
+            $ok = UserFavorite::query()
+                ->where('favorite_id', $request->favorite_id)
+                ->where('user_id', $user->id)
+                ->delete();
+        }
+
+
+        /**
+         * возвращаем назад в браузер
+         */
+        return response()->json([
+            'type' => $request->type,
+            'res' => $ok,
+
+        ]);
+
+    }
 
 }

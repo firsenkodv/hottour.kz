@@ -985,7 +985,7 @@ $(document).ready(function () {
 
 
     /**
-     *  ///добавление отеля в избранное
+     *  ///добавление отеля в избранное (простой польтзователь)
      */
 
     $('body').on('click', '.favourite_user__js span', function (event) {
@@ -1080,7 +1080,54 @@ $(document).ready(function () {
 
 
     /**
-     *  ///добавление отеля в избранное
+     *  ///добавление отеля в избранное (простой польтзователь)
+     */
+
+    /**
+     *  ///удаление  отеля из избранное (простой польтзователь)
+     */
+
+    $('body').on('click', '.favourite_user_deleteHotel__js', function (event) {
+
+
+        let FavoriteId = $(this).data('favoriteid');
+        var Parent = $(this).parents('.search_result__tour');
+
+
+
+            $.ajax({
+                url: "/cabinet/delete-favorite2",
+                method: "POST",
+                data: {
+                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                    'favorite_id' : FavoriteId,
+                    'type' : 'delete',
+                    "url": url(),
+                },
+                success: function (response) {
+                    if (response.error) {
+                        console.log(response.type);
+                        console.log(response.error);
+                    } else {
+                        console.log(response.type);
+                        console.log(response.res);
+                        Parent.remove();
+
+                    }
+                }
+            });
+
+
+
+
+        $(this).toggleClass('active');
+
+    });
+
+
+
+    /**
+     *  ///удаление  отеля из избранное (простой польтзователь)
      */
 
 

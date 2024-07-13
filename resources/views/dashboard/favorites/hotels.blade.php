@@ -6,7 +6,6 @@
         @if($item->favorite_id  == $hotel->favorite_id )
             @if($hotel->site_hotel)
 
-
                 <div id="hotel-{{ $hotel->site_hotel->slug }}"
                      class="search_result__tour search_tabs_switch search_result__favorite"
                      style="background-color: #fff" data-id="{{ $hotel->site_hotel->slug }}" data-key="0"
@@ -87,6 +86,9 @@
                                         {{ __('Подробнее') }}
                                     </button>
                                 </div>
+
+                                <div class="favourite_user favourite_user_deleteHotel__js" data-favoriteid="{{ $hotel->favorite_id }}"><i class="active"><a href="javascript:void(0)">Удалить</a></i><span class="active"></span></div>
+
 
 
                             </div>

@@ -1136,6 +1136,26 @@ $maxWidth: 1440;
                     cursor: pointer;
                 }
             }
+            .favourites3 {
+                position: relative;
+
+                display: flex;
+                justify-content: flex-end;
+                padding: 26px 5px 10px 10px;
+                cursor: pointer;
+
+                i {
+                    color: red;
+                    padding: 2px 20px 2px 0;
+                }
+
+                i:before {
+                    display: inline-table;
+                    content: 'Удалить';
+                }
+
+
+            }
 
             .favourite_user {
 

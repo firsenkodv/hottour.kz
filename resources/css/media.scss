@@ -1287,6 +1287,11 @@ $maxWidth: 1440;
             margin-right: 10px;
         }
     }
+    .favourites3 {
+        flex-direction: row-reverse !important;
+
+
+    }
 
     .favourite_user {
         flex-direction: row-reverse !important;
