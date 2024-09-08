@@ -26,10 +26,6 @@
 
                         <div id="crm" class="crm" data-user="{{$user->id}}">
                             <x-forms.loader class="br_12"/>
-
-
-
-
                         </div>
 
                     </div>

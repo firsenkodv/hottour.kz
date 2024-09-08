@@ -45,6 +45,7 @@ class UserResource extends ModelResource
     protected string $model = User::class;
 
     protected string $title = 'Users';
+
     protected string $column = 'name';
 
     protected string $sortColumn = 'name';

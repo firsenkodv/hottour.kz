@@ -26,7 +26,7 @@ class SendMails
         $subject =  'Создан аккаунт -  '. $user->email;
 
         Mail::send($view, ['user' => $user],  function ($message) use ($user, $subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
     public function send_to_ResetPassword($data):void
@@ -50,7 +50,7 @@ class SendMails
         $subject = 'Заказ обратного звонка ' . $data['phone'];
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -60,7 +60,7 @@ class SendMails
         $subject = 'Заявка с сайта ' . $data['phone'];
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -70,7 +70,7 @@ class SendMails
         $subject = 'Заявка с кредитного калькулятора';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -80,7 +80,7 @@ class SendMails
         $subject = 'Заявка с сайта на подбор тура';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -90,7 +90,7 @@ class SendMails
         $subject = 'Подписка на рассылку';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -100,7 +100,7 @@ class SendMails
         $subject = 'Отзыв на сайте';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -110,7 +110,7 @@ class SendMails
         $subject = 'Заявка с сайта на выбранный тур';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_USERNAME"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_username'), 'Admin')->subject($subject);
         });
     }
 
@@ -120,7 +120,7 @@ class SendMails
         $subject = 'Договор подписан on-line';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_ADMIN"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_admin'), 'Admin')->subject($subject);
         });
     }
 
@@ -130,7 +130,7 @@ class SendMails
         $subject = 'Системное сообщение';
 
         Mail::send($view, ['data' => $data],  function ($message) use ($subject){
-            $message->to(env("MAIL_ADMIN"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_admin'), 'Admin')->subject($subject);
         });
     }
 
@@ -141,7 +141,7 @@ class SendMails
         $subject = 'Тестовое системное сообщение';
 
         Mail::send($view, ['data' => ($data)?:''],  function ($message) use ($subject){
-            $message->to(env("MAIL_ADMIN"), 'Admin')->subject($subject);
+            $message->to(config('app.mail_admin'), 'Admin')->subject($subject);
         });
     }
 

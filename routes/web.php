@@ -518,15 +518,12 @@ Route::controller(HottourController::class)->group(function () {
 
 Route::get('/replacement/update', ReplacementController::class);
 
-
-
 Route::controller(ExcelController::class)->group(function () {
 
     Route::get('/excel', 'showImportExportView');
     Route::post('/import', 'import')->name('import');
 
 });
-
 
 Route::controller(SitemapController::class)->group(function () {
 
@@ -541,8 +538,8 @@ Route::controller(SitemapController::class)->group(function () {
 });
 
 Route::post('/moonshine/setting-website', MoonshineSettingController::class);
-Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController::class);
 
+Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController::class);
 
 
 Route::controller(PageController::class)->group(function () {

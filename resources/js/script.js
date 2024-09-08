@@ -187,19 +187,6 @@ $(document).ready(function () {
             yearSelect: [1952, moment().get('year')],
 
 
-            /*        getValue: function()
-                    {
-                       // console.log(this.innerHTML)
-                      //  $('.birthdate').text(this.innerHTML);
-                        return this.innerHTML;
-                    },
-                    setValue: function(s)
-                    {
-                       // $('.birthdate').text(this.innerHTML);
-                       // console.log(this.innerHTML);
-                        this.innerHTML = s;
-                    }*/
-
         }).bind('datepicker-change', function (event, obj) {
 
             console.log(obj.value);
@@ -348,6 +335,7 @@ $('body').on('click', '#MainCart .roll_back_js', function (event) {
 /**
  *  ///удаление отелей из корзины
  */
+
 
 $('body').on('click', '.favourites2', function (event) {
 
