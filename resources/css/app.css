@@ -63,6 +63,7 @@
 @import "./menu/country_menu.scss";
 @import "./menu/menu.scss";
 @import "./selectsity/select_sity.scss";
+@import "./blocks/survey.scss";
 @import "./blocks/mobile_app.scss";
 @import "./blocks/quality_servise.scss";
 @import "./blocks/header.scss";

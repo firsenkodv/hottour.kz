@@ -12,13 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_promos', function (Blueprint $table) {
+        Schema::create('surveys', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('ip')->nullable();
             $table->foreignIdFor(User::class)
                 ->nullable()
                 ->constrained()
                 ->cascadeOnDelete();
+            $table->integer('star');
+            $table->text('desc')->nullable();
+            $table->json('params')->nullable();
+
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_promos');
+        Schema::dropIfExists('surveys');
     }
 };

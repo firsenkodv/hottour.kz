@@ -18,6 +18,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Hottour\HottourController;
 use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\Survey\SurveyController;
 use App\Http\Controllers\Tour\TourController;
 use App\Http\Controllers\Tourvisor\TourvisorController;
 use App\MoonShine\Controllers\MoonshineCalculatorCreditController;
@@ -385,6 +386,8 @@ Route::controller(ManagerController::class)->group(function () {
 
 
 });
+
+
 Route::controller(SeniorController::class)->group(function () {
 
 
@@ -542,9 +545,9 @@ Route::post('/moonshine/setting-website', MoonshineSettingController::class);
 Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController::class);
 
 
-Route::controller(PageController::class)->group(function () {
+Route::controller(SurveyController::class)->group(function () {
 
-    Route::get('{page:slug}', 'page')->name('page');
+    Route::post('/search.survey', 'create');
 
 });
 
@@ -553,12 +556,17 @@ Route::controller(CartController::class)->group(function () {
 
     Route::post('/temp/cart', 'cart_form')->name('cart_form');
     Route::get('/temp/cart', 'cart')->name('cart');
-
     Route::post('/temp/cart/finish', 'cart_form_step2')->name('cart_form_step2');
     Route::get('/temp/cart/finish', 'cart_form_finish')->name('cart_form_finish');
     Route::get('/temp/cart/orders', 'cart_orders')->name('cart_orders');
     Route::post('/temp/cart/clear', 'cart_form_clear')->name('cart_form_clear');
     Route::get('/collection/{url}', 'collection_tours')->name('collection_tours');
+
+});
+
+Route::controller(PageController::class)->group(function () {
+
+    Route::get('{page:slug}', 'page')->name('page');
 
 });
 

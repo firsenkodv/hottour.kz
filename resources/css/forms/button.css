@@ -27,6 +27,10 @@
 .button_normal {
   height: 46px; }
 
+.button_mini {
+  height: 36px;
+  font-size: 15px; }
+
 /* цвет */
 .button_green {
   border: 1px solid #00A357;
@@ -43,6 +47,9 @@
 
   .button_normal {
     height: 36px;
-    font-size: 15px; } }
+    font-size: 15px; }
+
+  .button_mini {
+    height: 36px; } }
 
 /*# sourceMappingURL=button.css.map */

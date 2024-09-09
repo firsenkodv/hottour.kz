@@ -1,0 +1,66 @@
+._ssurvey {
+  padding: 30px 0 8px 0; }
+
+.survey__flex {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 14px #0000001f;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px; }
+  .survey__flex .survey__sLeft {
+    width: 50%;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20px;
+    font-weight: 600; }
+  .survey__flex .survey__sright {
+    width: 50%;
+    min-height: 40px; }
+    .survey__flex .survey__sright .sright__flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      min-height: 40px; }
+    .survey__flex .survey__sright .sright__stars {
+      padding-right: 20px; }
+    .survey__flex .survey__sright .s_stars__label {
+      display: none; }
+
+.sright__button .button {
+  padding: 0 20px; }
+
+.survey__c_responce {
+  padding: 36px 0 10px 0; }
+  .survey__c_responce .survey__checkbox {
+    display: flex;
+    height: 26px;
+    min-height: 26px;
+    position: relative;
+    margin: 0 0 20px 0; }
+    .survey__c_responce .survey__checkbox .survey__checkbox_checkbox {
+      height: 26px;
+      min-height: 26px;
+      position: relative; }
+      .survey__c_responce .survey__checkbox .survey__checkbox_checkbox label {
+        cursor: pointer; }
+      .survey__c_responce .survey__checkbox .survey__checkbox_checkbox .checkbox-flip + label span:before, .survey__c_responce .survey__checkbox .survey__checkbox_checkbox .checkbox-flip + label span:after {
+        width: 20px;
+        height: 20px; }
+    .survey__c_responce .survey__checkbox .survey__checkbox_text {
+      height: 26px;
+      min-height: 26px;
+      position: relative;
+      padding: 0 10px 0 18px;
+      color: #667085; }
+      .survey__c_responce .survey__checkbox .survey__checkbox_text span {
+        position: relative;
+        top: 2px; }
+
+/*# sourceMappingURL=survey.css.map */

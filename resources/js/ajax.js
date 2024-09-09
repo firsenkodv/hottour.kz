@@ -1,3 +1,53 @@
+import {Fancybox} from "@fancyapps/ui";
+
+
+
+const openTModalFancySurvey = (e) => {
+    Fancybox.show([{src: "#survey", type: "inline",  touch: false}]);
+}
+
+
+
+function ajaxSurvey (star, params =  null) {
+
+    var Parents = $('.F_form_survey');
+    loader(Parents);
+
+
+    $.ajax({
+        url: "/search.survey",
+        method: "POST",
+        data: {
+            "_token": $('meta[name="csrf-token"]').attr('content'),
+            'star' : star,
+            'params' : params,
+            "url": url(),
+        },
+        success: function (response) {
+            if (response.error) {
+                console.log(response.error);
+            } else {
+                console.log(response.responce);
+                console.log(response.result);
+                $('._ssurvey__js').fadeOut(500, function(){ $(this).remove();});
+
+
+                setTimeout(function () {
+                    Parents.find('.wrapper_loader ').css('display', 'none');
+                    Parents.find('.F_form__body').hide();
+                    Parents.find('.F_responce').show();
+                }, 1000);
+
+
+            }
+        }
+    });
+}
+
+
+
+
+
 function loader(Parents) {
     Parents.find('.wrapper_loader ').css('display', 'flex');
 }
@@ -1131,6 +1181,44 @@ $(document).ready(function () {
      */
 
 
+    /**
+     *   оценка пользователем сайта  скрипта поиска
+     */
+
+
+    $('body').on('click', '.button_survey__js', function (event) {
+
+        var Parent = $(this).parents('._ssurvey__js');
+        let v = Parent.find('input[name="s_star_s"]:checked').val();
+        if(v == 1) {
+            openTModalFancySurvey();
+            return false;
+        }
+
+        ajaxSurvey(v)
+
+
+    });
+
+    $('body').on('click', '.survey_mini_js', function (event) {
+
+        var Parent = $(this).parents('.F_form_survey');
+
+
+        let checked = [];
+        Parent.find('input[name="survey_checkbox"]:checked').each(function() {
+            checked.push($(this).val());
+        });
+
+
+        ajaxSurvey(1, checked)
+
+    });
+
+
+    /**
+     *   оценка пользователем сайта  скрипта поиска
+     */
 
 
 });
