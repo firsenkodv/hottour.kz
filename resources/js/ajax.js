@@ -6,6 +6,10 @@ const openTModalFancySurvey = (e) => {
     Fancybox.show([{src: "#survey", type: "inline",  touch: false}]);
 }
 
+const openTModalFancyUserSurvey = (e) => {
+    Fancybox.show([{src: "#survey_user", type: "inline",  touch: false}]);
+}
+
 
 
 function ajaxSurvey (star, params =  null) {
@@ -30,6 +34,44 @@ function ajaxSurvey (star, params =  null) {
                 console.log(response.responce);
                 console.log(response.result);
                 $('._ssurvey__js').fadeOut(500, function(){ $(this).remove();});
+
+
+                setTimeout(function () {
+                    Parents.find('.wrapper_loader ').css('display', 'none');
+                    Parents.find('.F_form__body').hide();
+                    Parents.find('.F_responce').show();
+                }, 1000);
+
+
+            }
+        }
+    });
+}
+
+
+
+function ajaxSurveyUser (star, params =  null) {
+
+    var Parents = $('.F_form_survey');
+    loader(Parents);
+
+
+    $.ajax({
+        url: "/search.survey.user",
+        method: "POST",
+        data: {
+            "_token": $('meta[name="csrf-token"]').attr('content'),
+            'star' : star,
+            'params' : params,
+            "url": url(),
+        },
+        success: function (response) {
+            if (response.error) {
+                console.log(response.error);
+            } else {
+                console.log(response.responce);
+                console.log(response.result);
+                $('.survey_user_wrapp__js').fadeOut(500, function(){ $(this).remove();});
 
 
                 setTimeout(function () {
@@ -1217,8 +1259,47 @@ $(document).ready(function () {
 
 
     /**
-     *   оценка пользователем сайта  скрипта поиска
+     *   ////оценка пользователем сайта  скрипта поиска
      */
+
+    /**
+     *   оценка пользователем сайта  всего личного кабинета
+     */
+
+
+    $('body').on('click', '.button_survey_user__js', function (event) {
+
+        var Parent = $(this).parents('._ssurvey_user');
+        let v = Parent.find('input[name="s_star_s"]:checked').val();
+        if(v == 1) {
+            openTModalFancyUserSurvey();
+            return false;
+        }
+
+        ajaxSurveyUser(v)
+
+
+    });
+
+    $('body').on('click', '.survey_user_mini_js', function (event) {
+
+        var Parent = $(this).parents('.F_form_survey');
+
+
+        let checked = [];
+        Parent.find('input[name="survey_checkbox"]:checked').each(function() {
+            checked.push($(this).val());
+        });
+
+
+        ajaxSurveyUser(1, checked)
+
+    });
+
+
+    /**
+     *  /////оценка пользователем сайта  всего личного кабинета
+     *  */
 
 
 });

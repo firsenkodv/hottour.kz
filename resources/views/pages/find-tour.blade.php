@@ -5,7 +5,7 @@
 @section('content')
     <main class="page_search__wrapper">
         @include('include.search.select.select_search')
-        @include('include.module.survey_user')
+        @include('include.module.survey')
         @include('include.search.find-tour_search')
         <div class="search_loader">
             <div class="s_progress display_none"><span class="progress"></span></div>

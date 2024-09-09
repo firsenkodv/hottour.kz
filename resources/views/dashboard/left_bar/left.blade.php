@@ -14,19 +14,19 @@
             <div class="textnohtml_rel">
                 <span class="underline">Как это работает?</span>
                 <i>
-                  {!! config('site.setting.bonus') !!}
+                    {!! config('site.setting.bonus') !!}
                     <rp class="b__close">×</rp>
                 </i>
             </div>
         </div>
         @if($user->ball)
-        <div class="pd_b_new">
-            <div class="pd_sale"><span class="pd_sale_name">Персональные баллы</span> <span
-                    class="pd_sale_price">{{ $user->ball }}</span></div>
-            <span class="textnohtml_rel">
+            <div class="pd_b_new">
+                <div class="pd_sale"><span class="pd_sale_name">Персональные баллы</span> <span
+                        class="pd_sale_price">{{ $user->ball }}</span></div>
+                <span class="textnohtml_rel">
             <span class="underline">Как это работает?</span>
 <i>{!! config('site.setting.ball') !!}<rp class="b__close">×</rp></i></span>
-        </div>
+            </div>
         @endif
         @if($user->cashback)
             <div class="pd_b_new">
@@ -34,7 +34,7 @@
                         class="pd_sale_price">{{ $user->cashback }} {{ config('currency.currency.KZT') }}</span></div>
                 <span class="textnohtml_rel">
                         <span class="underline">Как это работает?</span>
-<i>{!! config('site.setting.cashback') !!}
+                        <i>{!! config('site.setting.cashback') !!}
                 <rp class="b__close">×</rp></i></span>
             </div>
         @endif
@@ -42,6 +42,15 @@
 
     </div>
 </div>
+@if($survey)
+<div class="survey_user_wrapp__js">
+<br>
+<br>
+<div class="cabinet_radius12_fff">
+    @include('include.module.user_survey')
+</div>
+</div>
+@endif
 <br>
 <br>
 <div class="cabinet_radius12_fff">
@@ -52,3 +61,4 @@
 <div class="cabinet_radius12_fff">
     @include('dashboard.promo_code.promo_code')
 </div>
+

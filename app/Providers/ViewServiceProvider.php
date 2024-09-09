@@ -15,6 +15,7 @@ use App\View\Composers\OtzMainComposer;
 use App\View\Composers\PageMainComposer;
 use App\View\Composers\PublMainComposer;
 use App\View\Composers\SurveySearchComposer;
+use App\View\Composers\SurveyUserComposer;
 use App\View\Composers\TopmenuComposer;
 use App\View\Composers\Topmenudump2sComposer;
 use App\View\Composers\TopmenudumpsComposer;
@@ -55,7 +56,8 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['include.menu.country_menu'], CountryMenuComposer::class);
         View::composer(['dashboard.forms.filter'], FilterManagersComposer::class);
         View::composer(['include.menu.cabinet_menu'], UserRoleComposer::class);
-        View::composer(['include.module.survey_user'], SurveySearchComposer::class);
+        View::composer(['include.module.survey'], SurveySearchComposer::class);
+        View::composer(['dashboard.left_bar.left'], SurveyUserComposer::class);
 
 
     }

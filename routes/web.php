@@ -547,7 +547,8 @@ Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController:
 
 Route::controller(SurveyController::class)->group(function () {
 
-    Route::post('/search.survey', 'create');
+    Route::post('/search.survey', 'createSurvey');
+    Route::post('/search.survey.user', 'createSurveyUser');
 
 });
 
