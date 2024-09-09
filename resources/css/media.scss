@@ -1319,13 +1319,32 @@ $maxWidth: 1440;
         }
     }
 
-
+    .survey__flex {
+        max-width: 100%;
+    }
 }
 
 /* xiaomi pro6 */
 
 @media (max-width: 666px) {
 
+    .survey__flex {
+        display: block;
+        max-width: 340px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 16px;
+        .survey__sLeft {
+            width: 100%;
+            padding: 0;
+        }
+        .survey__sright {
+            width: 100%;
+        }
+        .rating-area_survey {
+            width: 144px;
+        }
+    }
 
     .p_plane {
         padding-top: 30px;
