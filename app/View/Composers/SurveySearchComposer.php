@@ -31,7 +31,7 @@ class SurveySearchComposer
 
 
         $view->with([
-            'survey' => true,
+            'survey' => $survey,
         ]);
 
     }
