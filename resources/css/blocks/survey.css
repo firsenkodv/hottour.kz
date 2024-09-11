@@ -102,4 +102,34 @@
     .survey_user__flex .survey_user__sright .button {
       padding: 0 20px; }
 
+.starscrin {
+  padding: 20px 0; }
+
+.starscrin_li {
+  height: 32px;
+  display: flex; }
+  .starscrin_li .starscrin_li_stars {
+    height: 32px; }
+    .starscrin_li .starscrin_li_stars .rating-area_survey {
+      width: 144px; }
+  .starscrin_li .starscrin_li_responce {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 0 0 0 10px; }
+
+.morescrin {
+  padding: 20px 0 0 0; }
+  .morescrin .morescrin_li {
+    position: relative;
+    display: flex;
+    align-items: center; }
+    .morescrin .morescrin_li .morescrin_li_text {
+      height: 32px; }
+    .morescrin .morescrin_li .morescrin_li_score {
+      height: 32px;
+      font-weight: 600;
+      padding: 0 0 0 10px; }
+
 /*# sourceMappingURL=survey.css.map */

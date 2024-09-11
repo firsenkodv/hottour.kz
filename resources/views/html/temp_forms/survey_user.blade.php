@@ -9,36 +9,19 @@
                         <div class="F_desc F_desc_top">{{ __('Что Вам не понравилось?') }}</div>
 
                         <div class="survey__c_responce">
-                            <div class="survey__checkbox">
+                        @if(config('surveys.survey_user'))
+                        @foreach(config('surveys.survey_user') as $k => $v)
+                                <div class="survey__checkbox">
                                     <div class="survey__checkbox_checkbox">
-                                        <input class="checkbox-flip checkbox_change" name="survey_checkbox" data-checkbox="1" value="1" type="checkbox" id="check_u1">
-                                        <label for="check_u1"><span></span></label>
+                                        <input class="checkbox-flip checkbox_change" name="survey_checkbox" data-checkbox="{{ $k  }}" value="{{ $k  }}" type="checkbox" id="check_u{{ $k }}">
+                                        <label for="check_u{{ $k  }}"><span></span></label>
                                     </div>
-                                        <div class="survey__checkbox_text">
-                                            <span>Скорость загрузки кабинета</span>
-                                        </div>
-                            </div>
-
-                            <div class="survey__checkbox">
-                                    <div class="survey__checkbox_checkbox">
-                                        <input class="checkbox-flip checkbox_change" name="survey_checkbox" data-checkbox="2" value="2" type="checkbox" id="check_u2">
-                                        <label for="check_u2"><span></span></label>
+                                    <div class="survey__checkbox_text">
+                                        <span>{{ $v }}</span>
                                     </div>
-                                        <div class="survey__checkbox_text">
-                                            <span>Дизайн</span>
-                                        </div>
-                            </div>
-
-
-                            <div class="survey__checkbox">
-                                    <div class="survey__checkbox_checkbox">
-                                        <input class="checkbox-flip checkbox_change" name="survey_checkbox" data-checkbox="3" value="3" type="checkbox" id="check_u3">
-                                        <label for="check_u3"><span></span></label>
-                                    </div>
-                                        <div  class="survey__checkbox_text">
-                                            <span>Туры пользователя</span>
-                                        </div>
-                            </div>
+                                </div>
+                        @endforeach
+                            @endif
                         </div>
                     </div>
                 </div><!--.F_form__flex-->

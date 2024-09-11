@@ -152,3 +152,47 @@ $maxWidth: 1440;
         }
     }
 }
+
+.starscrin {
+    padding: 20px 0;
+}
+.starscrin_li {
+    height: 32px;
+    display: flex;
+    .starscrin_li_stars {
+        height: 32px;
+        .rating-area_survey {
+         width: 144px;
+        }
+    }
+    .starscrin_li_responce {
+        height: 32px;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        padding: 0 0 0 10px;
+    }
+
+}
+
+.morescrin {
+    padding: 20px 0 0 0;
+
+    .morescrin_li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        .morescrin_li_text {
+            height: 32px;
+
+
+        }
+        .morescrin_li_score {
+            height: 32px;
+            font-weight: 600;
+            padding: 0 0 0 10px;
+        }
+
+    }
+
+}
