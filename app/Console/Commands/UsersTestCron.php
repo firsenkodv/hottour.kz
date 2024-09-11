@@ -36,14 +36,53 @@ class UsersTestCron extends Command
      */
     public function handle()
     {
+        ini_set('memory_limit', '8192M');
+
+
+        $filename = asset(Storage::url('/images/1.txt'));
+        $content = file_get_contents($filename);
+        $array = json_decode($content);
+
+        $newarray = [];
+
+        foreach ($array as $item) {
 
 
 
-    /*    $a = new SendMails;
-        if($a->sendTestSystemMessage()) {
-            echo 'ok!!';
-        }*/
+                if ($item->email) {
+                    $newarray[$item->id]['name'] = $item->username;
+                    $newarray[$item->id]['email'] = $item->email;
 
+                    if ($item->phone) {
+                        $newarray[$item->id]['phone'] = phone($item->phone);
+                    }
+
+                    $flight[] = User::updateOrCreate(
+                        ['email' => $newarray[$item->id]['email']],
+                        [    'phone' => (isset($newarray[$item->id]['phone']))? $newarray[$item->id]['phone'] :null,
+                            'name' => $newarray[$item->id]['name'],
+                            'password' => bcrypt(time()),
+
+                        ]
+                    );
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+        dd($newarray);
 
     }
 

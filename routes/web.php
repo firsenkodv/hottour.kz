@@ -19,6 +19,7 @@ use App\Http\Controllers\Hottour\HottourController;
 use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Survey\SurveyController;
+use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Tour\TourController;
 use App\Http\Controllers\Tourvisor\TourvisorController;
 use App\MoonShine\Controllers\MoonshineCalculatorCreditController;
@@ -553,6 +554,7 @@ Route::controller(SurveyController::class)->group(function () {
 });
 
 
+
 Route::controller(CartController::class)->group(function () {
 
     Route::post('/temp/cart', 'cart_form')->name('cart_form');
@@ -564,7 +566,10 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/collection/{url}', 'collection_tours')->name('collection_tours');
 
 });
+Route::controller(TestController::class)->group(function () {
+    Route::get('/test/test', 'test');
 
+});
 Route::controller(PageController::class)->group(function () {
 
     Route::get('{page:slug}', 'page')->name('page');
