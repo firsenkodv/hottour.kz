@@ -66,20 +66,9 @@ class UsersTestCron extends Command
                         ]
                     );
 
-
-
                 }
 
-
-
-
-
-
-
-
-
-
-        }
+    }
 
 
         dd($newarray);

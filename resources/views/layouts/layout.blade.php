@@ -45,6 +45,9 @@
     @yield('jquery-ui')
     @yield('tourvisor')
     @include('include.connect.connect')
+    @include('include.custom_js.custom_js')
+
+
 </body>
 </html>
 

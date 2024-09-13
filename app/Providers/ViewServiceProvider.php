@@ -8,6 +8,7 @@ use App\Models\UserRole;
 use App\View\Composers\CityComposer;
 use App\View\Composers\CountryMainComposer;
 use App\View\Composers\CountryMenuComposer;
+use App\View\Composers\CustomJsScriprComposer;
 use App\View\Composers\FilterManagersComposer;
 use App\View\Composers\HotelSwiperComposer;
 use App\View\Composers\HotToursSwiperComposer;
@@ -60,6 +61,7 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['include.module.survey'], SurveySearchComposer::class);
         View::composer(['dashboard.left_bar.left'], SurveyUserComposer::class);
         View::composer(['dashboard.survey.survey'], SurveyResultComposer::class);
+        View::composer(['include.custom_js.custom_js'], CustomJsScriprComposer::class);
 
 
     }
