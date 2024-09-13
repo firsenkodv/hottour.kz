@@ -17,3 +17,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/config/currency
+/config/link
+/config/seo
+/config/surveys
+/config/tourvisor
+/config/vars
