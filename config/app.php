@@ -11,6 +11,8 @@ return [
 
     'mail_admin' => env('MAIL_ADMIN'),
 
+    'mail_zakaz' => env('MAIL_ZAKAZ'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

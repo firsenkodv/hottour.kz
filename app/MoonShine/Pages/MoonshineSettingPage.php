@@ -35,7 +35,6 @@ class MoonshineSettingPage extends Page
         $bonus = (config('site.setting.bonus'))?:'';
         $ball = (config('site.setting.ball'))?:'';
         $cashback = (config('site.setting.cashback'))?:'';
-
         $fullAddress = (config('site.setting.fullAddress'))?:'';
         $address = (config('site.setting.address'))?:'';
         $country = (config('site.setting.country'))?:'';
