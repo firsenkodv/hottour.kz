@@ -567,13 +567,32 @@ if (!function_exists('currency')) {
         return '';
     }
 }
+
+/**
+ *  цифры
+ */
 if (!function_exists('price')) {
     function price($price)
     {
-        $price =  (int)$price;
-        if(is_int($price)) {
+        $price = (int)$price;
+        if (is_int($price)) {
             return number_format($price, 0, '.', ' ');
         }
+        return $price;
+    }
+}
+
+/**
+ *  цифры
+ */
+if (!function_exists('price_reverse')) {
+    function price_reverse($price)
+    {
+        if ($price) {
+            return (int)filter_var($price, FILTER_SANITIZE_NUMBER_INT);
+        }
+
+
         return $price;
     }
 }

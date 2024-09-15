@@ -80,14 +80,13 @@ class SignUpController extends Controller
         /**
          * Событие отправка сообщения новому пользователю
          */
-
         CreateUserEvent::dispatch($request);
 
         /**
          * Событие отправка сообщения админу
          */
 
-        MessageAdminCreateUserEvent::dispatch($request);
+       MessageAdminCreateUserEvent::dispatch($request);
 
         ////////////////////////
         if($request->redirect_for_route_page_users == 1) {

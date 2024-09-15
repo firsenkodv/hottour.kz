@@ -344,6 +344,10 @@ class Api
      */
     public function saveBonusForUser($arr = null, $user_id = null)
     {
+
+
+
+
         if (is_null($arr)) {
             return false;
         }
@@ -358,11 +362,12 @@ class Api
 
               $user = User::query()->where('id', $user_id)->first();
 
+
               if(is_null($user->bonus)) {
-                  $user->bonus = $item['bonus'];
+                  $user->bonus = price_reverse($item['bonus']);
               } else {
                   if($user->bonus != $item['bonus']) {
-                      $user->bonus =  $item['bonus'];
+                      $user->bonus =  price_reverse($item['bonus']);
                   }
               }
 
