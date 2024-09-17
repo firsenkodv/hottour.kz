@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Controllers;
 
 
+use App\Models\MoonshineCalculator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
@@ -19,11 +20,16 @@ final class MoonshineCalculatorCreditController extends MoonShineController
     public function __invoke(Request $request): Response
     {
 
-        $data = $request->all();
+        $n = explode("/", $_SERVER['HTTP_REFERER']);
+        $key = array_pop($n);
 
-      //  dd($data);
-
-        file_put_contents(base_path('config') . '/site/calculator-credit.php', "<?php\n\n" . 'return ' . var_export($data, true) . ";\n");
+        $result = MoonshineCalculator::query()->updateOrCreate(
+            ['key' => $key],
+            [
+                'key'=> $key,
+                'banks'=> (isset($request->banks))? $request->banks :null,
+                'countries'=> (isset($request->countries))? $request->countries :null,
+            ]);
 
 
         return back();

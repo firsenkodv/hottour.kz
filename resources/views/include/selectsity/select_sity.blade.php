@@ -10,7 +10,7 @@
                     {{$session_sity}}
                 @endif
             </span> телефон</span>
-        <span class="h_s_phone">{!! config('site.setting.phone1') !!}</span>
+        <span class="h_s_phone">{!! (isset($setting['phone1']))? $setting['phone1'] : '' !!}</span>
     </div><!--.hhh_adr-->
 
 </div><!--.hh__3_right-->

@@ -18,17 +18,17 @@
         <div class="con_item__right"><div class="con_item__fire"></div></div>
 
     </a>
-<a href="tel:{!! config('site.setting.phone2') !!}"  class="con_item con_item__4">
+<a href="tel:{!! (isset($setting['phone2']))? $setting['phone2'] : '' !!}"  class="con_item con_item__4">
         <div class="con_item__left"><span>{{__('Позвонить')}}</span></div>
         <div class="con_item__right"><div class="con_item__phone"></div></div>
 
     </a>
-<a href="{!! config('site.setting.whatsapp') !!}" class="con_item con_item__5">
+<a href="{!! (isset($setting['whatsapp']))? $setting['whatsapp'] : '' !!}" class="con_item con_item__5">
         <div class="con_item__left"><span>{{__('Написать в WhatsApp')}}</span></div>
         <div class="con_item__right"><div class="con_item__whatsapp"></div></div>
 
     </a>
-<a href="{!! config('site.setting.telegram') !!}"  class="con_item con_item__6">
+<a href="{!! (isset($setting['telegram']))? $setting['telegram'] : ''  !!}"  class="con_item con_item__6">
         <div class="con_item__left"><span>{{__('Написать в Telegram')}}</span></div>
         <div class="con_item__right"><div class="con_item__telegram"></div></div>
 

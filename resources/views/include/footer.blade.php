@@ -14,16 +14,16 @@
                         {{ __('Связь с нами в один клик') }}
                     </div>
                     <div class="f_contact__phone">
-                        {!! config('site.setting.phone2') !!}
+                        {!! (isset($setting['phone2']))? $setting['phone2'] : '' !!}
                     </div>
                     <div class="f_contact__label_address">
                         {{ __('  Фактический адрес') }}
                     </div>
 
                     <div class="f_contact__address">
-                        <div>{!! config('site.setting.idn') !!}</div>
-                        <div>{!! config('site.setting.country') !!}</div>
-                        <div>{!! config('site.setting.sityAddress') !!}</div>
+                        <div>{!! (isset($setting['idn']))? $setting['idn'] : '' !!}</div>
+                        <div>{!! (isset($setting['country']))? $setting['country'] : ''  !!}</div>
+                        <div>{!! (isset($setting['sityAddress']))? $setting['sityAddress'] : '' !!}</div>
                     </div>
                     </div>
 

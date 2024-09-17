@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages;
 
+use App\Models\MoonshineSetting;
 use MoonShine\Components\FormBuilder;
 use MoonShine\Decorations\Block;
 use MoonShine\Decorations\Column;
@@ -28,9 +29,24 @@ class MoonshineSettingPage extends Page
     {
         return $this->title ?: 'Настройки сайта';
     }
+    public function setting()
+    {
+        $n = explode("/", url2());
+        $key = array_pop($n); // получаем последнюю часть url - это ключ
+        $result = MoonshineSetting::query()->where('key', $key)->first();
+        return (is_null($result))?null: $result->toArray();
+
+    }
+
 
     public function components(): array
     {
+
+
+        if(!is_null($this->setting())) {
+            extract($this->setting());
+        }
+
 
         $bonus = (config('site.setting.bonus'))?:'';
         $ball = (config('site.setting.ball'))?:'';
@@ -66,9 +82,9 @@ class MoonshineSettingPage extends Page
                             Divider::make('Общие константы'),
 
                             Block::make([
-                                Textarea::make('Бонусы', 'bonus')->default($bonus) ,
-                                Textarea::make('Баллы', 'ball')->default($ball) ,
-                                Textarea::make('Кешбэк', 'cashback')->default($cashback) ,
+                                Textarea::make('Бонусы', 'bonus')->default((isset($bonus)) ? $bonus : '') ,
+                                Textarea::make('Баллы', 'ball')->default((isset($ball)) ? $ball : '' ) ,
+                                Textarea::make('Кешбэк', 'cashback')->default((isset($cashback)) ? $cashback : '') ,
 
                             ]),
 
@@ -77,21 +93,21 @@ class MoonshineSettingPage extends Page
 
                             Divider::make('Контакты'),
                             Block::make([
-                                Text::make('Полный адрес', 'fullAddress')->default($fullAddress),
-                                Text::make('Адрес', 'address')->default($address),
-                                Text::make('Страна', 'country')->default($country),
-                                Text::make('Адрес с городом', 'sityAddress')->default($sityAddress),
-                                Text::make('ИДН', 'idn')->default($idn),
-                                Text::make('Телефон', 'phone1')->default($phone1),
-                                Text::make('Телефон2', 'phone2')->default($phone2),
+                                Text::make('Полный адрес', 'fullAddress')->default((isset($fullAddress)) ? $fullAddress : '' ),
+                                Text::make('Адрес', 'address')->default((isset($address)) ? $address : '' ),
+                                Text::make('Страна', 'country')->default((isset($country)) ? $country : '' ),
+                                Text::make('Адрес с городом', 'sityAddress')->default((isset($sityAddress)) ? $sityAddress : '' ),
+                                Text::make('ИДН', 'idn')->default((isset($idn)) ? $idn : '' ),
+                                Text::make('Телефон', 'phone1')->default((isset($phone1)) ? $phone1 : '' ),
+                                Text::make('Телефон2', 'phone2')->default((isset($phone2)) ? $phone2 : '' ),
                             ]),
                             Divider::make('Сети'),
                                 Block::make([
-                                Text::make('WhatsApp', 'whatsapp')->default($whatsapp),
-                                Text::make('Telegram', 'telegram')->default($telegram),
-                                Text::make('Facebook', 'facebook')->default($facebook),
-                                Text::make('Instagram', 'instagram')->default($instagram),
-                                Text::make('Youtube', 'youtube')->default($youtube),
+                                Text::make('WhatsApp', 'whatsapp')->default((isset($whatsapp)) ? $whatsapp : '' ),
+                                Text::make('Telegram', 'telegram')->default((isset($telegram)) ? $telegram : '' ),
+                                Text::make('Facebook', 'facebook')->default((isset($facebook)) ? $facebook : '' ),
+                                Text::make('Instagram', 'instagram')->default((isset($instagram)) ? $instagram : '' ),
+                                Text::make('Youtube', 'youtube')->default( (isset($youtube)) ? $youtube : '' ),
                                 ]),
 
 
@@ -101,9 +117,7 @@ class MoonshineSettingPage extends Page
 
 
                     ]),
-                            Tab::make(__('Дополнительно'), [
 
-                    ]),
                     ]),
 
 

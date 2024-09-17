@@ -14,7 +14,7 @@
             <div class="textnohtml_rel">
                 <span class="underline">Как это работает?</span>
                 <i>
-                    {!! config('site.setting.bonus') !!}
+                    {!! (isset($setting['bonus'])? $setting['bonus'] :'') !!}
                     <rp class="b__close">×</rp>
                 </i>
             </div>
@@ -25,7 +25,7 @@
                         class="pd_sale_price">{{ $user->ball }}</span></div>
                 <span class="textnohtml_rel">
             <span class="underline">Как это работает?</span>
-<i>{!! config('site.setting.ball') !!}<rp class="b__close">×</rp></i></span>
+<i>{!! (isset($setting['ball']))? $setting['ball'] :'' !!}<rp class="b__close">×</rp></i></span>
             </div>
         @endif
         @if($user->cashback)
@@ -34,7 +34,7 @@
                         class="pd_sale_price">{{ $user->cashback }} {{ config('currency.currency.KZT') }}</span></div>
                 <span class="textnohtml_rel">
                         <span class="underline">Как это работает?</span>
-                        <i>{!! config('site.setting.cashback') !!}
+                        <i>{!! (isset($setting['cashback']))? $setting['cashback'] :'' !!}
                 <rp class="b__close">×</rp></i></span>
             </div>
         @endif

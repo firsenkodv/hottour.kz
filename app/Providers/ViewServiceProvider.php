@@ -15,6 +15,7 @@ use App\View\Composers\HotToursSwiperComposer;
 use App\View\Composers\OtzMainComposer;
 use App\View\Composers\PageMainComposer;
 use App\View\Composers\PublMainComposer;
+use App\View\Composers\SettingComposer;
 use App\View\Composers\SurveyResultComposer;
 use App\View\Composers\SurveySearchComposer;
 use App\View\Composers\SurveyUserComposer;
@@ -62,6 +63,7 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['dashboard.left_bar.left'], SurveyUserComposer::class);
         View::composer(['dashboard.survey.survey'], SurveyResultComposer::class);
         View::composer(['include.custom_js.custom_js'], CustomJsScriprComposer::class);
+        View::composer('*', SettingComposer::class);
 
 
     }
