@@ -47,7 +47,7 @@ class MoonshineSettingPage extends Page
             extract($this->setting());
         }
 
-
+/*
         $bonus = (config('site.setting.bonus'))?:'';
         $ball = (config('site.setting.ball'))?:'';
         $cashback = (config('site.setting.cashback'))?:'';
@@ -63,7 +63,7 @@ class MoonshineSettingPage extends Page
         $email = (config('site.setting.email'))?:'';
         $facebook = (config('site.setting.facebook'))?:'';
         $instagram = (config('site.setting.instagram'))?:'';
-        $youtube = (config('site.setting.youtube'))?:'';
+        $youtube = (config('site.setting.youtube'))?:'';*/
 
 
         return [

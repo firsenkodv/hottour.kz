@@ -52,8 +52,8 @@ class MoonshineCalculatorCreditPage extends Page
         }
 
 
-        $banks = (config('site.calculator-credit.banks')) ?: '';
-        $countries = (config('site.calculator-credit.countries')) ?: '';
+/*        $banks = (config('site.calculator-credit.banks')) ?: '';
+        $countries = (config('site.calculator-credit.countries')) ?: '';*/
 
 
         return [
