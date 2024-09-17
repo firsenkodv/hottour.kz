@@ -47,25 +47,6 @@ class MoonshineSettingPage extends Page
             extract($this->setting());
         }
 
-/*
-        $bonus = (config('site.setting.bonus'))?:'';
-        $ball = (config('site.setting.ball'))?:'';
-        $cashback = (config('site.setting.cashback'))?:'';
-        $fullAddress = (config('site.setting.fullAddress'))?:'';
-        $address = (config('site.setting.address'))?:'';
-        $country = (config('site.setting.country'))?:'';
-        $sityAddress = (config('site.setting.sityAddress'))?:'';
-        $idn = (config('site.setting.idn'))?:'';
-        $phone1 = (config('site.setting.phone1'))?:'';
-        $phone2 = (config('site.setting.phone2'))?:'';
-        $whatsapp = (config('site.setting.whatsapp'))?:'';
-        $telegram = (config('site.setting.telegram'))?:'';
-        $email = (config('site.setting.email'))?:'';
-        $facebook = (config('site.setting.facebook'))?:'';
-        $instagram = (config('site.setting.instagram'))?:'';
-        $youtube = (config('site.setting.youtube'))?:'';*/
-
-
         return [
 
 
