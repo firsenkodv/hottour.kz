@@ -582,6 +582,7 @@ class AjaxController extends Controller
     {
 
         //$user = auth()->user();
+
         $user = User::find($request->user_id); // получили пользователя, для которого получим туры
         $session_user = session()->get('user');
 
