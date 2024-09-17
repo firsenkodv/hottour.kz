@@ -4,16 +4,8 @@
 @section('keywords', ($seo_keywords)??null)
 @section('content')
     <main class="page_search__wrapper">
-        @include('include.search.select.select_search')
-        @include('include.module.survey')
-        @include('include.search.find-tour_search')
-        <div class="search_loader">
-            <div class="s_progress display_none"><span class="progress"></span></div>
-            <div id="search_loader"><span class="loader2"></span></div>
-        </div>
-
-        <div class="s_page s_page__tours" id="resultHotel"></div>
-
+        <div class="pad_20 tv-search-form tv-moduleid-9960271"></div>
+        <script type="text/javascript" src="//tourvisor.ru/module/init.js"></script>
     </main>
 @endsection
 
