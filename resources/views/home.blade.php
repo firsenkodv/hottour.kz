@@ -10,8 +10,12 @@
  <main>
         <div class="background_mobile">
         <section class="block z-index-24 pad_t16 pad_b16 ">
-            @include('include.search.select.select_search')
-            @include('include.search.index_search')
+{{--      @include('include.search.select.select_search')
+          @include('include.search.select.select_search_old')   --}}
+          {{--    @include('include.search.index_search')--}}
+            @include('include.search.index_search_old')
+
+
         </section>
         <section class="block z-index-20 pad_t26 pad_b6 ">
             @include('include.quality.quality')
