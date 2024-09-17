@@ -22,11 +22,13 @@ class DumpController extends Controller
         $category = DumpViewModel::make()->OneDump($slug);
         $publs = (count($category->publs))?$category->publs()->orderBy('created_at', 'DESC')->paginate(20):[];
         $top_category = config('links.link.dump');
+        $calc =  DumpViewModel::make()->calc();
 
         return view('pages.dumps.category', [
             'top_category' => $top_category,
             'category' => $category,
-            'publs' => $publs
+            'publs' => $publs,
+            'calc' => $calc
         ]);
 
     }
@@ -58,12 +60,14 @@ class DumpController extends Controller
         $publs = (count($category->companies))?$category->companies()->orderBy('created_at', 'DESC')->paginate(20):[];
 
         $top_category = config('links.link.dump2');
+        $calc =  DumpViewModel::make()->calc();
 
 
         return view('pages.dumps.category', [
             'top_category' => $top_category,
             'category' => $category,
-            'publs' => $publs
+            'publs' => $publs,
+            'calc' => $calc
         ]);
 
     }

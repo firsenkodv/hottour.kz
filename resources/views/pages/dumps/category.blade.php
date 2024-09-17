@@ -22,7 +22,7 @@
 
                     <div class="hbox__middle country_page pad_t1_important">
                         @if($category->calc)
-                            <x-calc.calc/>
+                            <x-calc.calc :data="(isset($calc)? $calc :'')"/>
                         @endif
                         @if($category->smalltext)
                             <div class="colorGrey smalltext desc">
