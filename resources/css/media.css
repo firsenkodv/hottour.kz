@@ -158,7 +158,10 @@
 
   .header_top .top_social {
     width: 0;
-    display: none; } }
+    display: none; }
+
+  .s_result_ {
+    width: 100%; } }
 @media screen and (max-width: 999px) {
   .page_site.background_f7f7f7 {
     background: #fff; }
@@ -405,6 +408,9 @@
 /* pocofon  x3 */
 @media (max-width: 793px) {
   /*размер шрифтов*/
+  .s_result_relative {
+    height: auto; }
+
   .desc h2 {
     font-size: 36px; }
   .desc h3 {

@@ -325,6 +325,10 @@ $maxWidth: 1440;
         width: 0;
         display: none;
     }
+    .s_result_ {
+        width: 100%;
+
+    }
 }
 
 @media screen and (max-width: 999px) {
@@ -751,6 +755,10 @@ $maxWidth: 1440;
 @media (max-width: 793px) {
     /*размер шрифтов*/
 
+
+    .s_result_relative {
+height: auto;
+    }
 
     .desc {
         h2 {
