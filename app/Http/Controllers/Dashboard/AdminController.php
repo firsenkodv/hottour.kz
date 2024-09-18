@@ -615,11 +615,12 @@ class AdminController extends Controller
          */
         $user = auth()->user();
         $item = User::query()->where('id', $id)->first();
-
         $crm = new Api();
         $tours = [];
 
         $tours = $crm->CRM($item->email);
+
+
 
         return view('dashboard.zone_admin_usertours',
             [
