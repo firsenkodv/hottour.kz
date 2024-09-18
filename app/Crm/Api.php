@@ -122,7 +122,7 @@ class Api
             curl_close($curl);
             foreach ($out->packet as $key => $pack) {
 
-                
+
 
                 $reservationid = $pack->id;
                 $nights = $pack->nights;
