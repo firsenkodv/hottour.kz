@@ -21,7 +21,7 @@
                 </div>
 
             </div>
-        <div class="desc_static desc pad_b40_important">
+        <div class="desc_static desc pad_b60_important">
             <p style="text-align: justify;"><strong>Поиск и Бронирование тура Online.</strong>&nbsp;Все направления и страны. Подобрать недорогой тур для отдыха. Все туроператоры и безопасные авиалинии.</p>
             <p style="text-align: justify;">Подбор туров в Турцию, Эмираты, Тайланд, Египет, Малайзию, Европу и т.д. online с вылетом из Москвы, Санкт-Петербурга, России, удобная форма подбора тура от всех ведущих туроператоров России.</p>
             <h3 style="text-align: justify;"><strong>Внимание !!!</strong></h3>
