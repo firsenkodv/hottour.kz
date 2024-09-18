@@ -9,6 +9,11 @@
         <div class="pad_t40  tv-search-form tv-moduleid-9960271"></div>
         <script type="text/javascript" src="//tourvisor.ru/module/init.js"></script>
         </div>
+
+        <section class="z-index-23 pad_t16 pad_b16 ">
+            @include('include.module.hottours')
+        </section>
+
         <div class="block">
             <div class="hbox temp_img">
                 <div class="hbox__top pad_b1">
