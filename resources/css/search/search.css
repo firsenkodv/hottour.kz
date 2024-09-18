@@ -1165,7 +1165,7 @@
     border: 1px solid #EF533F; }
 
 .select_search_tours {
-  max-width: 300px;
+  max-width: 380px;
   margin: 35px auto 0 auto;
   width: 100%;
   display: flex;
@@ -1324,5 +1324,23 @@
 .search_result__favorite .search_result__info-wrap .search_result__price .search_result__coast span {
   font-size: 26px;
   font-weight: 600; }
+
+.s_result_relative {
+  width: 100%;
+  background: #fff;
+  margin: 0 auto;
+  height: 80px;
+  position: relative;
+  border-radius: 8px;
+  display: none; }
+  .s_result_relative.active {
+    display: block; }
+
+.s_result_ {
+  width: 1100px;
+  padding: 16px 0 0 0;
+  margin: 0 auto;
+  z-index: 24;
+  position: relative; }
 
 /*# sourceMappingURL=search.css.map */

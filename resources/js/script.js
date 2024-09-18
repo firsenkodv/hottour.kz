@@ -367,6 +367,28 @@ $('body').on('click', '.favourites2', function (event) {
  */
 
 
+/**
+ *  Старый поиск
+ */
+
+
+
+
+$('body').on('click','.ss_tours2__js .sst_', function(event){
+
+    $('.ss_tours2__js .sst_').removeClass('active');
+    $('.s_result_2 .s_result_relative').removeClass('active');
+    $(this).addClass('active');
+    var Res = $(this).data('res');
+    $('.s_result_2 .'+Res).addClass('active');
+
+
+});
+
+/**Старый поиск
+ */
+
+
 
 
 
