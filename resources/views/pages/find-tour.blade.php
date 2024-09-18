@@ -18,11 +18,7 @@
             <div class="hbox temp_img">
                 <div class="hbox__top pad_b1">
 
-                    <h1>
-                        Поиск тура online
-
-
-                    </h1>
+                    <h1>Поиск тура online</h1>
                 </div>
 
             </div>
@@ -43,6 +39,8 @@
             <p style="text-align: justify;">3. После подбора тура необходимо отправить отобранный Вами тур через форму&nbsp;заказ тура&nbsp;либо сообщить&nbsp;<a href="/kontakty" title="Контакты">по телефонам</a>.</p>        </div>
         </div>
     </main>
+    @include('html.temp_forms.reserve_hotel')
+
 @endsection
 
 
