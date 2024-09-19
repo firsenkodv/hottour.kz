@@ -10,8 +10,12 @@
             @include('include.translate.translate')
         </span><!--.m_m_top_lang-->
         </div>
-        <div class="fMenu"></div>
-        <div class="fLogin">
+        <div class="fMenu tab_plane" data-mf="m_f3"></div>
+        <div class="fSearch tab_plane" data-mf="m_f1">
+            @include('include.search.index_search_old')
+        </div>
+        <div class="fContacts tab_plane" data-mf="m_f4"></div>
+        <div class="fLogin tab_plane" data-mf="m_f5">
             @auth()
                 @php
                     $user = auth()->user();
@@ -54,24 +58,23 @@
 
 <div class="mobile_menu">
     <div class="mob_flex">
-        <a class="m_f m_f1 {{ active_linkMenu(asset('/find-tour')) }}" href="/find-tour">
+        <div class="m_f m_f1" data-mf="m_f1">
             <div class="m_img"></div>
             <span>{{ __('Поиск') }}</span>
-        </a>
-        <a class="m_f m_f2 {{ active_linkMenu('/') }} " href="/">
+        </div>
+        <a class="m_f m_f2 {{ active_linkMenu(asset(route('home'))) }} " href="/">
             <div class="m_img"></div>
             <span>{{ __('Главная') }}</span>
         </a>
-        <div class="m_f m_f3">
+        <div class="m_f m_f3"  data-mf="m_f3">
             <div class="m_img"></div>
             <p>{{ __('Меню') }}</p>
         </div>
-        <a class="m_f m_f4 {{ active_linkMenu(asset(config('links.link.contacts'))) }} "
-           href="{{ asset(config('links.link.contacts')) }}">
+        <div class="m_f m_f4"  data-mf="m_f4">
             <div class="m_img"></div>
             <span>{{ __('Контакты') }}</span>
-        </a>
-        <div class="m_f m_f5">
+        </div>
+        <div class="m_f m_f5"  data-mf="m_f5">
             <div class="m_img"></div>
             <p>{{ __('Кабинет') }}</p>
         </div>
