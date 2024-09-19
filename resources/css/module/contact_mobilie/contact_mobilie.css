@@ -1,0 +1,24 @@
+.contact_mobilie {
+  padding: 24px 16px; }
+  .contact_mobilie .Write__wpap {
+    padding: 8px 0; }
+  .contact_mobilie .Write__ {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 40px; }
+    .contact_mobilie .Write__ a {
+      color: #282828;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: 400; }
+    .contact_mobilie .Write__ label {
+      margin-left: 20px; }
+  .contact_mobilie .mod_nummem_echo_desktop {
+    display: none; }
+  .contact_mobilie img {
+    width: 39px !important;
+    height: 39px !important; }
+
+/*# sourceMappingURL=contact_mobilie.css.map */

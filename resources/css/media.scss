@@ -332,6 +332,18 @@ $maxWidth: 1440;
 }
 
 @media screen and (max-width: 999px) {
+    .F_form_pick_tour {
+        width: 98%;
+    }
+    .F_form__pick {
+        .F_form__pick_left {
+            width: 40%;
+            background-position: -115px 0 !important;
+        }
+        .F_form__pick_right{
+            width: 60%;
+        }
+    }
     .page_site.background_f7f7f7 {
         background: #fff;
     }
@@ -1235,6 +1247,16 @@ height: auto;
     /* Переход на мобильную версию */
 
 
+    .F_form__pick {
+        .F_form__pick_left {
+            width: 40%;
+            background-position: -165px 0 !important;
+        }
+        .F_form__pick_right{
+            width: 60%;
+        }
+    }
+
 }
 
 /* pocofon  x3 */
@@ -1335,6 +1357,25 @@ height: auto;
 /* xiaomi pro6 */
 
 @media (max-width: 666px) {
+
+
+    .F_form_pick_tour {
+        width: 98%;
+    }
+    .F_form__pick {
+
+        .F_form__pick_left {
+
+            background-position: 0 !important;
+            display: none;
+        }
+        .F_form__pick_right{
+            width: 100%;
+            border-radius: 12px !important;
+        }
+    }
+
+
 
     .survey__flex {
         display: block;
@@ -1793,6 +1834,10 @@ height: auto;
 }
 
 @media (max-width: 416px) {
+    .select_search_tours .sst_ {
+        font-size: 15px;
+
+    }
     .n_vid__flex {
         .n_vid_item {
             width: 100%;
