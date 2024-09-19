@@ -29,6 +29,7 @@
 @import "./module/plane/plane.scss";
 @import "./module/questions/questions.scss";
 @import "./module/cart/cart.scss";
+@import "./module/contact_mobilie/contact_mobilie.scss";
 @import "./module/connect/connect.scss";
 @import "./module/calc/selectbox.css";
 @import "./auth/register.scss";

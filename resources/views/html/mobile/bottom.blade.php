@@ -14,7 +14,15 @@
         <div class="fSearch tab_plane" data-mf="m_f1">
             @include('include.search.index_search_old')
         </div>
-        <div class="fContacts tab_plane" data-mf="m_f4"></div>
+        <div class="fContacts tab_plane" data-mf="m_f4">
+
+
+
+  @include('include.contacts.contacts_mobile')
+
+
+
+        </div>
         <div class="fLogin tab_plane" data-mf="m_f5">
             @auth()
                 @php
