@@ -389,6 +389,51 @@ $('body').on('click','.ss_tours2__js .sst_', function(event){
  */
 
 
+/**
+ *  плавает header
+ */
+
+
+$(window).scroll(function () {
+    if ($(window).scrollTop() > 0) {
+        //$('.offset').css({position: 'fixed', top: '0px'});
+        $('.background_282828').removeClass('home');
+
+    } else {
+        $('.background_282828').addClass('home');
+    }
+})
+
+if ($(window).scrollTop() > 0) {
+    $('.background_282828').removeClass('home');
+
+} else {
+    $('.background_282828').addClass('home');
+}
+
+/**
+ * разворот
+ */
+
+$('body').on('click','.imgtemp__search__js', function(event){
+
+    $('.shower_search__js').show();
+});
+
+/**
+ * сворот
+ */
+
+$('body').on('click','.cancel-circle__js', function(event){
+
+    $('.shower_search__js').hide();
+});
+
+
+/**Старый поиск
+ */
+
+
 
 
 

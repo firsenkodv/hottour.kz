@@ -13,6 +13,8 @@ return [
 
     'mail_zakaz' => env('MAIL_ZAKAZ'),
 
+    'app_url' => env('APP_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

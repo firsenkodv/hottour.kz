@@ -1,4 +1,3 @@
-
 <div class="F_form  F_form_pick_tour" style="display: none" id="pick_tour2_responce" data-token="{{ csrf_token() }}" data-country="">
 <x-forms.loader class="br_12"/>
     @include('html.modals.responce.responce')

@@ -4,6 +4,9 @@
   .F_form_survey .F_form__body {
     padding: 24px !important; }
 
+.F_form.F_form_order_mini {
+  width: 422px !important; }
+
 .F_form_order_call {
   padding: 0 !important;
   width: 422px !important;

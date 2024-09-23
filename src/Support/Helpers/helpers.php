@@ -714,6 +714,19 @@ if (!function_exists('url2')) {
     }
 }
 
+if (!function_exists('a_url')) {
+    function a_url($url = null)
+    {
+
+        $d = config('app.app_url');
+        if ($url) {
+            $a = $d . '/' . $url;
+            return trim($a);
+        }
+        return  false;
+    }
+}
+
 
 
 

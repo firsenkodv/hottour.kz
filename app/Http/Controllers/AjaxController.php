@@ -67,6 +67,8 @@ class AjaxController extends Controller
              */
 
             OrderCallEvent::dispatch($request);
+            $api = new Api();
+            $api->SendNewRegigisterUserCRM($request); /*** отправка данных в CRM (будет зарегистрирован если нет такого email в CRM) */
 
             /**
              * возвращаем назад в браузер
@@ -102,6 +104,9 @@ class AjaxController extends Controller
              */
 
             OrderMiniEvent::dispatch($request);
+            $api = new Api();
+            $api->SendNewRegigisterUserCRM($request); /*** отправка данных в CRM (будет зарегистрирован если нет такого email в CRM) */
+
 
             /**
              * возвращаем назад в браузер
@@ -268,6 +273,8 @@ class AjaxController extends Controller
              */
 
             PickResponceEvent::dispatch($request);
+            $api = new Api();
+            $api->SendNewRegigisterUserCRM($request); /*** отправка данных в CRM (будет зарегистрирован если нет такого email в CRM) */
 
             /**
              * возвращаем назад в браузер
@@ -308,6 +315,8 @@ class AjaxController extends Controller
              */
 
             SendOrderTourEvent::dispatch($request);
+            $api = new Api();
+            $api->SendNewRegigisterUserCRM($request); /*** отправка данных в CRM (будет зарегистрирован если нет такого email в CRM) */
 
             /**
              * возвращаем назад в браузер

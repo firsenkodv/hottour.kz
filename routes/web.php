@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CookieController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -60,8 +61,9 @@ Route::controller(SignInController::class)->group(function () {
 
 
 
-    Route::post('/login', 'handlePhone')
-        ->name('login.handle.phone');
+    Route::post('/login', 'handlePhoneEmail')
+        ->name('login.handle.phone_email');
+
     Route::post('/login/email', 'handleEmail')
         ->name('login.handle.email');
 
@@ -566,10 +568,26 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/collection/{url}', 'collection_tours')->name('collection_tours');
 
 });
+
 Route::controller(TestController::class)->group(function () {
     Route::get('/test/test', 'test');
 
 });
+
+
+Route::controller(CookieController::class)->group(function () {
+    // вывод модального окна всем крому user и страницы find-tour
+    Route::post('/get.cookie.hottour', 'get_cookie');
+    Route::post('/set.cookie.hottour', 'set_cookie');
+    // вывод модального окна всем крому user и страницы find-tour
+    // вывод модального окна кроме user и только для страницы find-tour
+    Route::post('/get.cookie.hottour.find-tour', 'get_cookie_findtour');
+    Route::post('/set.cookie.hottour.find-tour', 'set_cookie_findtour');
+    // вывод модального окна кроме user и только для страницы find-tour
+
+});
+
+
 Route::controller(PageController::class)->group(function () {
 
     Route::get('{page:slug}', 'page')->name('page');

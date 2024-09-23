@@ -1,11 +1,13 @@
-    <div class="F_form  F_form_order_mini"   data-token="{{ csrf_token() }}">
+    <div class="F_form  F_form_order_mini" style="display: none"  id="pink_tour_order_mini"  data-token="{{ csrf_token() }}">
         <x-forms.loader class="br_12"/>
         @include('html.modals.responce.responce')
         <div class="F_form__body new__temp">
             <div class="new__temp_top">
                 <div class="F_form__flex">
                     <div class="F_form__left">
-                        <div class="F_h1"><span>{{__('Оставьте заявку и мы Вам перезвоним')}}</span></div>
+                        <div class="F_h1"><span>{{__('Не нашли тур')}}</span></div>
+                        <div class="F_h2"><span>{{__('Оставьте заявку и мы Вам перезвоним')}}</span></div>
+
                     </div>
                 </div><!--.F_form__flex-->
             </div><!--.new__temp_top-->
@@ -53,7 +55,7 @@
 
                 </div>
 
-                <div class="text_input ">
+                <div class="text_input pad_t17">
                     <x-forms.text-input
                         type="hidden"
                         name="crm"

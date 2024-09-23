@@ -10,6 +10,15 @@ const openTModalFancyUserSurvey = (e) => {
     Fancybox.show([{src: "#survey_user", type: "inline",  touch: false}]);
 }
 
+const openTModalFancySubscription = (e) => {
+    Fancybox.show([{src: "#subscription_tour", type: "inline",  touch: false}]);
+}
+
+
+const openTModalFancyPinktourOrdermini = (e) => {
+    Fancybox.show([{src: "#pink_tour_order_mini", type: "inline",  touch: false}]);
+}
+
 
 
 function ajaxSurvey (star, params =  null) {
@@ -1299,6 +1308,120 @@ $(document).ready(function () {
 
     /**
      *  /////оценка пользователем сайта  всего личного кабинета
+     *  */
+
+    /**
+     *  всплывает подписка на горящие туры
+     *  */
+
+    setTimeout(function(){
+
+        $.ajax({
+            url: "/get.cookie.hottour",
+            method: "POST",
+            data: {
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                "url": url(),
+            },
+            success: function (response) {
+                if (response.error) {
+                    console.log(response.error);
+
+                } else {
+                    console.log(response.getcookie);
+
+                    if(response.result) {
+                        console.log('хочу открыть (subscription_form2)');
+
+                        if (!$('.fancybox__container').length > 0 )
+                        {
+                            openTModalFancySubscription();
+
+                            // ecли посмотрели форму, то установим cookie
+
+                            $.ajax({
+                                url: "/set.cookie.hottour",
+                                method: "POST",
+                                data: {
+                                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                                    "url": url(),
+                                },
+                                success: function (response) {
+
+                                    console.log('установили для (subscription_form2)');
+                                    console.log(response.setcookie);
+
+                                }
+                            });
+
+                        }
+
+
+
+                    }
+                }
+            }
+        });
+
+    }, 30000);
+
+    /**
+     *   всплывает подписка на стрнаице поиск
+     *  */
+
+    setTimeout(function(){
+
+        $.ajax({
+            url: "/get.cookie.hottour.find-tour",
+            method: "POST",
+            data: {
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                "url": url(),
+            },
+            success: function (response) {
+                if (response.error) {
+                    console.log(response.error);
+
+                } else {
+                    console.log(response.getcookie);
+
+                    if(response.result) {
+                        console.log('хочу открыть (mini_form)');
+
+                        if (!$('.fancybox__container').length > 0 )
+                        {
+                            openTModalFancyPinktourOrdermini();
+
+                            // ecли посмотрели форму, то установим cookie
+
+                            $.ajax({
+                                url: "/set.cookie.hottour.find-tour",
+                                method: "POST",
+                                data: {
+                                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                                    "url": url(),
+                                },
+                                success: function (response) {
+
+                                    console.log('установили для (mini_form)');
+                                    console.log(response.setcookie);
+
+                                }
+                            });
+
+                        }
+
+
+
+                    }
+                }
+            }
+        });
+
+    }, 120000);
+
+    /**
+     *  /////всплывает подписка на стрнаице поиск
      *  */
 
 

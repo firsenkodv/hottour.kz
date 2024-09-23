@@ -55,7 +55,7 @@
             @endauth
 
             @guest()
-                @include('auth.forms.f-login-email')
+                @include('auth.forms.f-login')
             @endguest
         </div>
 

@@ -33,6 +33,7 @@
 
 @include('html.temp_forms.order_call')
 @include('html.temp_forms.pick_tour')
+@include('html.temp_forms.pink_tour_order_mini')
 @include('html.temp_forms.pick_tour2_responce')
 @include('html.temp_forms.subscription_tour')
 @include('html.temp_forms.promo')

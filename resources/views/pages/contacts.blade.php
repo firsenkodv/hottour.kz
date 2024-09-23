@@ -150,7 +150,7 @@
 
 
             @foreach($contacts as $k=>$contact)
-            $("body").on("click", ".contactTabs  .G_tab{{$k}}", function (event) {
+            $("body").on("click", ".contactTabs__top  .G_tab{{$k}}", function (event) {
                 myMap.panTo([{{$contact->yandex_map}}], {
                     //    delay:  9000,
                     duration: 1000,

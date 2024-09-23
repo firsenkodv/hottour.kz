@@ -5,21 +5,21 @@
             <x-forms.auth-form
                 title=""
                 subtitle=""
-                action="{{ route('login.handle.phone') }}"
+                action="{{ route('login.handle.phone_email') }}"
                 method="POST"
             >
                 <div class="text_input">
                     <x-forms.text-input_fromLabel
                         type="text"
-                        id="enterPhone"
-                        name="phone"
-                        placeholder="Номер телефона"
+                        id="enterPhoneEmail"
+                        name="phone_email"
+                        placeholder="Номер телефона или email"
                         required="true"
-                        class="input phone"
-                        value="{{ old('phone') }}"
-                        :isError="$errors->has('phone')"
+                        class="input phone_email"
+                        value="{{ old('phone_email') }}"
+                        :isError="$errors->has('phone_email')"
                     />
-                    <x-forms.error class="error_phone"/>
+                    <x-forms.error class="error_phone_email"/>
 
                 </div>
 
