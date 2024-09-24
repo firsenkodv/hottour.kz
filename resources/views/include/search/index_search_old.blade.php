@@ -18,7 +18,8 @@
             <script type="text/javascript" src="//tourvisor.ru/module/init.js"></script>
         </div><!--.s_result_relative2-->
         <div class="s_result_relative s_result_relative3">
-            <script charset="utf-8" src="//www.travelpayouts.com/widgets/442012e76e971fa08683264f4368382f.js?v=2186" async></script>
+            {{--<script charset="utf-8" src="//www.travelpayouts.com/widgets/442012e76e971fa08683264f4368382f.js?v=2186" async></script>--}}
+            <script charset="utf-8" type="text/javascript" src="//avia.hottour.kz/iframe.js" async></script>
             <style>
                 .s_result_relative .mewtwo-widget .mewtwo-flights {
                     padding: 12px 10px !important;
