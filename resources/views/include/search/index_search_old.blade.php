@@ -19,42 +19,10 @@
         </div><!--.s_result_relative2-->
         <div class="s_result_relative s_result_relative3">
             {{--<script charset="utf-8" src="//www.travelpayouts.com/widgets/442012e76e971fa08683264f4368382f.js?v=2186" async></script>--}}
-            <script charset="utf-8" type="text/javascript" src="//avia.hottour.kz/iframe.js" async></script>
+
+            <script async src="https://tp.media/content?currency=kzt&trs=145323&shmarker=140397&show_hotels=false&powered_by=false&locale=ru&searchUrl=avia.hottour.kz%2Fflights&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=12&no_labels=true&plain=true&promo_id=7879&campaign_id=100" charset="utf-8"></script>
             <style>
-                .s_result_relative .mewtwo-widget .mewtwo-flights {
-                    padding: 12px 10px !important;
-                    border: 1px solid transparent !important;
-                }
 
-                .s_result_relative .mewtwo-widget .mewtwo-best_offers {
-                    min-height: 1px !important;
-                    background: #fff !important;
-                }
-
-                .s_result_relative .TVSearchButton {
-                    border-radius: 8px !important;
-                }
-
-                .s_result_relative .mewtwo-widget .mewtwo-flights-submit_button > button {
-                    border-radius: 8px !important;
-                    -webkit-box-shadow: none !important;
-                    box-shadow: none !important;
-                    height: 47px !important;
-                    margin:0  6px 0 0 !important;
-                }
-
-                .s_result_relative .mewtwo-widget .mewtwo-flights {
-                    background: #fff !important;
-                    padding: 15px 10px 10px 10px !important;
-                    border-radius: 4px !important;
-                }
-
-                .s_result_relative .mewtwo-flights-container form {
-                    min-height: 50px
-                }
-                .mewtwo-widget .mewtwo-flights-trip_class {
-                    height: 47px !important;
-                }
             </style>
         </div><!--.s_result_relative3-->
     </div><!--.s_result_-->
