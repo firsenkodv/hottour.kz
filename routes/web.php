@@ -11,6 +11,7 @@ use App\Http\Controllers\CookieController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\Excel\ExcelExportUserController;
 use App\Http\Controllers\Dashboard\ManagerController;
 use App\Http\Controllers\Dashboard\SeniorController;
 use App\Http\Controllers\Dump\DumpController;
@@ -586,6 +587,18 @@ Route::controller(CookieController::class)->group(function () {
     // вывод модального окна кроме user и только для страницы find-tour
 
 });
+
+
+
+
+Route::controller(ExcelExportUserController::class)->group(function () {
+    // вывод модального окна всем крому user и страницы find-tour
+    Route::post('/export.excel.user', 'export_user');
+
+
+});
+
+
 
 
 Route::controller(PageController::class)->group(function () {

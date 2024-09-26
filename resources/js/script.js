@@ -1,4 +1,5 @@
 //todo:jquery
+import { export_user } from './include/user_ecxel';
 document.addEventListener('DOMContentLoaded', function () {
 
     if($('.slick_slider__carusel').length) {
@@ -432,6 +433,9 @@ $('body').on('click','.cancel-circle__js', function(event){
 
 /**Старый поиск
  */
+
+
+export_user()
 
 
 

@@ -36,6 +36,7 @@
 @import "./auth/flash.scss";
 @import "./admin-users/users.scss";
 @import "./admin-users/user.scss";
+@import "./cabinet/user_ecxel.scss";
 @import "./cabinet/tours.scss";
 @import "./cabinet/cabinet.scss";
 @import "./forms/file.scss";
