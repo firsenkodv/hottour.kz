@@ -117,10 +117,10 @@ class ChangeContactsCron extends Command
         }
 
 
-        dump($p);
+ /*       dump($p);
         dump($w);
         dump($t);
-        dd('end');
+        dd('end');*/
 
     }
 
