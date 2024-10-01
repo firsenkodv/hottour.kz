@@ -5,19 +5,17 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "ext-curl": "*",
+        "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "lee-to/moonshine-tree-resource": "^1.2",
-        "maatwebsite/excel": "^3.1",
         "moonshine/moonshine": "^2.7",
         "rap2hpoutre/fast-excel": "^5.4",
         "spatie/laravel-honeypot": "^4.5",
-        "yurizoom/moonshine-media-manager": "^1.2.0"
+        "ext-curl": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
