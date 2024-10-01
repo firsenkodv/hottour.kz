@@ -18,6 +18,7 @@ class Api
     public function CRM($email)
     {
 
+
         $ip_crm = $this->ip_crm;
         $login_crm = $this->login_crm;
         $port_crm = $this->port_crm;
@@ -92,11 +93,16 @@ class Api
                 }
             }
         }
+
+
         if ($out) {
             if (count($out->packet) > 0) {
                 $id_client = $out->packet[0]->id;
             }
         }
+
+
+
         if ($id_client) {
 
             $link = 'http://' . $ip_crm . ':' . $port_crm . '/api/v1/reservation?precipientid=' . $id_client . '';  // не зависимо от статуса
@@ -116,7 +122,7 @@ class Api
             curl_close($curl);
             foreach ($out->packet as $key => $pack) {
 
-                // dump($pack);
+
 
                 $reservationid = $pack->id;
                 $nights = $pack->nights;
@@ -206,6 +212,8 @@ class Api
                 $x++;
 
             }
+
+
 
 
             //$sortBy = 'datebeg';
@@ -344,6 +352,10 @@ class Api
      */
     public function saveBonusForUser($arr = null, $user_id = null)
     {
+
+
+
+
         if (is_null($arr)) {
             return false;
         }
@@ -358,11 +370,12 @@ class Api
 
               $user = User::query()->where('id', $user_id)->first();
 
+
               if(is_null($user->bonus)) {
-                  $user->bonus = $item['bonus'];
+                  $user->bonus = price_reverse($item['bonus']);
               } else {
                   if($user->bonus != $item['bonus']) {
-                      $user->bonus =  $item['bonus'];
+                      $user->bonus =  price_reverse($item['bonus']);
                   }
               }
 

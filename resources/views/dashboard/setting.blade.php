@@ -14,6 +14,8 @@
 
                     </div>
                 </div>
+
+
                 <div class="cabinet__right">
                     @include('include.menu.cabinet_menu')
 
@@ -31,10 +33,16 @@
                         @include('dashboard.forms.edit_password')
 
 
+                        @if(role($user->id) == 'admin')
+
+                            @include('dashboard.survey.survey')
+
+                        @endif
+
                     </div>
-
-
                 </div>
+
+
             </div>
 
         </div>

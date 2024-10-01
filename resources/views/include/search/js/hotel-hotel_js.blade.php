@@ -256,7 +256,7 @@
                     let standard = '<div class="line_info_ticket"><p class="line_info_ticket__class">'+ v.room +'</p><p>'+ v.mealrussian +'</p><p>'+ v.meal+'</p></div>';
                     let line_info_flight = '<div class="line_info_flight"></div>';
                     let line_info_2 = '</div>';
-                    let btn_wrap = '<div class="line_info_btn-wrap"><a href="#reserve_hotel"  data-fancybox data-tout_data=\''+ obString +'\' class="line_info__link line_info__link--big btnPinkGradientTour button button_big tour_button_js" data-hotelcode="'+ v.hotelcode +'" data-tourid="-"><span>' + v.price.toLocaleString() + '</span> <span class="c__currency">' + currency(v.currency) + '</span></a></div>';
+   let btn_wrap = '<div class="line_info_btn-wrap"><a href="#reserve_hotel"  data-fancybox data-tout_data=\''+ obString +'\' class="line_info__link line_info__link--big btnPinkGradientTour button button_big tour_button_js" data-hotelcode="'+ v.hotelcode +'" data-tourid="-"><span>' + v.price.toLocaleString() + '</span> <span class="c__currency">' + currency(v.currency) + '</span></a></div>';
                     let wrapper_info_2 = '</div>';
                     let super_wrapper_finish = '</div></div></div></div></div>';
 

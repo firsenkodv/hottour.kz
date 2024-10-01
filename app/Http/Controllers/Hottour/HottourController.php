@@ -25,7 +25,6 @@ class HottourController extends Controller
         $category = TravelcategoryViewModel::make()->OneTravelcategory($slug_category); // категория
         $items =  (count($category->travelitems))?$category->travelitems()->orderBy('sorting', 'DESC')->paginate(20):[];
 
-
         return view('pages.hottours.category', [
             'category' => $category,
             'items' => $items,

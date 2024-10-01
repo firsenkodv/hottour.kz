@@ -25,8 +25,7 @@ class SignInFormPhoneRequest extends FormRequest
     public function rules(): array
     {
         return [
-           // 'phone' => ['required', 'string', 'min:5',  Rule::unique('users')->ignore(auth()->user()->id)],
-            'phone' => ['required', 'string', 'min:5'],
+            'phone_email' => ['required', 'string', 'min:5'],
             'password' => ['required'],
 
         ];
@@ -36,12 +35,12 @@ class SignInFormPhoneRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        $this->merge(
+    /*    $this->merge(
             [
 
                 'phone' => phone($this->phone),
 
             ]
-        );
+        );*/
     }
 }

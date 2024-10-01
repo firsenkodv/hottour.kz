@@ -37,6 +37,8 @@ class HomeController extends Controller
 
         $hot_counrty = HotCategory::find(1);
 
+
+
         return view('home', [
             'hot_country' => $hot_counrty,
             'departures' => $departures,

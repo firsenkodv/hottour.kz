@@ -33,9 +33,12 @@
 
 @include('html.temp_forms.order_call')
 @include('html.temp_forms.pick_tour')
+@include('html.temp_forms.pink_tour_order_mini')
 @include('html.temp_forms.pick_tour2_responce')
 @include('html.temp_forms.subscription_tour')
 @include('html.temp_forms.promo')
+@include('html.temp_forms.survey')
+@include('html.temp_forms.survey_user')
 @include('html.modals.gr')
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -43,6 +46,9 @@
     @yield('jquery-ui')
     @yield('tourvisor')
     @include('include.connect.connect')
+    @include('include.custom_js.custom_js')
+
+
 </body>
 </html>
 

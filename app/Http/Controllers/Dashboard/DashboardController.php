@@ -28,9 +28,6 @@ class DashboardController extends Controller
         $session_user = session()->get('user');
         $tours = [];
 
-
-
-
             return view('dashboard.cabinet',
                 [
                     'user' => $user,

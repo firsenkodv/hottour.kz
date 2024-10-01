@@ -29,12 +29,14 @@
 @import "./module/plane/plane.scss";
 @import "./module/questions/questions.scss";
 @import "./module/cart/cart.scss";
+@import "./module/contact_mobilie/contact_mobilie.scss";
 @import "./module/connect/connect.scss";
 @import "./module/calc/selectbox.css";
 @import "./auth/register.scss";
 @import "./auth/flash.scss";
 @import "./admin-users/users.scss";
 @import "./admin-users/user.scss";
+@import "./cabinet/user_ecxel.scss";
 @import "./cabinet/tours.scss";
 @import "./cabinet/cabinet.scss";
 @import "./forms/file.scss";
@@ -63,6 +65,7 @@
 @import "./menu/country_menu.scss";
 @import "./menu/menu.scss";
 @import "./selectsity/select_sity.scss";
+@import "./blocks/survey.scss";
 @import "./blocks/mobile_app.scss";
 @import "./blocks/quality_servise.scss";
 @import "./blocks/header.scss";

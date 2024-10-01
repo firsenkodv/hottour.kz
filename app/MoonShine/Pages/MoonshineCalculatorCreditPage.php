@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages;
 
+use App\Models\MoonshineCalculator;
 use Illuminate\Support\Facades\Cache;
 use MoonShine\Components\FormBuilder;
 use MoonShine\Decorations\Block;
@@ -34,13 +35,23 @@ class MoonshineCalculatorCreditPage extends Page
         return $this->title ?: 'Кредитный калькулятор';
     }
 
+    public function setting()
+    {
+        $n = explode("/", url2());
+        $key = array_pop($n); // получаем последнюю часть url - это ключ
+        $result = MoonshineCalculator::query()->where('key', $key)->first();
+        return (is_null($result))?null: $result->toArray();
+
+    }
     public function components(): array
     {
         Cache::flush();
 
-        // $test = (config('site.calculator-credit.test'))?:'';
-        $banks = (config('site.calculator-credit.banks')) ?: '';
-        $countries = (config('site.calculator-credit.countries')) ?: '';
+        if(!is_null($this->setting())) {
+            extract($this->setting());
+        }
+
+
 
 
         return [
@@ -56,7 +67,7 @@ class MoonshineCalculatorCreditPage extends Page
 
                             Grid::make([
                                 Column::make([
-                                    Divider::make('Общие константы'),
+                                    Divider::make('Банки'),
                                     Block::make([
 
                                         Json::make('Банки', 'banks')->fields([
@@ -76,7 +87,7 @@ class MoonshineCalculatorCreditPage extends Page
 
 
                                         ])->vertical()->creatable()
-                                            ->removable()->default($banks),
+                                            ->removable()->default((isset($banks)) ? $banks : ''),
 
 
                                     ])
@@ -87,13 +98,13 @@ class MoonshineCalculatorCreditPage extends Page
                                     Divider::make('Страны'),
                                     Block::make([
 
-                                        Json::make('Список', 'countries')->fields([
+                                        Json::make('Страны', 'countries')->fields([
                                             Position::make(),
                                             Text::make('Название', 'title'),
 
 
                                         ])->creatable(limit: 15)
-                                            ->removable()->default($countries),
+                                            ->removable()->default((isset($countries)) ? $countries : ''),
 
                                     ]),
 
@@ -103,9 +114,7 @@ class MoonshineCalculatorCreditPage extends Page
 
 
                         ]),
-                        Tab::make(__('Дополнительно'), [
 
-                        ]),
                     ]),
 
 

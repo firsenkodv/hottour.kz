@@ -6,6 +6,15 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+
+    'mail_username' => env('MAIL_USERNAME'),
+
+    'mail_admin' => env('MAIL_ADMIN'),
+
+    'mail_zakaz' => env('MAIL_ZAKAZ'),
+
+    'app_url' => env('APP_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -97,7 +106,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ru',
 
 
     /*
@@ -171,7 +180,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\MoonShineServiceProvider::class,
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         ViewServiceProvider::class
 
     ])->toArray(),
@@ -189,6 +198,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
 
     ])->toArray(),
 

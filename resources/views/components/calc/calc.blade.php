@@ -1,5 +1,5 @@
 <div class="mod_axeld_credit mod_axeld_credit_192"
-     data-banks=' {"banks" : {@foreach(config('site.calculator-credit.banks') as $k => $bank)"bank{{$k++}}" : {"title": "{{  $bank['title']}}","procent": "{{  $bank['procent']}}","koff" : {@foreach($bank['koff'] as $option)"{{$option['month']}}" : "{{$option['procent']}}&{{$option['month_rus']}}"@if(!$loop->last),@endif @endforeach }}@if(!$loop->last),@endif @endforeach}}'>
+     data-banks=' {"banks" : {@foreach($data->banks as $k => $bank)"bank{{$k++}}" : {"title": "{{  $bank['title']}}","procent": "{{  $bank['procent']}}","koff" : {@foreach($bank['koff'] as $option)"{{$option['month']}}" : "{{$option['procent']}}&{{$option['month_rus']}}"@if(!$loop->last),@endif @endforeach }}@if(!$loop->last),@endif @endforeach}}'>
 
 
     <div id="loader_wrapper" class="loader_wrapper active ">
@@ -25,7 +25,7 @@
                 <!-- тот самый выпадающий список -->
                 <ul class="selectMenuBox selectMenuBox_Bank">
 
-                    @foreach(config('site.calculator-credit.banks') as $k => $bank)
+                    @foreach($data->banks as $k => $bank)
 
                         <li data-bank="bank{{$k++}}" data-title="{{$bank['title']}}" data-procent="{{$bank['procent']}}"
                             class="option">{{$bank['title']}}</li>
@@ -46,7 +46,7 @@
                 <!-- тот самый выпадающий список -->
                 <ul class="selectMenuBox selectMenuBox_Credit">
 
-                    @foreach(config('site.calculator-credit.countries') as $k => $country)
+                    @foreach($data->countries as $k => $country)
                         <li class="option">{{ $country['title'] }}</li>
                     @endforeach
 

@@ -77,3 +77,6 @@
     </div>
 </div>
 {{ $users->withQueryString()->links('pagination::default') }}
+<hr>
+@include('dashboard.forms.add_userfile_ecxel')
+

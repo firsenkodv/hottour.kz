@@ -1,6 +1,7 @@
 <?php
 namespace Domain\Dump\ViewModels;
 use App\Models\Dump;
+use App\Models\MoonshineCalculator;
 use Illuminate\Support\Facades\Cache;
 use Support\Traits\Makeable;
 
@@ -30,6 +31,15 @@ class DumpViewModel
     {
         $one_dump = $this->listDumps()->firstWhere('id', $id);
         return $one_dump;
+    }
+
+
+    public function calc()
+    {
+
+        $calc = MoonshineCalculator::query()->first();
+
+        return $calc;
     }
 
 

@@ -56,8 +56,14 @@ body {
 
 
 header {
-    position: relative;
     z-index: 35;
+    position: fixed;
+    width: 100%;
+    min-height: 122px;
+}
+
+main, .pageRegister  {
+    margin-top: 122px ;
 }
 
 hr {

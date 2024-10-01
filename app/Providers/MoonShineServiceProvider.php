@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Controllers\MoonshineChangeContactController;
+use App\MoonShine\Pages\ChangeContactPage;
 use App\MoonShine\Pages\MoonshineCalculatorCreditPage;
 use App\MoonShine\Pages\MoonshineSettingPage;
 use App\MoonShine\Pages\ReplacementPage;
 use App\MoonShine\Resources\CompanyResource;
 use App\MoonShine\Resources\ContactResource;
 use App\MoonShine\Resources\CustomerHotTourResource;
+use App\MoonShine\Resources\CustomJsScriptResource;
 use App\MoonShine\Resources\Dump2Resource;
 use App\MoonShine\Resources\DumpResource;
 use App\MoonShine\Resources\HotCategoryResource;
@@ -39,6 +42,7 @@ use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use MoonShine\Resources\MoonShineUserResource;
 use MoonShine\Resources\MoonShineUserRoleResource;
+use YuriZoom\MoonShineMediaManager\Pages\MediaManagerPage;
 
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
@@ -196,16 +200,30 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     static fn() => __('API Горящие туры'),
                     new CustomerHotTourResource()
                 )->icon('heroicons.fire'),
+
                 MenuItem::make(
                     static fn() => __('API  Tourvisor'),
                     new TourvisorCountryResource()
                 )->icon('heroicons.outline.flag'),
 
                 MenuItem::make(
+                    static fn() => __('Скрипты JS'),
+                    new CustomJsScriptResource()
+                )->icon('heroicons.outline.code-bracket-square'),
+
+                MenuItem::make(
                     static fn() => __('Настройки'),
                     new MoonshineSettingPage()
                 )->icon('heroicons.cog'),
 
+                MenuItem::make(
+                    static fn() => __('Режимы показа'),
+                    new ChangeContactPage()
+                )->icon('heroicons.cog'),
+                MenuItem::make(
+                    static fn () => __('Media manager'),
+                    new MediaManagerPage(),
+                ),
 
 
             ]),

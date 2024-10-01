@@ -567,13 +567,32 @@ if (!function_exists('currency')) {
         return '';
     }
 }
+
+/**
+ *  цифры
+ */
 if (!function_exists('price')) {
     function price($price)
     {
-        $price =  (int)$price;
-        if(is_int($price)) {
+        $price = (int)$price;
+        if (is_int($price)) {
             return number_format($price, 0, '.', ' ');
         }
+        return $price;
+    }
+}
+
+/**
+ *  цифры
+ */
+if (!function_exists('price_reverse')) {
+    function price_reverse($price)
+    {
+        if ($price) {
+            return (int)filter_var($price, FILTER_SANITIZE_NUMBER_INT);
+        }
+
+
         return $price;
     }
 }
@@ -657,6 +676,56 @@ if (!function_exists('intervention')) {
     }
 }
 
+/**
+ * IP адрес
+ */
+if (!function_exists('getIp')) {
+
+    function getIp()
+    {
+        foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
+            if (array_key_exists($key, $_SERVER) === true) {
+                foreach (explode(',', $_SERVER[$key]) as $ip) {
+                    $ip = trim($ip); // just to be safe
+                    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false) {
+                        return $ip;
+                    }
+                }
+            }
+        }
+        return request()->ip(); // it will return the server IP if the client IP is not found using this method.
+    }
+}
+
+
+
+
+/**
+ * url2
+ */
+if (!function_exists('url2')) {
+
+    function url2()
+    {
+        $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $url = explode('?', $url);
+        $url = $url[0];
+        return $url;
+    }
+}
+
+if (!function_exists('a_url')) {
+    function a_url($url = null)
+    {
+
+        $d = config('app.app_url');
+        if ($url) {
+            $a = $d . '/' . $url;
+            return trim($a);
+        }
+        return  false;
+    }
+}
 
 
 

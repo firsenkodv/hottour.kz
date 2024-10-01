@@ -1,3 +1,4 @@
+
 <div class="dashboardBox dashboardBox__a_user ">
 
 {{--    {{ /* данные просматриваемого юзера */ }}--}}

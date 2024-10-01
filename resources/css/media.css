@@ -158,8 +158,20 @@
 
   .header_top .top_social {
     width: 0;
-    display: none; } }
+    display: none; }
+
+  .s_result_ {
+    width: 100%; } }
 @media screen and (max-width: 999px) {
+  .F_form_pick_tour {
+    width: 98%; }
+
+  .F_form__pick .F_form__pick_left {
+    width: 40%;
+    background-position: -115px 0 !important; }
+  .F_form__pick .F_form__pick_right {
+    width: 60%; }
+
   .page_site.background_f7f7f7 {
     background: #fff; }
 
@@ -405,6 +417,9 @@
 /* pocofon  x3 */
 @media (max-width: 793px) {
   /*размер шрифтов*/
+  .s_result_relative {
+    height: auto; }
+
   .desc h2 {
     font-size: 36px; }
   .desc h3 {
@@ -487,6 +502,9 @@
 
   header, footer {
     display: none !important; }
+
+  main {
+    margin-top: 0; }
 
   .good_summer {
     display: none; }
@@ -697,7 +715,15 @@
   .s_page2 {
     padding-bottom: 50px; }
 
-  /* Переход на мобильную версию */ }
+  /* Переход на мобильную версию */
+  .F_form__pick .F_form__pick_left {
+    width: 40%;
+    background-position: -165px 0 !important; }
+  .F_form__pick .F_form__pick_right {
+    width: 60%; } }
+@media (min-width: 793px) and (max-width: 1199.98px) {
+  .mob_menu_content {
+    display: none !important; } }
 /* pocofon  x3 */
 /* xiaomi pro6 */
 @media (max-width: 742px) {
@@ -755,9 +781,36 @@
   .form_modal .form_modal__body .checkbox-services {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
-    flex: 0 0 50%; } }
+    flex: 0 0 50%; }
+
+  .survey__flex {
+    max-width: 100%; } }
 /* xiaomi pro6 */
 @media (max-width: 666px) {
+  .F_form_pick_tour {
+    width: 98%; }
+
+  .F_form__pick .F_form__pick_left {
+    background-position: 0 !important;
+    display: none; }
+  .F_form__pick .F_form__pick_right {
+    width: 100%;
+    border-radius: 12px !important; }
+
+  .survey__flex {
+    display: block;
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 16px; }
+    .survey__flex .survey__sLeft {
+      width: 100%;
+      padding: 0; }
+    .survey__flex .survey__sright {
+      width: 100%; }
+    .survey__flex .rating-area_survey {
+      width: 144px; }
+
   .p_plane {
     padding-top: 30px;
     padding-bottom: 30px; }
@@ -1007,6 +1060,9 @@
     padding-left: 0 !important;
     padding-right: 0 !important; } }
 @media (max-width: 416px) {
+  .select_search_tours .sst_ {
+    font-size: 15px; }
+
   .n_vid__flex .n_vid_item {
     width: 100%;
     max-width: 100% !important; }

@@ -6,10 +6,13 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Cart\CartController;
+use App\Http\Controllers\ChangeContacts\ChangeContactsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CookieController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\Excel\ExcelExportUserController;
 use App\Http\Controllers\Dashboard\ManagerController;
 use App\Http\Controllers\Dashboard\SeniorController;
 use App\Http\Controllers\Dump\DumpController;
@@ -18,9 +21,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Hottour\HottourController;
 use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\Survey\SurveyController;
+use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Tour\TourController;
 use App\Http\Controllers\Tourvisor\TourvisorController;
 use App\MoonShine\Controllers\MoonshineCalculatorCreditController;
+use App\MoonShine\Controllers\MoonshineChangeContactController;
 use App\MoonShine\Controllers\MoonshineSettingController;
 use App\MoonShine\Controllers\ReplacementController;
 use Illuminate\Support\Facades\Route;
@@ -58,8 +64,9 @@ Route::controller(SignInController::class)->group(function () {
 
 
 
-    Route::post('/login', 'handlePhone')
-        ->name('login.handle.phone');
+    Route::post('/login', 'handlePhoneEmail')
+        ->name('login.handle.phone_email');
+
     Route::post('/login/email', 'handleEmail')
         ->name('login.handle.email');
 
@@ -385,6 +392,8 @@ Route::controller(ManagerController::class)->group(function () {
 
 
 });
+
+
 Route::controller(SeniorController::class)->group(function () {
 
 
@@ -518,15 +527,12 @@ Route::controller(HottourController::class)->group(function () {
 
 Route::get('/replacement/update', ReplacementController::class);
 
-
-
 Route::controller(ExcelController::class)->group(function () {
 
     Route::get('/excel', 'showImportExportView');
     Route::post('/import', 'import')->name('import');
 
 });
-
 
 Route::controller(SitemapController::class)->group(function () {
 
@@ -541,27 +547,76 @@ Route::controller(SitemapController::class)->group(function () {
 });
 
 Route::post('/moonshine/setting-website', MoonshineSettingController::class);
+
 Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController::class);
 
+Route::post('/moonshine/change-contacts', MoonshineChangeContactController::class);
 
 
-Route::controller(PageController::class)->group(function () {
+Route::controller(SurveyController::class)->group(function () {
 
-    Route::get('{page:slug}', 'page')->name('page');
+    Route::post('/search.survey', 'createSurvey');
+    Route::post('/search.survey.user', 'createSurveyUser');
 
 });
+
 
 
 Route::controller(CartController::class)->group(function () {
 
     Route::post('/temp/cart', 'cart_form')->name('cart_form');
     Route::get('/temp/cart', 'cart')->name('cart');
-
     Route::post('/temp/cart/finish', 'cart_form_step2')->name('cart_form_step2');
     Route::get('/temp/cart/finish', 'cart_form_finish')->name('cart_form_finish');
     Route::get('/temp/cart/orders', 'cart_orders')->name('cart_orders');
     Route::post('/temp/cart/clear', 'cart_form_clear')->name('cart_form_clear');
     Route::get('/collection/{url}', 'collection_tours')->name('collection_tours');
+
+});
+
+Route::controller(TestController::class)->group(function () {
+    Route::get('/test/test', 'test');
+
+});
+
+
+Route::controller(CookieController::class)->group(function () {
+    // вывод модального окна всем крому user и страницы find-tour
+    Route::post('/get.cookie.hottour', 'get_cookie');
+    Route::post('/set.cookie.hottour', 'set_cookie');
+    // вывод модального окна всем крому user и страницы find-tour
+    // вывод модального окна кроме user и только для страницы find-tour
+    Route::post('/get.cookie.hottour.find-tour', 'get_cookie_findtour');
+    Route::post('/set.cookie.hottour.find-tour', 'set_cookie_findtour');
+    // вывод модального окна кроме user и только для страницы find-tour
+
+});
+
+
+
+
+Route::controller(ExcelExportUserController::class)->group(function () {
+    // вывод модального окна всем крому user и страницы find-tour
+    Route::post('/export.excel.user', 'export_user');
+
+
+});
+
+
+
+Route::controller(ChangeContactsController::class)->group(function () {
+    // начатие на один из типов контактов, и смена в зависимости от режима
+    Route::post('/canche.contacts', 'canche_contacts');
+
+
+});
+
+
+
+
+Route::controller(PageController::class)->group(function () {
+
+    Route::get('{page:slug}', 'page')->name('page');
 
 });
 

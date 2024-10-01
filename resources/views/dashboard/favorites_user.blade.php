@@ -37,8 +37,8 @@
                                 @endif
 
                             </div>
-                            {{ $items->withQueryString()->links('pagination::default') }}
 
+                            {{ $items->withQueryString()->links('pagination::default') }}
 
                         </div>
 

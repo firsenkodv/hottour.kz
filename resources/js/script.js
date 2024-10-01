@@ -1,5 +1,22 @@
 //todo:jquery
+import { export_user } from './include/user_ecxel';
+import { canche_contacts } from './include/canche_contacts';
+
 document.addEventListener('DOMContentLoaded', function () {
+
+    /**
+     * Внедрение
+     */
+
+    class MyEl extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({mode:'open'}).innerHTML = `<style>#Show_hotels {padding: 0;}#root{ padding: 15px 15px 5px !important;}</style>`;
+        }
+    }
+    customElements.define('tp-cascoon', MyEl);
+
+
 
     if($('.slick_slider__carusel').length) {
 
@@ -187,19 +204,6 @@ $(document).ready(function () {
             yearSelect: [1952, moment().get('year')],
 
 
-            /*        getValue: function()
-                    {
-                       // console.log(this.innerHTML)
-                      //  $('.birthdate').text(this.innerHTML);
-                        return this.innerHTML;
-                    },
-                    setValue: function(s)
-                    {
-                       // $('.birthdate').text(this.innerHTML);
-                       // console.log(this.innerHTML);
-                        this.innerHTML = s;
-                    }*/
-
         }).bind('datepicker-change', function (event, obj) {
 
             console.log(obj.value);
@@ -349,6 +353,7 @@ $('body').on('click', '#MainCart .roll_back_js', function (event) {
  *  ///удаление отелей из корзины
  */
 
+
 $('body').on('click', '.favourites2', function (event) {
 
 
@@ -377,6 +382,83 @@ $('body').on('click', '.favourites2', function (event) {
 /**
  *  ///удаление отелей из корзины
  */
+
+
+/**
+ *  Старый поиск
+ */
+
+
+
+
+$('body').on('click','.ss_tours2__js .sst_', function(event){
+
+    $('.ss_tours2__js .sst_').removeClass('active');
+    $('.s_result_2 .s_result_relative').removeClass('active');
+    $(this).addClass('active');
+    var Res = $(this).data('res');
+    $('.s_result_2 .'+Res).addClass('active');
+
+
+});
+
+/**Старый поиск
+ */
+
+
+/**
+ *  плавает header
+ */
+
+
+$(window).scroll(function () {
+    if ($(window).scrollTop() > 0) {
+        //$('.offset').css({position: 'fixed', top: '0px'});
+        $('.background_282828').removeClass('home');
+
+    } else {
+        $('.background_282828').addClass('home');
+    }
+})
+
+if ($(window).scrollTop() > 0) {
+    $('.background_282828').removeClass('home');
+
+} else {
+    $('.background_282828').addClass('home');
+}
+
+/**
+ * разворот
+ */
+
+$('body').on('click','.imgtemp__search__js', function(event){
+
+    $('.shower_search__js').show();
+});
+
+/**
+ * сворот
+ */
+
+$('body').on('click','.cancel-circle__js', function(event){
+
+    $('.shower_search__js').hide();
+});
+
+
+/**Старый поиск
+ */
+
+
+
+
+
+
+export_user() // получения списка пользоваетей в excel
+canche_contacts() // смена контактов на сайте
+
+
 
 
 

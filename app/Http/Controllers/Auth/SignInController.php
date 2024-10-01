@@ -41,24 +41,39 @@ class SignInController extends Controller
         return redirect()->intended(route('setting')); // intended - назад или route
     }
 
-    public function handlePhone(SignInFormPhoneRequest $request): RedirectResponse
+    public function handlePhoneEmail(SignInFormPhoneRequest $request): RedirectResponse
     {
 
-        $user = User::query()->where('phone', $request->phone)->first();
+        //dd($request->all());
 
-        if(!$user) {
-            return back()->withErrors([
-                'phone' => 'Ошибка в поле "Номер телефона"',
-            ])->onlyInput('phone');
+        $pe = trim($request->phone_email);
+        $filter = filter_var($pe, FILTER_VALIDATE_EMAIL);
+
+        if($filter) {
+            if (!auth()->attempt(['email' => $filter, 'password' => $request->password])) {
+
+                return back()->withErrors([
+                    'password' => 'Вход по email: Ошибка в поле "Пароль"',
+                ])->onlyInput('password');
+            }
+        } else {
+
+            $user = User::query()->where('phone', phone($pe))->first();
+
+            if (!$user) {
+                return back()->withErrors([
+                    'phone_email' => 'Ошибка в поле "Номер телефона"',
+                ])->onlyInput('phone_email');
+            }
+
+            if (!auth()->attempt(['email' => $user->email, 'password' => $request->password])) {
+
+                return back()->withErrors([
+                    'password' => 'Вход по номеру телефона: Ошибка в поле "Пароль"',
+                ])->onlyInput('password')->onlyInput('phone_email');
+            }
+
         }
-
-        if (!auth()->attempt(['email' => $user->email, 'password' => $request->password])) {
-
-            return back()->withErrors([
-                'password' => 'Ошибка в поле "Пароль"',
-            ])->onlyInput('password');
-        }
-
 
         $request->session()->regenerate();
         flash()->info(config('message_flash.info.success_enter'));

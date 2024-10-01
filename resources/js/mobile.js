@@ -7,42 +7,27 @@ $(document).ready(function () {
 $('.mobile_version__logo').html($('.header_bottom .logo').html());
 $('.mobile_version__social').html($('.header_top .top_social').html());
 
-        $('body').on('click', '.m_f3', function (event) {
+
+
+        $('body').on('click', 'div.m_f', function (event) {
+
+            let mf = $(this).data('mf');
 
             if($(this).hasClass('active')) {
 
-                $('.fLogin').hide();
-                $('.fMenu').hide();
-
+                $('.tab_plane').hide();
                 $('.mob_menu_content').fadeOut();
                 $(this).removeClass('active');
 
-
             } else {
-                $('.fMenu').show();
-                $('.fLogin').hide();
 
-                $('.mob_menu_content').fadeIn();
-                $('.m_f').removeClass('active');
-                $(this).addClass('active');
-            }
-        });
+                $('.tab_plane').hide();
 
-
-        $('body').on('click', '.m_f5', function (event) {
-
-            if($(this).hasClass('active')) {
-
-                $('.fLogin').hide();
-                $('.fMenu').hide();
-
-                $('.mob_menu_content').fadeOut();
-                $(this).removeClass('active');
-
-
-            } else {
-                $('.fMenu').hide();
-                $('.fLogin').show();
+                $('.mob_menu_content_absol .tab_plane').each(function( index ) {
+                   if($(this).data('mf') == mf) {
+                       $(this).show();
+                   }
+                });
 
                 $('.mob_menu_content').fadeIn();
                 $('.m_f').removeClass('active');

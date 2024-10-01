@@ -1,3 +1,7 @@
+<div class="shower_search shower_search__js">
+    <div class="block relative"><div class="cancel-circle cancel-circle__js"></div></div>
+    @include('include.search.index_search_old')
+</div>
 <header>
     <div class="background_000000">
         <div class="block">
@@ -13,7 +17,8 @@
             </div><!--.header_top-->
         </div>
     </div><!--.background_000000-->
-    <div class="background_282828 {{ $route }}">
+     <div class="fix  {{ $route }}">
+        <div class="background_282828 {{ $route }}">
     <div class="block">
         <div class="hb header_bottom flex">
 
@@ -25,7 +30,18 @@
                     />
                 </div>
                 <div class="hb__social">
-                    @include('include.icons.top_social_big')
+                    @if(route_name() == 'home' or route_name() == 'search_tours')
+
+                        @include('include.icons.top_social_big')
+
+                    @else
+                        <div class="imgtemp__search imgtemp__search_page imgtemp__search__js">
+                            <div class="sbtn_ ic_destination">
+                                <span class="serchbtn_input">{{ __('Поиск туров и курортов') }}</span>
+                                <span class="serchbtn_svg"></span>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -48,4 +64,5 @@
         </div><!--.header_bottom-->
     </div>
     </div><!--.background_282828-->
+     </div><!--.fix  {{ $route }}-->
 </header>

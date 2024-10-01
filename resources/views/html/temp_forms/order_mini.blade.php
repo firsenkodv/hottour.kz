@@ -1,4 +1,4 @@
-    <div class="F_form  F_form_order_mini"  data-token="{{ csrf_token() }}">
+    <div class="F_form  F_form_order_mini"   data-token="{{ csrf_token() }}">
         <x-forms.loader class="br_12"/>
         @include('html.modals.responce.responce')
         <div class="F_form__body new__temp">

@@ -350,7 +350,7 @@
                                     <tr>
                                         <td style="text-align: left; padding-right: 10px;">
                                             <h3 class="heading">© 1993 - {{  now()->year }} HOT TOUR - ХОТ ТУР</h3>
-                                            <p>{!! config('site.setting.idn') !!}, {!! config('site.setting.country') !!}, <br>{!! config('site.setting.sityAddress') !!}</p>
+                                            <p>{!!  (isset($setting['idn']))? $setting['idn'] : '' !!}, {!! (isset($setting['country']))? $setting['country'] : '' !!}, <br>{!! (isset($setting['sityAddress']))? $setting['sityAddress'] :'' !!}</p>
                                         </td>
                                     </tr>
                                 </table>
