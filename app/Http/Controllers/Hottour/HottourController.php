@@ -20,7 +20,7 @@ class HottourController extends Controller
 
 
         /**
-         * Страница вывода материалов определенной категории (горящие туры - из алмааты (список))
+         * Страница вывода материалов определенной категории (горящие туры - из алмааты (список)))
          **/
         $category = TravelcategoryViewModel::make()->OneTravelcategory($slug_category); // категория
         $items =  (count($category->travelitems))?$category->travelitems()->orderBy('sorting', 'DESC')->paginate(20):[];
