@@ -56,4 +56,8 @@ class HotCategoryQueryBuilder extends Builder
             }]);
 
     }
+    public function get_items_light()
+    {
+        return $this->where('published', 1);
+    }
 }

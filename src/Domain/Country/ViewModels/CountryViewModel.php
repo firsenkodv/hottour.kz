@@ -58,15 +58,10 @@ class CountryViewModel
     public function HotCategoryRelation($slug)
     {
 
-     //   $hot_categories_relation = Cache::rememberForever('hot_categories_relation', function () {
 
             $hot_categories_relation =  HotCategory::query()
-                ->get_items()
+                ->get_items_light()
                 ->get();
-    //    });
-
-
-       // dd($hot_categories_relation);
 
 
         $hot_category_relation = $hot_categories_relation->firstWhere('slug', $slug);
