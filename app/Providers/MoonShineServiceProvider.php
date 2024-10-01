@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Controllers\MoonshineChangeContactController;
+use App\MoonShine\Pages\ChangeContactPage;
 use App\MoonShine\Pages\MoonshineCalculatorCreditPage;
 use App\MoonShine\Pages\MoonshineSettingPage;
 use App\MoonShine\Pages\ReplacementPage;
@@ -40,6 +42,7 @@ use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use MoonShine\Resources\MoonShineUserResource;
 use MoonShine\Resources\MoonShineUserRoleResource;
+use YuriZoom\MoonShineMediaManager\Pages\MediaManagerPage;
 
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
@@ -212,6 +215,16 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     static fn() => __('Настройки'),
                     new MoonshineSettingPage()
                 )->icon('heroicons.cog'),
+
+                MenuItem::make(
+                    static fn() => __('Режимы показа'),
+                    new ChangeContactPage()
+                )->icon('heroicons.cog'),
+                MenuItem::make(
+                    static fn () => __('Media manager'),
+                    new MediaManagerPage(),
+                ),
+
 
             ]),
         ];

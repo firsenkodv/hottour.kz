@@ -5,6 +5,7 @@ namespace App\Providers;
 
 
 use App\Models\UserRole;
+use App\View\Composers\ChangeContactComposer;
 use App\View\Composers\CityComposer;
 use App\View\Composers\CountryMainComposer;
 use App\View\Composers\CountryMenuComposer;
@@ -64,7 +65,7 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['dashboard.survey.survey'], SurveyResultComposer::class);
         View::composer(['include.custom_js.custom_js'], CustomJsScriprComposer::class);
         View::composer('*', SettingComposer::class);
-
+        View::composer('include.connect._change_contacts', ChangeContactComposer::class);
 
     }
 }

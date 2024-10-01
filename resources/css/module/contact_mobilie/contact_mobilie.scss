@@ -18,31 +18,37 @@ $maxWidth: 1440;
 
 .contact_mobilie {
     padding:24px 16px;
-    .Write__wpap {
-        padding: 8px 0;
 
-    }
- .Write__ {
+
+
+ a.con_item {
         display: flex;
         flex-direction: row-reverse;
         justify-content: flex-end;
         align-items: center;
         min-height: 40px;
-     a {
-         color: $color;
-         font-size: 18px;
-         text-decoration: none;
-         font-weight: 400;
-     }
-     label {
-         margin-left: 20px;
-     }
+     color: $color;
+     font-size: 18px;
+     text-decoration: none;
+     font-weight: 400;
+     padding: 8px 0;
+
+    }
+    .con_item__left {
+        padding-left: 20px;
+    }
+    .con_item__right {
+
+        div {
+            width: 39px !important;
+            height: 39px !important;
+            box-shadow: 0 0 3px 0 #dddddd;
+            background-size: 46%;
+
+        }
     }
     .mod_nummem_echo_desktop {
         display: none;
     }
-    img {
-        width: 39px !important;
-        height: 39px !important;
-    }
+
 }

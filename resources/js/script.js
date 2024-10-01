@@ -1,6 +1,22 @@
 //todo:jquery
 import { export_user } from './include/user_ecxel';
+import { canche_contacts } from './include/canche_contacts';
+
 document.addEventListener('DOMContentLoaded', function () {
+
+    /**
+     * Внедрение
+     */
+
+    class MyEl extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({mode:'open'}).innerHTML = `<style>#Show_hotels {padding: 0;}#root{ padding: 15px 15px 5px !important;}</style>`;
+        }
+    }
+    customElements.define('tp-cascoon', MyEl);
+
+
 
     if($('.slick_slider__carusel').length) {
 
@@ -435,7 +451,14 @@ $('body').on('click','.cancel-circle__js', function(event){
  */
 
 
-export_user()
+
+
+
+
+export_user() // получения списка пользоваетей в excel
+canche_contacts() // смена контактов на сайте
+
+
 
 
 

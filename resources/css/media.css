@@ -721,6 +721,9 @@
     background-position: -165px 0 !important; }
   .F_form__pick .F_form__pick_right {
     width: 60%; } }
+@media (min-width: 793px) and (max-width: 1199.98px) {
+  .mob_menu_content {
+    display: none !important; } }
 /* pocofon  x3 */
 /* xiaomi pro6 */
 @media (max-width: 742px) {

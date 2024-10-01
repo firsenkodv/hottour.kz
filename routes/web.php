@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Cart\CartController;
+use App\Http\Controllers\ChangeContacts\ChangeContactsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\Country\CountryController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\Tour\TourController;
 use App\Http\Controllers\Tourvisor\TourvisorController;
 use App\MoonShine\Controllers\MoonshineCalculatorCreditController;
+use App\MoonShine\Controllers\MoonshineChangeContactController;
 use App\MoonShine\Controllers\MoonshineSettingController;
 use App\MoonShine\Controllers\ReplacementController;
 use Illuminate\Support\Facades\Route;
@@ -548,6 +550,8 @@ Route::post('/moonshine/setting-website', MoonshineSettingController::class);
 
 Route::post('/moonshine/calculator-credit', MoonshineCalculatorCreditController::class);
 
+Route::post('/moonshine/change-contacts', MoonshineChangeContactController::class);
+
 
 Route::controller(SurveyController::class)->group(function () {
 
@@ -594,6 +598,15 @@ Route::controller(CookieController::class)->group(function () {
 Route::controller(ExcelExportUserController::class)->group(function () {
     // вывод модального окна всем крому user и страницы find-tour
     Route::post('/export.excel.user', 'export_user');
+
+
+});
+
+
+
+Route::controller(ChangeContactsController::class)->group(function () {
+    // начатие на один из типов контактов, и смена в зависимости от режима
+    Route::post('/canche.contacts', 'canche_contacts');
 
 
 });

@@ -83,4 +83,10 @@ return [
     'socialite' => [
         // 'driver' => 'path_to_image_for_button'
     ],
+    'media-manager' => [
+        'auto_menu' => true,
+        'disk' => config('filesystem.moonshine', 'moonshine'),
+        'allowed_ext' => 'jpg,jpeg,png,pdf,doc,docx,zip',
+        'default_view' => 'table',
+    ]
 ];

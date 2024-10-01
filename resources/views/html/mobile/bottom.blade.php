@@ -15,12 +15,9 @@
             @include('include.search.index_search_old')
         </div>
         <div class="fContacts tab_plane" data-mf="m_f4">
-
-
-
-  @include('include.contacts.contacts_mobile')
-
-
+            <div class="contact_mobilie">
+            @include('include.connect._change_contacts')
+            </div>
 
         </div>
         <div class="fLogin tab_plane" data-mf="m_f5">

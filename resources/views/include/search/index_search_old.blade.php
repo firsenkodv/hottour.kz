@@ -22,15 +22,6 @@
 
             <script async src="https://tp.media/content?currency=kzt&trs=145323&shmarker=140397&show_hotels=false&powered_by=false&locale=ru&searchUrl=avia.hottour.kz%2Fflights&primary_override=%23EF533F&color_button=%23EF533F&color_icons=%23EF533F&dark=%23282828&light=%23FFFFFF&secondary=%23FFFFFF&special=%23FFFFFf&color_focused=%23EF533F&border_radius=12&no_labels=true&plain=true&origin=ALA&promo_id=7879&campaign_id=100" charset="utf-8"></script>
 
-            <script>
-                class MyEl extends HTMLElement {
-                    constructor() {
-                        super();
-                        this.attachShadow({mode:'open'}).innerHTML = `<style>#Show_hotels {padding: 0;}#root{ padding: 15px 15px 5px !important;}</style>`;
-                    }
-                }
-                customElements.define('tp-cascoon', MyEl);
-            </script>
 
         </div><!--.s_result_relative3-->
     </div><!--.s_result_-->

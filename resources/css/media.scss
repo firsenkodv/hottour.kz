@@ -340,7 +340,8 @@ $maxWidth: 1440;
             width: 40%;
             background-position: -115px 0 !important;
         }
-        .F_form__pick_right{
+
+        .F_form__pick_right {
             width: 60%;
         }
     }
@@ -711,7 +712,7 @@ $maxWidth: 1440;
 
     .search_result__tour {
         .hotel_about__flex, .hotel_about {
-            display: block ;
+            display: block;
 
             .hotel_about__photo {
                 width: 100% !important;
@@ -769,7 +770,7 @@ $maxWidth: 1440;
 
 
     .s_result_relative {
-height: auto;
+        height: auto;
     }
 
     .desc {
@@ -1255,12 +1256,21 @@ height: auto;
             width: 40%;
             background-position: -165px 0 !important;
         }
-        .F_form__pick_right{
+
+        .F_form__pick_right {
             width: 60%;
         }
     }
 
+
 }
+
+@media (min-width: 793px) and (max-width: 1199.98px) {
+    .mob_menu_content {
+        display: none !important;
+    }
+}
+
 
 /* pocofon  x3 */
 
@@ -1372,12 +1382,12 @@ height: auto;
             background-position: 0 !important;
             display: none;
         }
-        .F_form__pick_right{
+
+        .F_form__pick_right {
             width: 100%;
             border-radius: 12px !important;
         }
     }
-
 
 
     .survey__flex {
@@ -1386,13 +1396,16 @@ height: auto;
         margin: 0 auto;
         width: 100%;
         padding: 16px;
+
         .survey__sLeft {
             width: 100%;
             padding: 0;
         }
+
         .survey__sright {
             width: 100%;
         }
+
         .rating-area_survey {
             width: 144px;
         }
