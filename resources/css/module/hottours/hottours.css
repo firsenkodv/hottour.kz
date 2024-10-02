@@ -18,6 +18,9 @@
     .h_sw .h_sw__flex .h_sw__right .h_sw__search {
       padding: 27px 0 0 0; }
 
+.search_tours .h_sw__search {
+  display: none; }
+
 .hot_item {
   border-radius: 12px;
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);

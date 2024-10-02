@@ -10,16 +10,16 @@
     'resources/css/app.css',
     'resources/js/app.js',
     ])
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ config('app.url') }}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ config('app.url') }}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ config('app.url') }}/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ config('app.url') }}/favicon/site.webmanifest">
     <title>@yield('title', config('seo.seo.title'))</title>
     <meta name="description" content="@yield('description',  config('seo.seo.description'))"/>
     <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>
 </head>
 <body>
-    <div class="content_ ">
+    <div class="content_ {{ route_name() }}">
         @include('html.mobile.top')
         <x-message.message/>
         <x-message.message_error/>
