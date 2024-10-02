@@ -6,6 +6,7 @@ use App\Http\Controllers\Tourvisor\Service\Tourvisor;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CustomerHotTour extends Model
 {
@@ -16,6 +17,7 @@ class CustomerHotTour extends Model
         'countryname',
         'params',
         'published',
+        'travelitem_id',
         'img',
         'title',
         'subtitle',
@@ -26,6 +28,13 @@ class CustomerHotTour extends Model
     protected $casts = [
         'params' => 'collection',
     ];
+
+
+    public function parent():BelongsTo
+    {
+        return $this->belongsTo(Travelitem::class,  'travelitem_id');
+    }
+
 
 
 /*    public function getCustomerCurrencyAttribute()

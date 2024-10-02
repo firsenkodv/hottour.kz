@@ -73,6 +73,7 @@ $maxWidth: 1440;
     &__top {
         border-radius: 12px 12px 0 0;
         overflow: hidden;
+        display: block;
 
         img.hot_item__img {
         }
@@ -145,8 +146,15 @@ $maxWidth: 1440;
         .hot_item__title {
             font-size: 23px;
             padding: 0 0 16px 0;
-        }
+            display: block;
+            color: $color;
+            text-decoration: none;
+            transition: 0.3s;
 
+        }
+        a.hot_item__title:hover {
+            color: $colorRed;
+        }
         .hot_item__wrap {
             display: flex;
             flex-direction: column;

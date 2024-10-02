@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\Travelitem;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\CustomerHotTour;
 
@@ -45,6 +46,16 @@ class CustomerHotTourResource extends ModelResource
     protected ?ClickAction $clickAction = ClickAction::EDIT;
 
 
+    public function getShowPage() {
+        $items = Travelitem::query()->select('id', 'title', 'travelcategory_id')->where('published', 1)->get();
+        $a[0]  = 'Обязательно к заполнению';
+
+        foreach ($items as $item) {
+           $a[$item->id] = $item->title . ' | ' . $item->parent->title;
+       }
+        return $a;
+    }
+
     /**
      * @return //array, выводим teaser
      */
@@ -79,6 +90,7 @@ class CustomerHotTourResource extends ModelResource
      */
     public function formFields(): array
     {
+
         return [
             Block::make([
                 Tabs::make([
@@ -124,14 +136,21 @@ class CustomerHotTourResource extends ModelResource
                                     Number::make('Сортировка','sorting')->buttons()->default(0),
 
                                 ]),
-
+                                Collapse::make('', [
                                 Date::make(__('Дата обновления'), 'updated_at')
                                     ->format("H:i / d.m.Y")
                                     ->default(now()->toDateTimeString())
                                     ->sortable(),
+                                ]),
+
+                                Collapse::make('Ссылка', [
+                                    Select::make('Страница перехода', 'travelitem_id')
+                                        ->options($this->getShowPage()) ->searchable()->required(),
 
 
-                            ])
+                                ]),
+
+                                ])
                                 ->columnSpan(6)
 
                         ]),
@@ -157,7 +176,9 @@ class CustomerHotTourResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+               'travelitem_id' => 'min:2',
+        ];
     }
 
     public function import(): ?ImportHandler

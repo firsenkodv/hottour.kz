@@ -521,7 +521,7 @@ Route::controller(ContactController::class)->group(function () {
 Route::controller(HottourController::class)->group(function () {
 
     Route::get('/'. config('links.link.hottour').'/{slug_category}' , 'category');
-    Route::get('/'. config('links.link.hottour').'/{slug_category}/{slug_item}' , 'item');
+    Route::get('/'. config('links.link.hottour').'/{slug_category}/{slug_item}' , 'item')->name('hottour_item');
 
 });
 

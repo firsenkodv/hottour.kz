@@ -30,7 +30,8 @@
   margin: 0 auto; }
   .hot_item__top {
     border-radius: 12px 12px 0 0;
-    overflow: hidden; }
+    overflow: hidden;
+    display: block; }
     .hot_item__top .div_sale_absol {
       width: 38px;
       height: 43px;
@@ -71,7 +72,13 @@
         left: 10px; }
     .hot_item__bottom .hot_item__title {
       font-size: 23px;
-      padding: 0 0 16px 0; }
+      padding: 0 0 16px 0;
+      display: block;
+      color: #282828;
+      text-decoration: none;
+      transition: 0.3s; }
+    .hot_item__bottom a.hot_item__title:hover {
+      color: #EF533F; }
     .hot_item__bottom .hot_item__wrap {
       display: flex;
       flex-direction: column;
