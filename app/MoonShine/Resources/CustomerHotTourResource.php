@@ -177,7 +177,7 @@ class CustomerHotTourResource extends ModelResource
     public function rules(Model $item): array
     {
         return [
-               'travelitem_id' => 'min:2',
+               'travelitem_id' => 'doesnt_start_with:0',
         ];
     }
 

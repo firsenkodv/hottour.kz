@@ -112,6 +112,8 @@ class CustomerHotTour extends Model
                 $Moonshine->published = 0;
             }
 
+         //   dump($Moonshine->travelitem_id);
+
         });
 
 
