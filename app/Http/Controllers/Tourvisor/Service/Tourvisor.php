@@ -7,7 +7,7 @@ use Domain\TourvisorCountry\ViewModels\TourvisorCountryViewModel;
 class Tourvisor
 {
     private $login = 'director@hottour.com';
-    private $password = 'BM4foWz6wX48';
+    private $password = 'Rn0XnVuMBm3f';
     private $url = 'https://tourvisor.ru/xml/';
     public $default = [];
     public $last_request = '';
