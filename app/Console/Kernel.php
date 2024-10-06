@@ -26,7 +26,11 @@ class Kernel extends ConsoleKernel
           $schedule->command('mainhotels:cron')->dailyAt('05:00');
           // $schedule->command('tourvisorhotel:cron')->weeklyOn(1, '19:00');
           $schedule->command('change-contacts:cron')->dailyAt('00:00');
-       //  $schedule->command('userstest:cron')->everyMinute();
+
+          $schedule->command('backup:clean')->daily()->at('01:10');
+          $schedule->command('backup:run')->daily()->at('01:30');
+
+         //  $schedule->command('userstest:cron')->everyMinute();
 
     }
 
