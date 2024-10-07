@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
             this.attachShadow({mode:'open'}).innerHTML = `<style>#Show_hotels {padding: 0;}#root{ padding: 15px 15px 5px !important;}</style>`;
         }
     }
-    customElements.define('tp-cascoon', MyEl);
+   // customElements.define('tp-cascoon', MyEl);
+   // setTimeout( customElements.define('tp-cascoon', MyEl) , 2000);
 
 
 

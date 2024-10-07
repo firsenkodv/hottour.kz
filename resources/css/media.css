@@ -880,6 +880,9 @@
       .search_result__favorite .search_result__info .search_result__tabs li {
         margin-right: 10px !important; } }
 @media (max-width: 521px) {
+  .F_form.F_form_order_mini {
+    width: 100% !important; }
+
   .v_vid__flickity {
     flex-wrap: wrap; }
     .v_vid__flickity .v_vid__item {

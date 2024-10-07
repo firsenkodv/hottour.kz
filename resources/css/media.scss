@@ -1529,6 +1529,10 @@ $maxWidth: 1440;
 
 @media (max-width: 521px) {
 
+    .F_form.F_form_order_mini {
+        width: 100% !important;
+    }
+
     .v_vid__flickity {
         flex-wrap: wrap;
 
