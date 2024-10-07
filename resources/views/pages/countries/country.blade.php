@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 <x-seo.meta
-title="{{($country->metatitle)?:$country->title}}"
-description="{{$country->description}}"
-keywords="{{$country->keywords}}"
+title="{{(isset($country->metatitle))?$country->metatitle:$country->title}}"
+description="{{isset($country->description)? $country->description :''}}"
+keywords="{{isset($country->keywords)? $country->keywords : ''}}"
 />
 @section('content')
 
