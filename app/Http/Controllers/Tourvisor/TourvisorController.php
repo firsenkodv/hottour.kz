@@ -11,7 +11,17 @@ use Illuminate\Http\Request;
 
 class TourvisorController extends Controller
 {
+
+
+
     public function pageTours(Request $request) {
+
+       return view('pages.find-tour');
+    }
+
+
+
+   public function pageNewTours(Request $request) {
 
 
         $daterange = ($request->daterange)?explode(' - ', $request->daterange):[date('d.m.Y',strtotime("+1 day")), date('d.m.Y',strtotime("+7 day"))];
@@ -51,7 +61,7 @@ class TourvisorController extends Controller
 
     //   dd($countries);
 
-       return view('pages.find-tour', [
+       return view('pages.find-tour-new', [
            'departures' => $departures,
            'countries' => $countries,
            'regions' => $regions,

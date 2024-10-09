@@ -1169,10 +1169,12 @@ $maxWidth: 1440;
 
     }
 
-    .fMenu, .fLogin {
+    .fMenu, .fLogin, .fSearch {
         position: relative;
         height: 80%;
         z-index: 5;
+        width: 100%;
+        overflow-y: scroll;
 
         li {
             min-height: 56px;
@@ -1203,29 +1205,44 @@ $maxWidth: 1440;
         }
     }
 
-    .fMenu, .fLogin {
-        width: 100%;
-        overflow-y: scroll;
+    .fSearch {
+        .s_s {
+            padding: 20px 0 0 0;
+            .s_s_change_tabs {
+                .s_s_change_tab {
+
+                    color: $colorGrey;
+                    &.active {
+                        color: $colorRed;
+                    }
+
+                   }
+                }
+            }
     }
 
     .fMenu::-webkit-scrollbar-track,
-    .fLogin::-webkit-scrollbar-track {
+    .fMenu::-webkit-scrollbar-track,
+    .fSearch::-webkit-scrollbar-track {
         border-radius: 4px;
     }
 
     .fMenu::-webkit-scrollbar,
-    .fLogin::-webkit-scrollbar {
+    .fLogin::-webkit-scrollbar,
+    .fSearch::-webkit-scrollbar {
         width: 6px;
     }
 
     .fMenu::-webkit-scrollbar-thumb,
-    .fLogin::-webkit-scrollbar-thumb {
+    .fLogin::-webkit-scrollbar-thumb,
+    .fSearch::-webkit-scrollbar-thumb {
         border-radius: 4px;
         background: $colorRed;
     }
 
     .fMenu:hover::-webkit-scrollbar-thumb,
-    .fLogin:hover::-webkit-scrollbar-thumb {
+    .fLogin:hover::-webkit-scrollbar-thumb,
+    .fSearch:hover::-webkit-scrollbar-thumb, {
         background: #ebebed;
     }
 

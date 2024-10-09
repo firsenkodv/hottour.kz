@@ -1,6 +1,6 @@
 
 <div class="page_search page_search_mar-b42 z-index-23">
-    <form action="{{ route('search_tours') }}" id="formsearch" method="get" name="formsearch" data-token="{{ csrf_token() }}">
+    <form action="{{ route('search_new_tours') }}" id="formsearch" method="get" name="formsearch" data-token="{{ csrf_token() }}">
         @csrf
         <div class="s_block flex page_search__top">
 

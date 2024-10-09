@@ -1,6 +1,7 @@
 //todo:jquery
 import { export_user } from './include/user_ecxel';
 import { canche_contacts } from './include/canche_contacts';
+import { change_tabs } from './include/change_search_forms';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -458,6 +459,7 @@ $('body').on('click','.cancel-circle__js', function(event){
 
 export_user() // получения списка пользоваетей в excel
 canche_contacts() // смена контактов на сайте
+change_tabs() // табы поиска на главной
 
 
 

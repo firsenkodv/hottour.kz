@@ -2,7 +2,10 @@
     <ul class="top_menu">
         <li class="{{ active_linkMenu(env("APP_URL")) }}"><a class="add__mobile_menu  {{ active_linkMenu(env("APP_URL")) }}" href="{{env("APP_URL")}}">{{ __('Главная') }}</a></li>
 
-        <li class="{{ active_linkMenu(asset(config('links.link.search')) , 'find') }}"><a class="add__mobile_menu {{ active_linkMenu(asset(config('links.link.search')), 'find') }}" href="{{ route('search_tours') }}">{{ __('Поиск тура') }}</a>
+        <li class="{{ active_linkMenu(asset(config('links.link.search')) , 'find') }}
+                   {{ active_linkMenu(asset(config('links.link.search_new')) , 'find') }}
+                   {{ active_linkMenu(asset(config('links.link.hotels')) , 'find') }}
+                   "><a class="add__mobile_menu {{ active_linkMenu(asset(config('links.link.search')), 'find') }}" href="{{ route('search_tours') }}">{{ __('Поиск тура') }}</a>
 
         </li>
 

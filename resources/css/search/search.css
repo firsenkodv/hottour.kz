@@ -1365,4 +1365,65 @@
       background-repeat: no-repeat;
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF1SURBVHgBrVWBccIwDJR9HYBOEGeDjMAGtBNAJ+h1gmSDskFhgmYERsgGcTbIBElfxqHGkXPA8Xc57Fh66yVFKBLQtu1Ka70dx3GNbYHH+COLp1FK1VmWHSVfJZC9weEHyxUtw8Kuiol1RLaH0e8NZAwDBQf4VCIhH4Dsk+4EfMqu674ve0+28zIfBqJ9z/O8doTW2pb+Ez/BCu8m9DRPSw/SXHN0gmNvjMlh8BEzQckOZ6/+whCuMzQMNjTHCnnZQsIhJGUyrmoiCJa9fqGELK4gSAkEXEnC7eNEtpDvQiF/Iy1giorXtxRP05PBki0lZIc585Kd/IUoGyZsJMKQjAmQUwpzmiC1XOWTdCAVwBfKVZ/OvRgHUSueLFhwY88aldLftBVUWe5djdt6qYFpeUAYmkdX8a+rsvsGldrTgwjH2NU8RH5KRFvRHeBAQPZ12ccGvhAlpQfDBJcqVnd1QcraE288ceFfWzr/BZyGYThy/mO/Px/UvQq27XNqAAAAAElFTkSuQmCC"); }
 
+/**
+Переключения сторгго поиска со старым на главной
+ */
+.s_s .s_s_change_tabs {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  height: 0;
+  color: #282828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .s_s .s_s_change_tabs .s_s_change_tab {
+    position: absolute;
+    height: 30px;
+    color: #282828;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    cursor: pointer; }
+    .s_s .s_s_change_tabs .s_s_change_tab.active {
+      color: #fff; }
+  .s_s .s_s_change_tabs .s_s_change_tab:first-child {
+    left: 0;
+    top: -8px; }
+  .s_s .s_s_change_tabs .s_s_change_tab:last-child {
+    right: 0;
+    top: -8px; }
+.s_s .s_s_change .s_change {
+  display: none; }
+  .s_s .s_s_change .s_change.active {
+    display: block; }
+
+.s_s_change_tabs__wrap {
+  max-width: 300px;
+  margin: 0 auto;
+  padding-top: 30px; }
+  .s_s_change_tabs__wrap .s_s_change_tabs {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    height: 30px;
+    color: #282828;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .s_s_change_tabs__wrap .s_s_change_tabs .s_s_change_tab {
+      position: relative;
+      height: 30px;
+      color: #282828;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      cursor: pointer; }
+      .s_s_change_tabs__wrap .s_s_change_tabs .s_s_change_tab a {
+        color: #282828; }
+      .s_s_change_tabs__wrap .s_s_change_tabs .s_s_change_tab.active a {
+        color: #EF533F; }
+
 /*# sourceMappingURL=search.css.map */

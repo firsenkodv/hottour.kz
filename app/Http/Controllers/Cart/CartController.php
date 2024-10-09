@@ -52,7 +52,7 @@ class CartController
             } else {
                 $data = [];
                 flash()->alert(config('message_flash.alert.cart_empty'));
-                return redirect()->intended(route('search_tours')); // intended - назад или route
+                return redirect()->intended(route('search_new_tours')); // intended - назад или route
 
             }
 
@@ -182,7 +182,7 @@ class CartController
 
 
             flash()->alert(config('message_flash.alert.role_error'));
-            return redirect()->intended(route('search_tours')); // intended - назад или route
+            return redirect()->intended(route('search_new_tours')); // intended - назад или route
 
         }
 

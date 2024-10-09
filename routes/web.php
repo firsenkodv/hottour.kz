@@ -477,6 +477,7 @@ Route::controller(AjaxController::class)->group(function () {
 Route::controller(TourvisorController::class)->group(function () {
 
     Route::get('/'.config('links.link.search'), 'pageTours')->name('search_tours');
+    Route::get('/'.config('links.link.search_new'), 'pageNewTours')->name('search_new_tours');
     Route::match(['get', 'post'],'/tourvisor/ajax', 'ajax');
     Route::get('/'.config('links.link.hotels'), 'pageHotels')->name('search_hotels');
     Route::post('/tourvisor/autocomplete', 'autocomplete');

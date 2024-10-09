@@ -13,6 +13,7 @@
         <div class="fMenu tab_plane" data-mf="m_f3"></div>
         <div class="fSearch tab_plane" data-mf="m_f1">
             @include('include.search.index_search_old')
+
         </div>
         <div class="fContacts tab_plane" data-mf="m_f4">
             <div class="contact_mobilie">

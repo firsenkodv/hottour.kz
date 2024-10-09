@@ -661,14 +661,16 @@
         border: none;
         background: none; }
 
-  .fMenu, .fLogin {
+  .fMenu, .fLogin, .fSearch {
     position: relative;
     height: 80%;
-    z-index: 5; }
-    .fMenu li, .fLogin li {
+    z-index: 5;
+    width: 100%;
+    overflow-y: scroll; }
+    .fMenu li, .fLogin li, .fSearch li {
       min-height: 56px;
       border-bottom: 1px solid rgba(40, 40, 40, 0.1); }
-      .fMenu li a, .fLogin li a {
+      .fMenu li a, .fLogin li a, .fSearch li a {
         box-sizing: border-box;
         min-height: 56px;
         color: #282828;
@@ -677,30 +679,37 @@
         line-height: 56px;
         padding: 0 16px;
         font-size: 18px; }
-      .fMenu li a:hover, .fMenu li a.active, .fLogin li a:hover, .fLogin li a.active {
+      .fMenu li a:hover, .fMenu li a.active, .fLogin li a:hover, .fLogin li a.active, .fSearch li a:hover, .fSearch li a.active {
         color: #EF533F; }
-    .fMenu li:last-child, .fLogin li:last-child {
+    .fMenu li:last-child, .fLogin li:last-child, .fSearch li:last-child {
       border-bottom: none; }
 
-  .fMenu, .fLogin {
-    width: 100%;
-    overflow-y: scroll; }
+  .fSearch .s_s {
+    padding: 20px 0 0 0; }
+    .fSearch .s_s .s_s_change_tabs .s_s_change_tab {
+      color: #667085; }
+      .fSearch .s_s .s_s_change_tabs .s_s_change_tab.active {
+        color: #EF533F; }
 
   .fMenu::-webkit-scrollbar-track,
-  .fLogin::-webkit-scrollbar-track {
+  .fMenu::-webkit-scrollbar-track,
+  .fSearch::-webkit-scrollbar-track {
     border-radius: 4px; }
 
   .fMenu::-webkit-scrollbar,
-  .fLogin::-webkit-scrollbar {
+  .fLogin::-webkit-scrollbar,
+  .fSearch::-webkit-scrollbar {
     width: 6px; }
 
   .fMenu::-webkit-scrollbar-thumb,
-  .fLogin::-webkit-scrollbar-thumb {
+  .fLogin::-webkit-scrollbar-thumb,
+  .fSearch::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background: #EF533F; }
 
   .fMenu:hover::-webkit-scrollbar-thumb,
-  .fLogin:hover::-webkit-scrollbar-thumb {
+  .fLogin:hover::-webkit-scrollbar-thumb,
+  .fSearch:hover::-webkit-scrollbar-thumb {
     background: #ebebed; }
 
   .cart_left .cart_left__myUrls {

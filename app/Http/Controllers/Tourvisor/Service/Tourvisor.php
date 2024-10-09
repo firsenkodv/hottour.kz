@@ -12,12 +12,17 @@ class Tourvisor
     public $default = [];
     public $last_request = '';
 
-    public function _get($query, $script){
-        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=". $this->password . "&format=json&" . http_build_query($query,"","&", PHP_QUERY_RFC1738);
+    public function _get($query, $script)
+    {
+        $url = $this->url . $script . "?authlogin=" . $this->login . "&authpass=" . $this->password . "&format=json&" . http_build_query($query, "", "&", PHP_QUERY_RFC1738);
         $this->last_request = $url;
-        $result = file_get_contents($url);
 
-        return json_decode($result);
+        $result = (file_get_contents($url))?:null;
+        if ($result) {
+            return json_decode($result);
+        } else {
+            return false;
+        }
     }
 
     public function getDepartureDefault(){

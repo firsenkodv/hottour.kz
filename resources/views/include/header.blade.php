@@ -30,7 +30,7 @@
                     />
                 </div>
                 <div class="hb__social">
-                    @if(route_name() == 'home' or route_name() == 'search_tours')
+                    @if(route_name() == 'home' or route_name() == 'search_tours' or route_name() == 'search_new_tours')
 
                         @include('include.icons.top_social_big')
 

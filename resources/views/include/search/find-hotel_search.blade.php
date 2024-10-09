@@ -1,5 +1,5 @@
 <div class="hotel_search  z-index-23">
-    <form action="{{ route('search_tours') }}" id="formsearch" method="get" name="formsearch">
+    <form action="{{ route('search_new_tours') }}" id="formsearch" method="get" name="formsearch">
         @csrf
         <div class="s_block flex page_search__top">
 

@@ -18,7 +18,10 @@ class CookieController extends Controller
 
         $error =  false;
         $result =  false;
-        if($request->url == a_url('find-tour')) {
+        if($request->url == a_url(config('links.link.search'))) {
+            $error = true;
+        }
+        if($request->url == a_url(config('links.link.search_new'))) {
             $error = true;
         }
         $str = parse_url($request->url, PHP_URL_PATH);

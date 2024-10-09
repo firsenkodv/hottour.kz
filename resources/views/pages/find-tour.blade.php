@@ -5,6 +5,8 @@
 @section('content')
 
     <main class="page_search__wrapper">
+        @include('include.search.select.select_search_type')
+
         <div class="block">
         <div class="pad_t40  tv-search-form tv-moduleid-9960271"></div>
         <script type="text/javascript" src="//tourvisor.ru/module/init.js"></script>
