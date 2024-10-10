@@ -411,9 +411,13 @@ class AjaxController extends Controller
 
         $puth_avatar = false;
 
+
+
+
+
         if ($request->hasFile('upload_f')) {
 
-            $storage = Storage::disk('public');
+            $storage = Storage::disk('user');
             $destinationPath = 'users/' . auth()->user()->id . '/avatar';
 
             if (!$storage->exists($destinationPath)) {
@@ -422,10 +426,13 @@ class AjaxController extends Controller
                 $success = Storage::deleteDirectory($destinationPath);
             }
 
+
             $file = $request->file('upload_f');
             $newFileName = $file->getClientOriginalName();
-            $file->storeAs($destinationPath, $newFileName);
+
+          $file->storeAs('images/'.$destinationPath, $newFileName);
             $puth_avatar = $destinationPath . '/' . $newFileName; // для БД
+
 
         }
 
