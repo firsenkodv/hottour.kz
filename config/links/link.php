@@ -2,6 +2,7 @@
 return [
     'countries' => 'strany',
     'search' => 'find-tour',
+    'search_new' => 'findtour',
     'hotels' => 'find-hotel',
     'hottour' => 'hottour',
     'tours' => 'tours',
