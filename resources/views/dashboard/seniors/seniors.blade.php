@@ -50,7 +50,7 @@
 
                 <a href="{{route('page.senior', ['id' => $manager->id])}}" class="a_user__personal">
                     {{ role($manager->id) }}
-                    <span><img src="http://hottour.test/images/arrow/next.svg" alt="next"></span>
+                    <span><img src="/images/arrow/next.svg" alt="next"></span>
                 </a>
 
             @include('dashboard.forms.delete_senior', ['user' => $manager])
